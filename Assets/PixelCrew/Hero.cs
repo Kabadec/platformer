@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace PixelCrwew
+namespace PixelCrew
 {
     [RequireComponent(typeof(Rigidbody2D))]
     public class Hero : MonoBehaviour
@@ -18,6 +18,8 @@ namespace PixelCrwew
 
         private Vector2 _direction = Vector2.zero;
         private Rigidbody2D _rigidbody;
+
+        private int _sumCoins = 0;
 
         private void Awake()
         {
@@ -37,7 +39,7 @@ namespace PixelCrwew
             var isJumping = _direction.y > 0;
             if (isJumping)
             {
-                if (IsGrounded())
+                if (IsGrounded() && _rigidbody.velocity.y <= 0.1)
                 {
                     _rigidbody.AddForce(Vector2.up * _jumpSpeed, ForceMode2D.Impulse);
                 }
@@ -57,11 +59,17 @@ namespace PixelCrwew
 
         }
 
-        private void OnDrawGizmos()
+        public void TakeCoin(int cost)
         {
-            //Gizmos.color = IsGrounded() ? Color.green : Color.red;
-            //Gizmos.DrawSphere(transform.position, 0.3f);
+            _sumCoins += cost;
+            Debug.Log($"У вас {_sumCoins} монет");
         }
+
+        // private void OnDrawGizmos()
+        // {
+        //     //Gizmos.color = IsGrounded() ? Color.green : Color.red;
+        //     //Gizmos.DrawSphere(transform.position, 0.3f);
+        // }
 
         // private void Update()
         // {
