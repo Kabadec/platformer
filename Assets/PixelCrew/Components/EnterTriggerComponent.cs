@@ -1,9 +1,9 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace PixelCrwew.Components
+namespace PixelCrew.Components
 {
     public class EnterTriggerComponent : MonoBehaviour
     {

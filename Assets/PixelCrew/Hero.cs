@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 namespace PixelCrew
 {
     [RequireComponent(typeof(Rigidbody2D))]
@@ -9,22 +10,25 @@ namespace PixelCrew
     {
         [SerializeField] private float _speed;
         [SerializeField] private float _jumpSpeed;
-        //[SerializeField] private LayerMask _groundLayer;
 
         [SerializeField] private LayerCheck _groundCheck;
-        // [SerializeField] private float _groundCheckRadius;
-        // [SerializeField] private Vector3 _groundCheckPositionDelta;
-
 
         private Vector2 _direction = Vector2.zero;
         private Rigidbody2D _rigidbody;
+        private Animator _animator;
+        private SpriteRenderer _sprite;
+
+        private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
+        private static readonly int VerticalVelocity = Animator.StringToHash("vertical-velocity");
+        private static readonly int IsRunning = Animator.StringToHash("is-running");
 
         private int _sumCoins = 0;
 
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
-
+            _animator = GetComponent<Animator>();
+            _sprite = GetComponent<SpriteRenderer>();
         }
 
         public void SetDirection(Vector2 direction)
@@ -37,9 +41,11 @@ namespace PixelCrew
             _rigidbody.velocity = new Vector2(_direction.x * _speed, _rigidbody.velocity.y);
 
             var isJumping = _direction.y > 0;
+            var isGrounded = IsGrounded();
+
             if (isJumping)
             {
-                if (IsGrounded() && _rigidbody.velocity.y <= 0.1)
+                if (isGrounded && _rigidbody.velocity.y <= 0.01)
                 {
                     _rigidbody.AddForce(Vector2.up * _jumpSpeed, ForceMode2D.Impulse);
                 }
@@ -48,15 +54,35 @@ namespace PixelCrew
             {
                 _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _rigidbody.velocity.y * 0.5f);
             }
+            _animator.SetBool(IsGroundKey, isGrounded);
+            _animator.SetFloat(VerticalVelocity, _rigidbody.velocity.y);
+            _animator.SetBool(IsRunning, _direction.x != 0);
+
+            UpdateSpriteDirection();
+
+
+
+            //_rigidbody.AddForce(Vector2.up * _jumpSpeed, ForceMode2D.Impulse);
+
+
+
+        }
+
+        private void UpdateSpriteDirection()
+        {
+            if (_direction.x > 0)
+            {
+                _sprite.flipX = false;
+            }
+            else if (_direction.x < 0)
+            {
+                _sprite.flipX = true;
+            }
         }
 
         private bool IsGrounded()
         {
             return _groundCheck.IsTouchingLayer;
-            // var hit = Physics2D.CircleCast(transform.position + _groundCheckPositionDelta, _groundCheckRadius, Vector2.down, 0, _groundLayer);
-            // return hit.collider != null;
-
-
         }
 
         public void TakeCoin(int cost)
@@ -64,23 +90,6 @@ namespace PixelCrew
             _sumCoins += cost;
             Debug.Log($"У вас {_sumCoins} монет");
         }
-
-        // private void OnDrawGizmos()
-        // {
-        //     //Gizmos.color = IsGrounded() ? Color.green : Color.red;
-        //     //Gizmos.DrawSphere(transform.position, 0.3f);
-        // }
-
-        // private void Update()
-        // {
-        //     if (_direction.magnitude > 0)
-        //     {
-        //         var delta = _direction * _speed * Time.deltaTime;
-
-        //         transform.position = transform.position + new Vector3(delta.x, delta.y, transform.position.z);
-        //     }
-        // }
-
         public void SaySomething()
         {
             Debug.Log("Something!");
