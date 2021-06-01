@@ -178,12 +178,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _frameRate: 10
-  _loop: 1
-  _sprites:
-  - {fileID: -2322180950842035098, guid: fc2f6558fef8da74da29569caa2e31ba, type: 3}
-  - {fileID: -4893972260818282012, guid: fc2f6558fef8da74da29569caa2e31ba, type: 3}
-  - {fileID: -6323751108524238166, guid: fc2f6558fef8da74da29569caa2e31ba, type: 3}
-  - {fileID: 2722280177590742205, guid: fc2f6558fef8da74da29569caa2e31ba, type: 3}
+  _clips:
+  - Name: SilverCoin
+    _sprites:
+    - {fileID: -2322180950842035098, guid: fc2f6558fef8da74da29569caa2e31ba, type: 3}
+    - {fileID: -4893972260818282012, guid: fc2f6558fef8da74da29569caa2e31ba, type: 3}
+    - {fileID: -6323751108524238166, guid: fc2f6558fef8da74da29569caa2e31ba, type: 3}
+    - {fileID: 2722280177590742205, guid: fc2f6558fef8da74da29569caa2e31ba, type: 3}
+    _loop: 1
+    _allowNextClip: 0
   _onComplete:
     m_PersistentCalls:
       m_Calls: []
@@ -282,11 +285,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _frameRate: 10
-  _loop: 0
-  _sprites:
-  - {fileID: -4986890610287934012, guid: fc2f6558fef8da74da29569caa2e31ba, type: 3}
-  - {fileID: 6143208460787649835, guid: fc2f6558fef8da74da29569caa2e31ba, type: 3}
-  - {fileID: 7609282858266732271, guid: fc2f6558fef8da74da29569caa2e31ba, type: 3}
+  _clips:
+  - Name: 
+    _sprites:
+    - {fileID: -4986890610287934012, guid: fc2f6558fef8da74da29569caa2e31ba, type: 3}
+    - {fileID: 6143208460787649835, guid: fc2f6558fef8da74da29569caa2e31ba, type: 3}
+    - {fileID: 7609282858266732271, guid: fc2f6558fef8da74da29569caa2e31ba, type: 3}
+    _loop: 0
+    _allowNextClip: 0
   _onComplete:
     m_PersistentCalls:
       m_Calls:
