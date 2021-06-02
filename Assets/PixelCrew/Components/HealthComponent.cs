@@ -27,7 +27,7 @@ namespace PixelCrew.Components
             {
                 _onHealth?.Invoke();
             }
-            Debug.Log($"Ваше здоровье: {_health}");
+            //Debug.Log($"Ваше здоровье: {_health}");
         }
         
 

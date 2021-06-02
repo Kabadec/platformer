@@ -13,12 +13,16 @@ namespace PixelCrew
         [SerializeField] private LayerCheck _groundCheck;
         [SerializeField] private float _interactionRadius;
         [SerializeField] private LayerMask _interactionLayer;
+        [SerializeField] private SpawnComponent _footStepParticles;
+        [SerializeField] private ParticleSystem _hitParticles;
+        [SerializeField] private SpawnComponent _jumpDustParticles;
+        [SerializeField] private SpawnComponent _fallDustParticles;
+
 
         private Collider2D[] _interactionResult = new Collider2D[1];
         private Vector2 _direction = Vector2.zero;
         private Rigidbody2D _rigidbody;
         private Animator _animator;
-        private SpriteRenderer _sprite;
         private bool _isGrounded;
         private bool _allowDoubleJump;
         private int _sumCoins = 0;
@@ -33,7 +37,6 @@ namespace PixelCrew
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
-            _sprite = GetComponent<SpriteRenderer>();
         }
 
         public void SetDirection(Vector2 direction)
@@ -67,7 +70,14 @@ namespace PixelCrew
             var yVelocity = _rigidbody.velocity.y;
             var isJumpPressing = _direction.y > 0;
 
-            if (_isGrounded) _allowDoubleJump = true;
+            if (_isGrounded)
+            {
+                if (_allowDoubleJump == false)
+                {
+                    SpawnFallDust();
+                }
+                _allowDoubleJump = true;
+            }
             if (isJumpPressing)
             {
                 yVelocity = CalculateJumpVelocity(yVelocity);
@@ -89,11 +99,13 @@ namespace PixelCrew
             if (_isGrounded)
             {
                 yVelocity += _jumpSpeed;
+                SpawnJumpDust();
             }
             else if (_allowDoubleJump)
             {
                 yVelocity = _jumpSpeed;
                 _allowDoubleJump = false;
+                SpawnJumpDust();
             }
             return yVelocity;
         }
@@ -102,11 +114,11 @@ namespace PixelCrew
         {
             if (_direction.x > 0)
             {
-                _sprite.flipX = false;
+                transform.localScale = new Vector3(1, 1, 1);
             }
             else if (_direction.x < 0)
             {
-                _sprite.flipX = true;
+                transform.localScale = new Vector3(-1, 1, 1);
             }
         }
 
@@ -129,6 +141,28 @@ namespace PixelCrew
         {
             _animator.SetTrigger(Hit);
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _damageJumpSpeed);
+
+            if (_sumCoins > 0)
+            {
+                SpawnCoins();
+            }
+            Debug.Log($"У вас {_sumCoins} монет");
+
+        }
+
+        private void SpawnCoins()
+        {
+            var numCoinsToDispose = Mathf.Min(_sumCoins, 5);
+            _sumCoins -= numCoinsToDispose;
+            //Debug.Log($"У вас {_sumCoins} монет");
+
+            var burst = _hitParticles.emission.GetBurst(0);
+            burst.count = numCoinsToDispose;
+            _hitParticles.emission.SetBurst(0, burst);
+
+            _hitParticles.gameObject.SetActive(true);
+            _hitParticles.Play();
+
         }
         public void Interact()
         {
@@ -146,5 +180,18 @@ namespace PixelCrew
                 }
             }
         }
+        public void SpawnFootDust()
+        {
+            _footStepParticles.Spawn();
+        }
+        public void SpawnJumpDust()
+        {
+            _jumpDustParticles.Spawn();
+        }
+        public void SpawnFallDust()
+        {
+            _fallDustParticles.Spawn();
+        }
+
     }
 }
