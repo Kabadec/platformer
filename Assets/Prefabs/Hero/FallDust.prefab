@@ -97,7 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frameRate: 10
   _clips:
-  - Name: fall
+  - _name: 
     _sprites:
     - {fileID: 21300000, guid: 6dcf61ac4c5ac684d8e824afd27f17b9, type: 3}
     - {fileID: 21300000, guid: 05788e2ac98b6874aa61555e51f1dec9, type: 3}
@@ -106,20 +106,20 @@ MonoBehaviour:
     - {fileID: 21300000, guid: cee5db3cb0b333c428c8a174db139256, type: 3}
     _loop: 0
     _allowNextClip: 0
-  _onComplete:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4468800784742854780}
-        m_MethodName: DestroyObject
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+    _onComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4468800784742854780}
+          m_MethodName: DestroyObject
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &4468800784742854780
 MonoBehaviour:
   m_ObjectHideFlags: 0

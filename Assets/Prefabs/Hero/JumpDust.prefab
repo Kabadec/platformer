@@ -97,7 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frameRate: 10
   _clips:
-  - Name: 
+  - _name: 
     _sprites:
     - {fileID: 21300000, guid: e030a8ac36240d94292f8cb76e562bea, type: 3}
     - {fileID: 21300000, guid: f32159ce6357d68428fc9c68eb5a4a8f, type: 3}
@@ -107,20 +107,20 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 2cda7bc4e7128d342bd197a7d2b9ad39, type: 3}
     _loop: 0
     _allowNextClip: 0
-  _onComplete:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 399459527093296111}
-        m_MethodName: DestroyObject
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+    _onComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 399459527093296111}
+          m_MethodName: DestroyObject
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &399459527093296111
 MonoBehaviour:
   m_ObjectHideFlags: 0

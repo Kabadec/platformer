@@ -12,29 +12,43 @@ namespace PixelCrew
     {
 
         [SerializeField] private Hero _hero;
-        private Vector2 _direction = Vector2.zero;
+
         public void OnMovement(InputAction.CallbackContext context)
         {
-            _direction = context.ReadValue<Vector2>();
-            _hero.SetDirection(_direction);
+            var direction = context.ReadValue<Vector2>();
+            _hero.SetDirection(direction);
         }
 
-        
+
 
         public void OnSaySomething(InputAction.CallbackContext context)
         {
             if (context.canceled)
             {
-                _hero.SaySomething();
+                //_hero.SaySomething();
             }
         }
         public void OnInteract(InputAction.CallbackContext context)
         {
             if (context.canceled)
             {
-            _hero.Interact();
+                _hero.Interact();
+            }
+            //тут нужно выяснить какая кнопка E или S нажата
+        }
+        public void GoDown(InputAction.CallbackContext context)
+        {
+            if(context.performed)
+            {
+                _hero.SetSPressed(true);
+            }
+            if (context.canceled)
+            {
+                _hero.SetSPressed(false);
             }
         }
+
+
     }
 
 }

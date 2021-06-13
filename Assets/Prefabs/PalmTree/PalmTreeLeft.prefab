@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -241350885
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2645899244835350471, guid: b8ed3cdd87d35874d9429f83d1b2d919,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -97,14 +97,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frameRate: 10
   _clips:
-  - Name: 
+  - _name: 
     _sprites:
-    - {fileID: -6024505487453159095, guid: b8ed3cdd87d35874d9429f83d1b2d919, type: 3}
-    - {fileID: 3531074664856275464, guid: b8ed3cdd87d35874d9429f83d1b2d919, type: 3}
-    - {fileID: 802857254159732353, guid: b8ed3cdd87d35874d9429f83d1b2d919, type: 3}
-    - {fileID: 1278475588773109743, guid: b8ed3cdd87d35874d9429f83d1b2d919, type: 3}
+    - {fileID: -2645899244835350471, guid: b8ed3cdd87d35874d9429f83d1b2d919, type: 3}
+    - {fileID: -6487789065682943626, guid: b8ed3cdd87d35874d9429f83d1b2d919, type: 3}
+    - {fileID: 1981876992937066421, guid: b8ed3cdd87d35874d9429f83d1b2d919, type: 3}
+    - {fileID: 7744047822205964645, guid: b8ed3cdd87d35874d9429f83d1b2d919, type: 3}
     _loop: 1
     _allowNextClip: 0
-  _onComplete:
-    m_PersistentCalls:
-      m_Calls: []
+    _nextClipName: 
+    _onComplete:
+      m_PersistentCalls:
+        m_Calls: []

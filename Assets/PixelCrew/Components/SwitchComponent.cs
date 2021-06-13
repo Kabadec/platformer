@@ -9,7 +9,10 @@ namespace PixelCrew.Components
         [SerializeField] Animator _animator;
         [SerializeField] private bool _state;
         [SerializeField] private string _animatorKey;
-
+        private void Start()
+        {
+            _animator.SetBool(_animatorKey, _state);
+        }
 
         public void Switch()
         {

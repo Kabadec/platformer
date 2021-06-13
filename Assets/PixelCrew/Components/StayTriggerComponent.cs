@@ -1,23 +1,22 @@
-using System;
+﻿using System;
 using UnityEngine;
 using UnityEngine.Events;
-
 namespace PixelCrew.Components
 {
-    public class EnterTriggerComponent : MonoBehaviour
+    public class StayTriggerComponent : MonoBehaviour
     {
         [SerializeField] private string _tag;
         [SerializeField] private EnterEvent _action;
-        
-        private void OnTriggerEnter2D(Collider2D other)
+
+        private void OnTriggerStay2D(Collider2D other)
         {
             if (other.gameObject.CompareTag(_tag))
             {
                 _action?.Invoke(other.gameObject);
             }
         }
-        
-        
+
+
         [Serializable]
         public class EnterEvent : UnityEvent<GameObject>
         {
@@ -25,3 +24,5 @@ namespace PixelCrew.Components
         }
     }
 }
+
+

@@ -110,13 +110,16 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.34375, y: 0.0625}
-      - {x: -0.28125, y: 0.0625}
-      - {x: -0.5, y: -0.03125}
-      - {x: -0.5, y: -0.5}
-      - {x: 0.46875, y: -0.5}
-      - {x: 0.5, y: -0.4375}
-      - {x: 0.5, y: -0.03125}
+    - - {x: 0.36150718, y: -0.02387911}
+      - {x: 0.24430418, y: -0.18847755}
+      - {x: 0.104902506, y: -0.08586645}
+      - {x: -0.14042735, y: 0.00083351135}
+      - {x: -0.40408087, y: -0.15530166}
+      - {x: -0.46852255, y: -0.25021783}
+      - {x: -0.4718361, y: -0.49825642}
+      - {x: 0.47488058, y: -0.50087583}
+      - {x: 0.4747517, y: -0.4424978}
+      - {x: 0.47320688, y: -0.18788579}
 --- !u!50 &8192410287553258449
 Rigidbody2D:
   serializedVersion: 4
@@ -155,8 +158,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8701570933479435808}
-        m_MethodName: ApplyDamage
-        m_Mode: 0
+        m_MethodName: ChangeHealth
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -177,4 +180,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a84117ab028222c49b0a837d31de55a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 1
+  _changeHealthValue: -1

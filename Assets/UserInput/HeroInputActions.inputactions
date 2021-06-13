@@ -28,6 +28,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "GoDown",
+                    "type": "Button",
+                    "id": "9acdddf9-63ee-40c3-8c52-684cc9acad37",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -56,7 +64,7 @@
                 {
                     "name": "up",
                     "id": "12ae8cf9-d485-4dd7-941b-0ec546c6f3e7",
-                    "path": "<Keyboard>/w",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -67,7 +75,7 @@
                 {
                     "name": "down",
                     "id": "07f55784-d1bf-4bf3-b978-4feb2fc17ab0",
-                    "path": "<Keyboard>/s",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -105,6 +113,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b82c01fa-e174-4598-bcac-a86cfe4c4e31",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GoDown",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
