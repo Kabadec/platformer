@@ -1,4 +1,4 @@
-
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,17 +34,25 @@ namespace PixelCrew
             {
                 _hero.Interact();
             }
-            //тут нужно выяснить какая кнопка E или S нажата
         }
         public void GoDown(InputAction.CallbackContext context)
         {
             if(context.performed)
             {
                 _hero.SetSPressed(true);
+                //Debug.Log(true);
             }
             if (context.canceled)
             {
                 _hero.SetSPressed(false);
+                //Debug.Log(false);
+            }
+        }
+        public void OnAttack(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                _hero.Attack();
             }
         }
 

@@ -7,15 +7,15 @@ namespace PixelCrew.Components
     {
         [SerializeField] private int _changeHealthValue;
 
-        private Hero _hero;
+        //private Hero _hero;
 
         private void Start()
         {
-            _hero = FindObjectOfType<Hero>();
+            //_hero = FindObjectOfType<Hero>();
         }
-        public void ChangeHealth()
+        public void ChangeHealth(GameObject go)
         {
-            var healthComponent = _hero.GetComponent<HealthComponent>();
+            var healthComponent = go.GetComponent<HealthComponent>();
             if (healthComponent != null)
                 healthComponent.ChangeHealth(_changeHealthValue);
         }

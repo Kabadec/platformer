@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LayerCheck : MonoBehaviour
 {
-    [SerializeField] private LayerMask _groundLayer;
+    [SerializeField] private LayerMask[] _groundLayers;
     private Collider2D _collider;
 
 
@@ -19,7 +19,15 @@ public class LayerCheck : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        IsTouchingLayer = _collider.IsTouchingLayers(_groundLayer);
+        IsTouchingLayer = false;
+        for (var i = 0; i < _groundLayers.Length; i++)
+        {
+            if (_collider.IsTouchingLayers(_groundLayers[i]))
+            {
+                IsTouchingLayer = true;
+            }
+        }
+
         if (other.gameObject.tag == "Platform")
         {
             IsTouchingPlatform = true;
@@ -32,7 +40,14 @@ public class LayerCheck : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        IsTouchingLayer = _collider.IsTouchingLayers(_groundLayer);
+        IsTouchingLayer = false;
+        for (var i = 0; i < _groundLayers.Length; i++)
+        {
+            if (_collider.IsTouchingLayers(_groundLayers[i]))
+            {
+                IsTouchingLayer = true;
+            }
+        }
         if (other.gameObject.tag == "Platform")
         {
             IsTouchingPlatform = true;

@@ -14,6 +14,10 @@ namespace PixelCrew.Components
 
         public void ChangeHealth(int changeHealthValue)
         {
+            if(_health <= 0)
+            {
+                return;
+            }
             _health += changeHealthValue;
             if (_health <= 0)
             {
