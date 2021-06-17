@@ -7,6 +7,7 @@ using UnityEditor;
 using System.Collections;
 using PixelCrew.Components;
 using PixelCrew.Utils;
+using PixelCrew.Model;
 
 namespace PixelCrew
 {
@@ -23,11 +24,13 @@ namespace PixelCrew
         [SerializeField] private float _interactionRadius;
         [SerializeField] private LayerMask _interactionLayer;
         [SerializeField] private float _secForDisablePlatform;
-
-        [SerializeField] private CheckCircleOverlap _attackRange;
+        //[SerializeField] private float _damageVelocity;
 
         [SerializeField] AnimatorController _armed;
         [SerializeField] AnimatorController _disarmed;
+
+        [SerializeField] private CheckCircleOverlap _attackRange;
+
 
         [Space]
         [Header("Particles")]
@@ -46,13 +49,14 @@ namespace PixelCrew
         private bool _isGrounded;
         private bool _isGroundPlatform;
         private bool _allowDoubleJump;
-        private int _sumCoins = 0;
         private bool _isJumping;
         private bool _isSPressed;
         private bool _goDownWithPlatform;
         private float _timeForDisablePlatform = 0;
         private bool _triggerPlatform = true;
-        private bool _isArmed;
+
+        private GameSession _session;
+
 
         private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
         private static readonly int VerticalVelocity = Animator.StringToHash("vertical-velocity");
@@ -67,6 +71,19 @@ namespace PixelCrew
             _animator = GetComponent<Animator>();
         }
 
+
+        private void Start()
+        {
+            _session = FindObjectOfType<GameSession>();
+            var health = GetComponent<HealthComponent>();
+            health.SetHealth(_session.Data.Hp);
+            UpdateHeroWeapon();
+
+        }
+        public void OnHealthChanged(int currentHealth)
+        {
+            _session.Data.Hp = currentHealth;
+        }
         public void SetDirection(Vector2 direction)
         {
             _direction = direction;
@@ -171,8 +188,8 @@ namespace PixelCrew
 
         public void TakeCoin(int cost)
         {
-            _sumCoins += cost;
-            Debug.Log($"У вас {_sumCoins} монет");
+            _session.Data.Coins += cost;
+            //Debug.Log($"У вас {_session.Data.Coins} монет");
         }
         public void SaySomething()
         {
@@ -185,7 +202,7 @@ namespace PixelCrew
             _animator.SetTrigger(Hit);
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _damageJumpSpeed);
 
-            if (_sumCoins > 0)
+            if (_session.Data.Coins > 0)
             {
                 SpawnCoins();
             }
@@ -195,8 +212,8 @@ namespace PixelCrew
 
         private void SpawnCoins()
         {
-            var numCoinsToDispose = Mathf.Min(_sumCoins, 5);
-            _sumCoins -= numCoinsToDispose;
+            var numCoinsToDispose = Mathf.Min(_session.Data.Coins, 5);
+            _session.Data.Coins -= numCoinsToDispose;
             //Debug.Log($"У вас {_sumCoins} монет");
 
             var burst = _hitParticles.emission.GetBurst(0);
@@ -235,6 +252,10 @@ namespace PixelCrew
                 {
                     SpawnFallDust();
                 }
+                /*if(contact.relativeVelocity.y >= _damageVelocity)
+                {
+                    GetComponent<HealthComponent>().ChangeHealth(-1);
+                }*/
             }
         }
         private void TimerForPlatform()
@@ -253,12 +274,12 @@ namespace PixelCrew
         }
         public void Attack()
         {
-            if(!_isArmed)return;
+            if (!_session.Data.IsArmed) return;
 
             _animator.SetTrigger(AttackKey);
             //SpawnSwordParticles();
         }
-        public void OnAttackHero()
+        public void OnDoAttack()
         {
             var gos = _attackRange.GetObjectsInRange();
             foreach (var go in gos)
@@ -272,8 +293,13 @@ namespace PixelCrew
         }
         public void ArmHero()
         {
-            _isArmed = true;
-            _animator.runtimeAnimatorController = _armed;
+            _session.Data.IsArmed = true;
+            UpdateHeroWeapon();
+
+        }
+        private void UpdateHeroWeapon()
+        {
+            _animator.runtimeAnimatorController = _session.Data.IsArmed ? _armed : _disarmed;
 
         }
         public void SpawnFootDust()

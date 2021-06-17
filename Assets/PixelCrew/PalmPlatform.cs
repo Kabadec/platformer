@@ -7,6 +7,8 @@ namespace PixelCrew
     {
         [SerializeField] private float _modifierYUp;
         [SerializeField] private float _modifierYDown;
+        [SerializeField] private LayerMask _groundLayer;
+        [SerializeField] private LayerMask _defaultLayer;
         private Collider2D _collider;
         private Hero _hero;
 
@@ -56,12 +58,13 @@ namespace PixelCrew
             if (active)
             {
                 _collider.isTrigger = false;
-                gameObject.layer = 8;//8: Ground
+                
+                gameObject.layer = (int)Mathf.Log(_groundLayer.value, 2);//8: Ground
             }
             else
             {
                 _collider.isTrigger = true;
-                gameObject.layer = 0;//0: Default
+                gameObject.layer = (int)Mathf.Log(_defaultLayer.value, 2);//0: Default
             }
         }
 

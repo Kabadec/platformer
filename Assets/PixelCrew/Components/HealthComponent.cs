@@ -11,29 +11,46 @@ namespace PixelCrew.Components
         [SerializeField] private UnityEvent _onDamage;
         [SerializeField] private UnityEvent _onDie;
         [SerializeField] private UnityEvent _onHealth;
+        [SerializeField] private HealthChangeEvent _onChange;
 
-        public void ChangeHealth(int changeHealthValue)
+
+        public void ChangeHealth(int healthDelta)
         {
             if(_health <= 0)
             {
                 return;
             }
-            _health += changeHealthValue;
+            _health += healthDelta;
+            _onChange?.Invoke(_health);
             if (_health <= 0)
             {
                 _onDie?.Invoke();
             }
-            else if (changeHealthValue < 0)
+            else if (healthDelta < 0)
             {
                 _onDamage?.Invoke();
             }
-            else if (changeHealthValue > 0)
+            else if (healthDelta > 0)
             {
                 _onHealth?.Invoke();
             }
             //Debug.Log($"Ваше здоровье: {_health}");
         }
-        
+#if UNITY_EDITOR
+        [ContextMenu("Update Health")]
+        private void UpdateHealth()
+        {
+            _onChange?.Invoke(_health);
+        }
+#endif
+        public void SetHealth(int health)
+        {
+            _health = health;
+        }
+        [Serializable]
+        public class HealthChangeEvent : UnityEvent<int>
+        {
 
+        }
     }
 }
