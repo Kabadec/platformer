@@ -23,7 +23,7 @@ namespace PixelCrew.Model
             {
                 DontDestroyOnLoad(this);
                 SetData(_defaultData);
-                Debug.Log("xyi");
+                //Debug.Log("xyi");
             }
         }
 

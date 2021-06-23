@@ -2,59 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LayerCheck : MonoBehaviour
+namespace PixelCrew
 {
-    [SerializeField] private LayerMask[] _groundLayers;
-    private Collider2D _collider;
-
-
-    void Awake()
+    public class LayerCheck : MonoBehaviour
     {
-        _collider = GetComponent<Collider2D>();
+        [SerializeField] private LayerMask[] _layers;
+        [SerializeField] private bool _isTouchingLayer;
 
-    }
+        public bool IsTouchingLayer => _isTouchingLayer;
+        private Collider2D _collider;
 
-    public bool IsTouchingLayer;
-    public bool IsTouchingPlatform;
-
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        IsTouchingLayer = false;
-        for (var i = 0; i < _groundLayers.Length; i++)
+        void Awake()
         {
-            if (_collider.IsTouchingLayers(_groundLayers[i]))
+            _collider = GetComponent<Collider2D>();
+        }
+
+        private void OnTriggerStay2D(Collider2D other)
+        {
+            _isTouchingLayer = false;
+            for (var i = 0; i < _layers.Length; i++)
             {
-                IsTouchingLayer = true;
+                if (_collider.IsTouchingLayers(_layers[i]))
+                {
+                    _isTouchingLayer = true;
+                }
             }
-        }
 
-        if (other.gameObject.tag == "Platform")
-        {
-            IsTouchingPlatform = true;
         }
-        else
+        private void OnTriggerExit2D(Collider2D other)
         {
-            IsTouchingPlatform = false;
-        }
-
-    }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        IsTouchingLayer = false;
-        for (var i = 0; i < _groundLayers.Length; i++)
-        {
-            if (_collider.IsTouchingLayers(_groundLayers[i]))
+            _isTouchingLayer = false;
+            for (var i = 0; i < _layers.Length; i++)
             {
-                IsTouchingLayer = true;
+                if (_collider.IsTouchingLayers(_layers[i]))
+                {
+                    _isTouchingLayer = true;
+                }
             }
-        }
-        if (other.gameObject.tag == "Platform")
-        {
-            IsTouchingPlatform = true;
-        }
-        else
-        {
-            IsTouchingPlatform = false;
         }
     }
 }

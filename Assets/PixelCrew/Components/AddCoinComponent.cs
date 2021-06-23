@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PixelCrew.Creatures;
 
 namespace PixelCrew.Components
 {
@@ -16,7 +17,7 @@ namespace PixelCrew.Components
         }
         public void Take()
         {
-            _hero.TakeCoin(_numCoins);
+            _hero.AddCoins(_numCoins);
         }
     }
 }

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - Platform
+  - Interactable
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -18,9 +20,9 @@ TagManager:
   - Ground
   - Interactables
   - Trash
-  - Player
+  - Hero
   - Barrels
-  - 
+  - Walls
   - 
   - 
   - 
@@ -57,4 +59,7 @@ TagManager:
     locked: 0
   - name: Creatures
     uniqueID: 2519758135
+    locked: 0
+  - name: Particles
+    uniqueID: 1577660841
     locked: 0

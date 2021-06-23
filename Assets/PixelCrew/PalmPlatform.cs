@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PixelCrew.Creatures;
+
 namespace PixelCrew
 {
     public class PalmPlatform : MonoBehaviour
@@ -58,7 +60,7 @@ namespace PixelCrew
             if (active)
             {
                 _collider.isTrigger = false;
-                
+
                 gameObject.layer = (int)Mathf.Log(_groundLayer.value, 2);//8: Ground
             }
             else

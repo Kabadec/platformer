@@ -3,11 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using PixelCrew.Creatures;
 
 namespace PixelCrew
 {
-
-
     public class HeroInputReader : MonoBehaviour
     {
 
@@ -19,15 +18,6 @@ namespace PixelCrew
             _hero.SetDirection(direction);
         }
 
-
-
-        public void OnSaySomething(InputAction.CallbackContext context)
-        {
-            if (context.canceled)
-            {
-                //_hero.SaySomething();
-            }
-        }
         public void OnInteract(InputAction.CallbackContext context)
         {
             if (context.canceled)
@@ -35,9 +25,9 @@ namespace PixelCrew
                 _hero.Interact();
             }
         }
-        public void GoDown(InputAction.CallbackContext context)
+        public void OnPressS(InputAction.CallbackContext context)
         {
-            if(context.performed)
+            if (context.performed)
             {
                 _hero.SetSPressed(true);
                 //Debug.Log(true);

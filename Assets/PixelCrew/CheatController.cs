@@ -60,4 +60,3 @@ public class CheatController : MonoBehaviour
         public UnityEvent Action;
     }
 }
-

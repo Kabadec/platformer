@@ -6,14 +6,6 @@
             "id": "82992744-e170-44c7-8d44-edb68fece66a",
             "actions": [
                 {
-                    "name": "SaySomething",
-                    "type": "Button",
-                    "id": "40fcc57d-65b0-4c10-aedd-834d55e6f05a",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "movement",
                     "type": "Value",
                     "id": "b6046545-11ee-4b53-970b-dde9faa340ee",
@@ -47,17 +39,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "fa574db1-4eae-4918-8cdd-e6405d6524cf",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SaySomething",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "2D Vector",
                     "id": "c9c984d4-6c0e-40ad-bfc5-7b58b1328fed",
