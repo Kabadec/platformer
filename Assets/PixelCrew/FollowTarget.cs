@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace PixelCrew
+namespace PixelCrew.Utils
 {
     public class FollowTarget : MonoBehaviour
     {

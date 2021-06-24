@@ -1,6 +1,8 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Events;
+using PixelCrew.Utils;
+
 namespace PixelCrew.Components
 {
     public class StayTriggerComponent : MonoBehaviour
@@ -17,11 +19,7 @@ namespace PixelCrew.Components
         }
 
 
-        [Serializable]
-        public class EnterEvent : UnityEvent<GameObject>
-        {
 
-        }
     }
 }
 

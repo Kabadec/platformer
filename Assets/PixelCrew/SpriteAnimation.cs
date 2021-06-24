@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 
-namespace PixelCrew
+namespace PixelCrew.Utils
 {
     [RequireComponent(typeof(SpriteRenderer))]
     public class SpriteAnimation : MonoBehaviour
@@ -53,13 +53,13 @@ namespace PixelCrew
 
         private void StartAnimation()
         {
-            _nextFrameTime = Time.time + _secPerFrame;
+            _nextFrameTime = Time.time;
             enabled = _isPlaying = true;
             _currentFrame = 0;
         }
         private void OnEnable()
         {
-            _nextFrameTime = Time.time + _secPerFrame;
+            _nextFrameTime = Time.time;
         }
 
         private void Update()

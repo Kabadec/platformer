@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 using System;
 using UnityEngine.Events;
 
-namespace PixelCrew
+namespace PixelCrew.Utils
 {
     public class RandomSpawner : MonoBehaviour
     {
@@ -31,7 +31,8 @@ namespace PixelCrew
         {
             //Restart();
         }
-        private void OnEnable() {
+        private void OnEnable()
+        {
             Restart();
         }
 
@@ -80,7 +81,7 @@ namespace PixelCrew
             var instance = Instantiate(particle, transform.position, Quaternion.identity);
             var delta = 0.001f;
             instance.transform.position += new Vector3(Random.Range(-delta, delta), Random.Range(-delta, delta), 0f);
-            
+
             var rigidBody = instance.GetComponent<Rigidbody2D>();
 
             var randomAngle = Random.Range(0, _sectorAngle);

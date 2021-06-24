@@ -7,7 +7,7 @@ using UnityEngine.Events;
 using System;
 using System.Linq;
 
-namespace PixelCrew
+namespace PixelCrew.Utils
 {
 
 

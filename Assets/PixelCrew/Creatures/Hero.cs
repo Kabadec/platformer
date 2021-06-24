@@ -20,7 +20,12 @@ namespace PixelCrew.Creatures
 
         [SerializeField] private float _fallVelocity;
         [SerializeField] private float _secForDisablePlatform;
+        [SerializeField] private int _numSwordsOnMultiThrow = -3;
 
+
+        [SerializeField] private Cooldown _singleThrowCoolDown;
+        [SerializeField] private float _multiThrowCoolDown = 0.1f;
+        [SerializeField] private float _waitBeforeMultiThrow = 1f;
 
         [SerializeField] AnimatorController _armed;
         [SerializeField] AnimatorController _disarmed;
@@ -30,6 +35,9 @@ namespace PixelCrew.Creatures
         [Space]
         [Header("Particles")]
         [SerializeField] private ParticleSystem _hitParticles;
+
+
+        private static readonly int ThrowKey = Animator.StringToHash("throw");
 
 
 
@@ -43,8 +51,16 @@ namespace PixelCrew.Creatures
         private bool _isSPressed;
 
 
+        private bool _isShiftPressed = false;
+        private bool _triggerThrow;
+        private float _timeWhereShiftPressed;
+
+
+
         private GameSession _session;
         private float _defaultGravityScale;
+        private SwordsAmmoComponent _swordAmmo;
+        private Coroutine _multiThrowCoroutine;
 
 
         protected override void Awake()
@@ -59,7 +75,9 @@ namespace PixelCrew.Creatures
         {
             _session = FindObjectOfType<GameSession>();
             var health = GetComponent<HealthComponent>();
+            _swordAmmo = GetComponent<SwordsAmmoComponent>();
             health.SetHealth(_session.Data.Hp);
+            _swordAmmo.SetSwords(_session.Data.SwordsAmmo);
             UpdateHeroWeapon();
 
         }
@@ -67,12 +85,17 @@ namespace PixelCrew.Creatures
         {
             _session.Data.Hp = currentHealth;
         }
+        public void OnSwordAmmoChanged(int currentSwordAmmo)
+        {
+            _session.Data.SwordsAmmo = currentSwordAmmo;
+        }
 
 
         protected override void Update()
         {
             base.Update();
             TimerForPlatform();
+            TimerForThrow();
 
             if (_wallCheck.IsTouchingLayer && Direction.x == transform.localScale.x)
             {
@@ -132,6 +155,7 @@ namespace PixelCrew.Creatures
             _session.Data.Coins += cost;
             //Debug.Log($"У вас {_session.Data.Coins} монет");
         }
+
         public override void TakeDamage()
         {
             base.TakeDamage();
@@ -183,32 +207,95 @@ namespace PixelCrew.Creatures
                 _triggerPlatform = true;
             }
         }
+        private void TimerForThrow()
+        {
+            if (!_isShiftPressed && _triggerThrow)
+            {
+                var timeShiftPressed = Time.time - _timeWhereShiftPressed;
+
+                if (timeShiftPressed < _waitBeforeMultiThrow)
+                {
+                    if (_singleThrowCoolDown.IsReady)
+                    {
+                        _swordAmmo.ModifySwordsAmmo(-1);
+                        _singleThrowCoolDown.Reset();
+                    }
+                }
+                else
+                {
+                    _swordAmmo.ModifySwordsAmmo(-_numSwordsOnMultiThrow);
+                }
+
+                _triggerThrow = false;
+            }
+            if (_isShiftPressed && !_triggerThrow)
+            {
+                _timeWhereShiftPressed = Time.time;
+                _triggerThrow = true;
+            }
+        }
         public override void Attack()
         {
-            if (!_session.Data.IsArmed) return;
+            if (_session.Data.SwordsAmmo <= 0) return;
             base.Attack();
         }
 
-        public void ArmHero()
+        public void GoArmSword()
         {
-            _session.Data.IsArmed = true;
             UpdateHeroWeapon();
-
         }
         private void UpdateHeroWeapon()
         {
-            Animator.runtimeAnimatorController = _session.Data.IsArmed ? _armed : _disarmed;
+            Animator.runtimeAnimatorController = (_session.Data.SwordsAmmo > 0) ? _armed : _disarmed;
 
         }
         public void SetSPressed(bool isSPressed)
         {
             _isSPressed = isSPressed;
-            //Debug.Log(_isSPressed);
+        }
+        public void SetShiftPressed(bool isShiftPressed)
+        {
+            _isShiftPressed = isShiftPressed;
         }
         public bool GetGoDownWithPlatform()
         {
             return _goDownWithPlatform;
         }
+        public void OnDoThrow()
+        {
+            _particles.Spawn("Throw");
+        }
+        public void SingleThrow()
+        {
+            if (_singleThrowCoolDown.IsReady)
+            {
+                Animator.SetTrigger(ThrowKey);
+                _singleThrowCoolDown.Reset();
+            }
+        }
+        public void MultiThrow(int numSwordsOnMultiThrow)
+        {
+
+            _multiThrowCoroutine = StartCoroutine(MultiThrowCorroutine(numSwordsOnMultiThrow));
+        }
+        public IEnumerator MultiThrowCorroutine(int numSwordsOnMultiThrow)
+        {
+            for (int i = numSwordsOnMultiThrow - 1; i >= 0; i--)
+            {
+                Animator.SetTrigger(ThrowKey);
+                yield return new WaitForSeconds(_multiThrowCoolDown);
+            }
+        }
+        public void CallSingleThrow()
+        {
+            _swordAmmo.ModifySwordsAmmo(-1);
+        }
+        public void CallMultiThrow()
+        {
+            if (_multiThrowCoroutine != null)
+                _swordAmmo.ModifySwordsAmmo(_numSwordsOnMultiThrow);
+        }
+
 
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using PixelCrew.Creatures;
 
-namespace PixelCrew
+namespace PixelCrew.Utils
 {
     public class HeroInputReader : MonoBehaviour
     {
@@ -45,7 +45,18 @@ namespace PixelCrew
                 _hero.Attack();
             }
         }
+        public void OnThrow(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                _hero.SetShiftPressed(true);
+            }
+            if (context.canceled)
+            {
+                _hero.SetShiftPressed(false);
 
+            }
+        }
 
     }
 

@@ -14,7 +14,7 @@ namespace PixelCrew.Model
 
         private void Awake()
         {
-            
+
             if (IsSessionExit())
             {
                 Destroy(gameObject);
@@ -42,13 +42,13 @@ namespace PixelCrew.Model
         {
             _data.Coins = data.Coins;
             _data.Hp = data.Hp;
-            _data.IsArmed = data.IsArmed;
+            _data.SwordsAmmo = data.SwordsAmmo;
         }
         public void SetDefaultData(PlayerData data)
         {
             _defaultData.Coins = data.Coins;
             _defaultData.Hp = data.Hp;
-            _defaultData.IsArmed = data.IsArmed;
+            _defaultData.SwordsAmmo = data.SwordsAmmo;
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Events;
+using PixelCrew.Utils;
 namespace PixelCrew.Components
 {
     public class EnterCollisionComponent : MonoBehaviour
@@ -15,11 +16,7 @@ namespace PixelCrew.Components
                 _action?.Invoke(other.gameObject);
             }
         }
-        [Serializable]
-        public class EnterEvent : UnityEvent<GameObject>
-        {
 
-        }
     }
 
 

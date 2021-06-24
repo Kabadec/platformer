@@ -110,6 +110,7 @@ MonoBehaviour:
   _target: {fileID: 2260517197401314589}
   _prefab: {fileID: 5208701862325091669, guid: 9150bdbc7c01b5946915ace14aa71211, type: 3}
   _isSaveParent: 0
+  _invertXScale: 0
 --- !u!1 &2260517197962333239
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,6 +271,7 @@ GameObject:
   - component: {fileID: 2260517198308532870}
   - component: {fileID: 2260517198308532868}
   - component: {fileID: 2260517198308532869}
+  - component: {fileID: 4238288378496942028}
   - component: {fileID: 1798808961}
   m_Layer: 11
   m_Name: Hero
@@ -298,6 +300,7 @@ Transform:
   - {fileID: 8760542493426166707}
   - {fileID: 2260517198278883605}
   - {fileID: 1386942573705990728}
+  - {fileID: 1112241784562477805}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -390,6 +393,11 @@ MonoBehaviour:
   _wallCheck: {fileID: 65551831980373847}
   _fallVelocity: 12
   _secForDisablePlatform: 0.1
+  _numSwordsOnMultiThrow: 3
+  _singleThrowCoolDown:
+    _value: 0.5
+  _multiThrowCoolDown: 0.1
+  _waitBeforeMultiThrow: 1
   _armed: {fileID: 9100000, guid: bda44eae4fb1d7943ac17d37be558a92, type: 2}
   _disarmed: {fileID: 9100000, guid: 499d1775a7cdb3945b975b5277598125, type: 2}
   _hitParticles: {fileID: 2260517198412371990}
@@ -479,6 +487,21 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 0c0f9cfc-fd6d-456e-b99d-f6f237656945
     m_ActionName: Hero/Attack[/Keyboard/f]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2260517198308532867}
+        m_MethodName: OnThrow
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 88efbb10-d38c-4b03-87c5-37fbbebc67cd
+    m_ActionName: Hero/Throw[/Keyboard/leftShift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hero
@@ -531,7 +554,7 @@ Animator:
   m_GameObject: {fileID: 2260517198308532876}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 499d1775a7cdb3945b975b5277598125, type: 2}
+  m_Controller: {fileID: 9100000, guid: bda44eae4fb1d7943ac17d37be558a92, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -598,6 +621,81 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4238288378496942028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2260517198308532876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 450e80c90193e5641944dc10f882cc0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _swordsInHolder: 0
+  _onTakeSword:
+    m_PersistentCalls:
+      m_Calls: []
+  _goArmSword:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2260517198308532864}
+        m_MethodName: GoArmSword
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onSingleShoot:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2260517198308532864}
+        m_MethodName: SingleThrow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onMultiShoot:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2260517198308532864}
+        m_MethodName: MultiThrow
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onNoAmmo:
+    m_PersistentCalls:
+      m_Calls: []
+  _onChangeSwordsAmmo:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2260517198308532864}
+        m_MethodName: OnSwordAmmoChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1798808961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -619,6 +717,8 @@ MonoBehaviour:
     Component: {fileID: 2260517198548666158}
   - Id: Sword
     Component: {fileID: 2260517198310963408}
+  - Id: Throw
+    Component: {fileID: 6190857971245302580}
 --- !u!1 &2260517198310963410
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,6 +765,7 @@ MonoBehaviour:
   _target: {fileID: 2260517198310963411}
   _prefab: {fileID: 8694384271458737854, guid: d0d39864cfb6fa84aa3431d158976a67, type: 3}
   _isSaveParent: 1
+  _invertXScale: 0
 --- !u!1 &2260517198412371984
 GameObject:
   m_ObjectHideFlags: 0
@@ -5523,6 +5624,7 @@ MonoBehaviour:
   _target: {fileID: 2260517198548666153}
   _prefab: {fileID: 2418808808711754911, guid: 8c2d78be0f5207f4a9912c187e46f417, type: 3}
   _isSaveParent: 0
+  _invertXScale: 0
 --- !u!1 &2260517198786738738
 GameObject:
   m_ObjectHideFlags: 0
@@ -5569,6 +5671,7 @@ MonoBehaviour:
   _target: {fileID: 2260517198786738739}
   _prefab: {fileID: 8462409005816164618, guid: 1757e059a3b0cb1408f32c59745f2e68, type: 3}
   _isSaveParent: 0
+  _invertXScale: 0
 --- !u!1 &3579988025796185624
 GameObject:
   m_ObjectHideFlags: 0
@@ -5645,3 +5748,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85e4637a5060f634eb0fb2ba7fde17a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &5755722350103529599
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1112241784562477805}
+  - component: {fileID: 6190857971245302580}
+  m_Layer: 11
+  m_Name: ThrowSwordSpawnPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1112241784562477805
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5755722350103529599}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.333, y: -0.019, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2260517198308532866}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6190857971245302580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5755722350103529599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5386461f3140d1b438e28a97674828fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 1112241784562477805}
+  _prefab: {fileID: 8462409005816164618, guid: 13deb49ea3661ea4bba1bb5b2d0178fe, type: 3}
+  _isSaveParent: 0
+  _invertXScale: 0

@@ -2,6 +2,7 @@
 using System;
 using UnityEngine;
 using PixelCrew.Components;
+using PixelCrew.Utils;
 
 namespace PixelCrew.Creatures
 {
@@ -51,10 +52,17 @@ namespace PixelCrew.Creatures
         }
         private IEnumerator AgroToHero()
         {
+            LookAtHero();
             _particles.Spawn("Exclamation");
             yield return new WaitForSeconds(_alarmDelay);
 
             StartState(GoToHero());
+        }
+        private void LookAtHero()
+        {
+            var direction = GetDirectionToTarget();
+            _creature.SetDirection(Vector2.zero);
+            _creature.UpdateSpriteDirection(direction);
         }
         private IEnumerator GoToHero()
         {
@@ -86,10 +94,13 @@ namespace PixelCrew.Creatures
         }
         private void SetDirectionToTarget()
         {
+            _creature.SetDirection(GetDirectionToTarget());
+        }
+        private Vector2 GetDirectionToTarget()
+        {
             var direction = _target.transform.position - transform.position;
             direction.y = 0;
-            _creature.SetDirection(direction.normalized);
-
+            return direction.normalized;
         }
         private IEnumerator Patrolling()
         {
@@ -110,6 +121,7 @@ namespace PixelCrew.Creatures
 
             if (_current != null)
                 StopCoroutine(_current);
+            _creature.SetDirection(Vector2.zero);
         }
     }
 }
