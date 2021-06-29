@@ -70,9 +70,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2121340639
+  m_SortingLayerID: -2088845397
   m_SortingLayer: 4
-  m_SortingOrder: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b06c37b5bcd76ed48a1a0b930a219609, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -130,15 +130,15 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.18519591, y: 0.15447831}
-      - {x: -0.21778257, y: 0.12538937}
-      - {x: -0.22133534, y: -0.024391502}
-      - {x: -0.15931112, y: -0.15208913}
-      - {x: -0.09127782, y: -0.21978118}
-      - {x: 0.25, y: -0.21875}
-      - {x: 0.2498744, y: 0.033677593}
-      - {x: 0.22057894, y: 0.12053263}
-      - {x: 0.17650993, y: 0.16144562}
+    - - {x: -0.18277454, y: 0.13973092}
+      - {x: -0.20194286, y: 0.1194175}
+      - {x: -0.20497662, y: -0.016990641}
+      - {x: -0.14451817, y: -0.14037327}
+      - {x: -0.090758845, y: -0.20640841}
+      - {x: 0.23558049, y: -0.20054328}
+      - {x: 0.23242342, y: 0.034670006}
+      - {x: 0.20379238, y: 0.11834793}
+      - {x: 0.17708324, y: 0.13967954}
 --- !u!114 &1486896120796953877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,7 +166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4399196742121415755}
-  - component: {fileID: 2582253213998084074}
+  - component: {fileID: 1624588560705906043}
   m_Layer: 10
   m_Name: DestroyedParticles
   m_TagString: Untagged
@@ -192,56 +192,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2582253213998084074
-SpriteRenderer:
+--- !u!114 &1624588560705906043
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2945780856859788289}
   m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2121340639
-  m_SortingLayer: 4
-  m_SortingOrder: 2
-  m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9574ddf765a34c64899c7f408a1dc07f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectToDestroy: {fileID: 2945780856859788289}
+  _delayToDestroy: 20
+  _destroyOnStart: 1
 --- !u!1 &3575525343640382111
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,9 +277,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2121340639
+  m_SortingLayerID: -2088845397
   m_SortingLayer: 4
-  m_SortingOrder: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d3e98af36f45d3c46b45c95eb11864d0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -372,12 +337,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.12387073, y: 0.18870065}
-      - {x: -0.061269075, y: 0.19053313}
-      - {x: -0.18878378, y: -0.0012207627}
-      - {x: -0.18746175, y: -0.2188188}
-      - {x: 0.18738645, y: -0.22083372}
-      - {x: 0.18947823, y: 0.062417}
+    - - {x: 0.121235065, y: 0.17236134}
+      - {x: -0.06079089, y: 0.17511015}
+      - {x: -0.17647457, y: -0.0016588361}
+      - {x: -0.17160067, y: -0.20603147}
+      - {x: 0.16950673, y: -0.20376438}
+      - {x: 0.17291991, y: 0.058898}
 --- !u!114 &2041623531230486493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -466,9 +431,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2121340639
+  m_SortingLayerID: -2088845397
   m_SortingLayer: 4
-  m_SortingOrder: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7444ab4e9129e15459c3e6db28207ea0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -526,13 +491,13 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.060130686, y: 0.18843745}
-      - {x: -0.14755587, y: 0.1877712}
-      - {x: -0.18627423, y: 0.156373}
-      - {x: -0.18568797, y: -0.21929044}
-      - {x: 0.15520866, y: -0.21824235}
-      - {x: 0.1892463, y: -0.1905596}
-      - {x: 0.18569668, y: 0.00016058981}
+    - - {x: 0.06014634, y: 0.17392173}
+      - {x: -0.14812522, y: 0.17731921}
+      - {x: -0.17407504, y: 0.15087014}
+      - {x: -0.17321983, y: -0.20505156}
+      - {x: 0.15664768, y: -0.20662819}
+      - {x: 0.17617749, y: -0.18621904}
+      - {x: 0.17524481, y: 0.00072994106}
 --- !u!114 &983233524537024640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -621,9 +586,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2121340639
+  m_SortingLayerID: -2088845397
   m_SortingLayer: 4
-  m_SortingOrder: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: cd583fcb68285bb4abbc0e7557ed69a3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -681,13 +646,13 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.034317017, y: 0.12196985}
-      - {x: -0.121967316, y: 0.028202116}
-      - {x: -0.121967316, y: -0.19054791}
-      - {x: -0.054145813, y: -0.1867469}
-      - {x: 0.029743195, y: -0.18979481}
-      - {x: 0.15931702, y: 0.0045541525}
-      - {x: 0.15779114, y: 0.1250177}
+    - - {x: -0.034317017, y: 0.111808844}
+      - {x: -0.11180633, y: 0.028202116}
+      - {x: -0.106000125, y: -0.17458063}
+      - {x: -0.049791038, y: -0.17368275}
+      - {x: 0.029743195, y: -0.17527911}
+      - {x: 0.14625293, y: 0.010360435}
+      - {x: 0.14182383, y: 0.1119536}
 --- !u!114 &2961149427880592928
 MonoBehaviour:
   m_ObjectHideFlags: 0

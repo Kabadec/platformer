@@ -10,12 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 6657277210807516033}
   - component: {fileID: 6657277210807516034}
+  - component: {fileID: 1236341608994652566}
   - component: {fileID: 6657277210807516035}
   - component: {fileID: 6657277210807516036}
   - component: {fileID: 6657277210807516037}
   - component: {fileID: 2002602215485776927}
   - component: {fileID: 8038953924544300459}
-  m_Layer: 0
+  - component: {fileID: 3763000544155993020}
+  m_Layer: 15
   m_Name: GoldCoin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2121340639
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 3
   m_Sprite: {fileID: 6582046967323461550, guid: fc2f6558fef8da74da29569caa2e31ba,
     type: 3}
@@ -87,6 +89,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1236341608994652566
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6657277210807516038}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!58 &6657277210807516035
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -116,6 +139,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
+  _layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
   _action:
     m_PersistentCalls:
       m_Calls:
@@ -227,3 +253,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _numCoins: 10
+--- !u!114 &3763000544155993020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6657277210807516038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 253692927f63d884a8933947100741b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frequency: 6
+  _amplitude: 0.1
+  _randomize: 1

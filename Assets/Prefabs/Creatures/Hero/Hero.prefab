@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8760542493426166707}
   - component: {fileID: 65551831980373847}
   - component: {fileID: 6877171128314464986}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: WallCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2260517197401314589}
   - component: {fileID: 2260517197401314578}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: JumpDustSpawnPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 2260517197962333236}
   - component: {fileID: 2260517197962333226}
   - component: {fileID: 2260517197962333237}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,6 +176,8 @@ MonoBehaviour:
     m_Bits: 256
   - serializedVersion: 2
     m_Bits: 4096
+  - serializedVersion: 2
+    m_Bits: 16384
   _isTouchingLayer: 0
 --- !u!1 &2260517198278883604
 GameObject:
@@ -188,7 +190,7 @@ GameObject:
   - component: {fileID: 2260517198278883605}
   - component: {fileID: 2260517198278883594}
   - component: {fileID: 709879703}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: AttackPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +226,7 @@ MonoBehaviour:
   _radius: 0.21
   _mask:
     serializedVersion: 2
-    m_Bits: 14135
+    m_Bits: 30519
   _tags:
   - Enemy
   _onOverlap:
@@ -341,9 +343,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1775209161
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 836077364aa842b4d95a8db07c6b7f89, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 566bb6542961bbd4c8c81dfa571d4eff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -380,7 +382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _invertScale: 0
-  _speed: 3
+  _speed: 4
   _jumpSpeed: 12
   _damageVelocity: 3
   _groundLayer:
@@ -715,7 +717,7 @@ MonoBehaviour:
     Component: {fileID: 2260517197401314578}
   - Id: Fall
     Component: {fileID: 2260517198548666158}
-  - Id: Sword
+  - Id: Slash
     Component: {fileID: 2260517198310963408}
   - Id: Throw
     Component: {fileID: 6190857971245302580}
@@ -729,8 +731,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2260517198310963411}
   - component: {fileID: 2260517198310963408}
-  m_Layer: 11
-  m_Name: SwordParticlesPosition
+  m_Layer: 0
+  m_Name: SwordSlashParticlesPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -777,7 +779,7 @@ GameObject:
   - component: {fileID: 2260517198412371991}
   - component: {fileID: 2260517198412371990}
   - component: {fileID: 2260517198412371985}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: ParticleSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5588,7 +5590,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2260517198548666153}
   - component: {fileID: 2260517198548666158}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: FallDustSpawnPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5635,7 +5637,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2260517198786738739}
   - component: {fileID: 2260517198786738736}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: FootStepsSpawnPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5683,7 +5685,7 @@ GameObject:
   - component: {fileID: 1386942573705990728}
   - component: {fileID: 7032323897480645751}
   - component: {fileID: 451328947214138651}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: InteractionCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5758,7 +5760,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1112241784562477805}
   - component: {fileID: 6190857971245302580}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: ThrowSwordSpawnPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -40,15 +40,11 @@ namespace PixelCrew.Model
         }
         public void SetData(PlayerData data)
         {
-            _data.Coins = data.Coins;
-            _data.Hp = data.Hp;
-            _data.SwordsAmmo = data.SwordsAmmo;
+            _data = data.Clone();
         }
         public void SetDefaultData(PlayerData data)
         {
-            _defaultData.Coins = data.Coins;
-            _defaultData.Hp = data.Hp;
-            _defaultData.SwordsAmmo = data.SwordsAmmo;
+            _defaultData = data.Clone();
         }
     }
 }

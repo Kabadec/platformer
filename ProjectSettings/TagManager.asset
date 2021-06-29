@@ -23,9 +23,9 @@ TagManager:
   - Hero
   - Barrels
   - Walls
-  - 
-  - 
-  - 
+  - Enemies
+  - Collectables
+  - Checkers
   - 
   - 
   - 
@@ -53,6 +53,9 @@ TagManager:
     locked: 0
   - name: Level
     uniqueID: 1086957685
+    locked: 0
+  - name: Trash
+    uniqueID: 2206121899
     locked: 0
   - name: Props
     uniqueID: 2121340639

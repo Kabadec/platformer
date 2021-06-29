@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 6861205206921204488}
   - component: {fileID: 6861205206921204490}
   - component: {fileID: 6861205206921204491}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Physics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,6 +261,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
+  _layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
   _action:
     m_PersistentCalls:
       m_Calls:

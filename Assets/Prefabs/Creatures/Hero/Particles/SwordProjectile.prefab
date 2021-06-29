@@ -46,6 +46,7 @@ MonoBehaviour:
   _target: {fileID: 944175277612362578}
   _prefab: {fileID: 8462409005816164618, guid: 529e58728ac4066499122251f69a459e, type: 3}
   _isSaveParent: 0
+  _invertXScale: 0
 --- !u!1 &8462409005816164618
 GameObject:
   m_ObjectHideFlags: 0
@@ -63,7 +64,6 @@ GameObject:
   - component: {fileID: 9061228471073616517}
   - component: {fileID: 9017972016006860419}
   - component: {fileID: 3958004836733440039}
-  - component: {fileID: 826156635505510467}
   - component: {fileID: 4636364683730380695}
   m_Layer: 0
   m_Name: SwordProjectile
@@ -237,6 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 6
+  _invertX: 0
 --- !u!114 &9017972016006860419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,25 +292,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hpDelta: -1
---- !u!114 &826156635505510467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8462409005816164618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bac5b8847335d2644b122bdc47330910, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _tag: 
-  _layer:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  _action:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &4636364683730380695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,7 +307,7 @@ MonoBehaviour:
   _tag: 
   _layer:
     serializedVersion: 2
-    m_Bits: 8448
+    m_Bits: 24832
   _action:
     m_PersistentCalls:
       m_Calls:

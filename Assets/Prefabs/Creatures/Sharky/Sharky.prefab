@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 201224038}
   - component: {fileID: 201224039}
-  - component: {fileID: 201224041}
   - component: {fileID: 201224040}
+  - component: {fileID: 201224041}
   m_Layer: 0
   m_Name: PlatformPatrolWallCheck
   m_TagString: Untagged
@@ -49,36 +49,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.09
---- !u!114 &201224041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 201224037}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bac5b8847335d2644b122bdc47330910, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _tag: 
-  _layer:
-    serializedVersion: 2
-    m_Bits: 256
-  _action:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1602599409}
-        m_MethodName: SetIsNextWall
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &201224040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,6 +79,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &201224041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201224037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac5b8847335d2644b122bdc47330910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tag: 
+  _layer:
+    serializedVersion: 2
+    m_Bits: 256
+  _action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1602599409}
+        m_MethodName: SetIsNextWall
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &577760738
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,8 +119,8 @@ GameObject:
   m_Component:
   - component: {fileID: 577760739}
   - component: {fileID: 577760742}
-  - component: {fileID: 577760740}
   - component: {fileID: 577760741}
+  - component: {fileID: 577760740}
   m_Layer: 0
   m_Name: PlatformPatrolGroundCheck
   m_TagString: Untagged
@@ -136,7 +136,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577760738}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.486, y: -0.428, z: 0}
+  m_LocalPosition: {x: -0.486, y: -0.632, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2260517198308532866}
@@ -158,36 +158,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.09
---- !u!114 &577760740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 577760738}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bac5b8847335d2644b122bdc47330910, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _tag: 
-  _layer:
-    serializedVersion: 2
-    m_Bits: 256
-  _action:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1602599409}
-        m_MethodName: SetIsNextGround
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &577760741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,6 +187,36 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &577760740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577760738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac5b8847335d2644b122bdc47330910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tag: 
+  _layer:
+    serializedVersion: 2
+    m_Bits: 256
+  _action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1602599409}
+        m_MethodName: SetIsNextGround
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!1 &314873594853228610
 GameObject:
@@ -264,7 +264,7 @@ MonoBehaviour:
   _target: {fileID: 13436921553070331}
   _prefab: {fileID: 2418808808711754911, guid: 1d6950fe9ae1d4d40869490e84e43570, type: 3}
   _isSaveParent: 1
-  _changeDirectionOnSpawn: 0
+  _invertXScale: 0
 --- !u!1 &713658581334573674
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,7 +311,7 @@ MonoBehaviour:
   _target: {fileID: 1164799474434665815}
   _prefab: {fileID: 5208701862325091669, guid: f823f48117a342c4cb01e23adbf077bb, type: 3}
   _isSaveParent: 1
-  _changeDirectionOnSpawn: 0
+  _invertXScale: 0
 --- !u!1 &1795512607475499954
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,7 +612,7 @@ GameObject:
   - component: {fileID: 2260517198308532869}
   - component: {fileID: 1798808961}
   - component: {fileID: 1602599409}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: Sharky
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -680,7 +680,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1775209161
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: ed5b172bae26e3d4cad7129bc3d60709, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -940,7 +940,7 @@ MonoBehaviour:
   _target: {fileID: 2260517198310963411}
   _prefab: {fileID: 8694384271458737854, guid: 781601a9e3a812043a56fc451903b57a, type: 3}
   _isSaveParent: 1
-  _changeDirectionOnSpawn: 0
+  _invertXScale: 0
 --- !u!1 &6628374022846212359
 GameObject:
   m_ObjectHideFlags: 0
@@ -951,7 +951,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7923633469865601171}
   - component: {fileID: 7153599590520523091}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: FootStepsSpawnPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -987,7 +987,7 @@ MonoBehaviour:
   _target: {fileID: 7923633469865601171}
   _prefab: {fileID: 8462409005816164618, guid: 1757e059a3b0cb1408f32c59745f2e68, type: 3}
   _isSaveParent: 0
-  _changeDirectionOnSpawn: 1
+  _invertXScale: 1
 --- !u!1 &9118146867597833347
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,7 +998,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2321542143842751090}
   - component: {fileID: 3544143686579752749}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: DieCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
