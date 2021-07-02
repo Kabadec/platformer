@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 6657277210807516036}
   - component: {fileID: 6657277210807516037}
   - component: {fileID: 2002602215485776927}
-  - component: {fileID: 8038953924544300459}
   - component: {fileID: 3763000544155993020}
+  - component: {fileID: 8104397670243864946}
   m_Layer: 15
   m_Name: GoldCoin
   m_TagString: Untagged
@@ -167,9 +167,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8038953924544300459}
-        m_MethodName: Take
-        m_Mode: 1
+      - m_Target: {fileID: 8104397670243864946}
+        m_MethodName: Add
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -191,6 +191,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 6657277210807516038}
+  _delayToDestroy: 0
+  _destroyOnStart: 0
 --- !u!114 &2002602215485776927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,19 +242,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &8038953924544300459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6657277210807516038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc4715bfd4af6124ebe3e4d51a43f27f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _numCoins: 10
 --- !u!114 &3763000544155993020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,3 +257,17 @@ MonoBehaviour:
   _frequency: 6
   _amplitude: 0.1
   _randomize: 1
+--- !u!114 &8104397670243864946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6657277210807516038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecd9b7171a5a827439136fe475c56b4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: Coin
+  _count: 10

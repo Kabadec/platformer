@@ -38,6 +38,13 @@ namespace PixelCrew.Creatures.Hero
                 //Debug.Log(false);
             }
         }
+        public void OnPressH(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                _hero.UsePotionHealth();
+            }
+        }
         public void OnAttack(InputAction.CallbackContext context)
         {
             if (context.performed)

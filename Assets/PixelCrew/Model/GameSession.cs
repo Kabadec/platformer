@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System;
-
+using PixelCrew.Model.Data;
 
 namespace PixelCrew.Model
 {
@@ -9,12 +9,12 @@ namespace PixelCrew.Model
         [SerializeField] private PlayerData _data;
         public PlayerData Data => _data;
 
-        [SerializeField] private PlayerData _defaultData;
+        private PlayerData _defaultData;
         public PlayerData DefaultData => _defaultData;
 
         private void Awake()
         {
-
+            SetDefaultData(_data);
             if (IsSessionExit())
             {
                 Destroy(gameObject);

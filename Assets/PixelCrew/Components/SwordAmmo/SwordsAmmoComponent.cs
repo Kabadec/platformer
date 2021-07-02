@@ -8,7 +8,6 @@ namespace PixelCrew.Components.SwordAmmo
     {
         [SerializeField] private int _swordsInHolder;
         [SerializeField] private UnityEvent _onTakeSword;
-        [SerializeField] private UnityEvent _goArmSword;
         [SerializeField] private UnityEvent _onSingleShoot;
         [SerializeField] private IntEvent _onMultiShoot;
         [SerializeField] private UnityEvent _onNoAmmo;
@@ -25,24 +24,14 @@ namespace PixelCrew.Components.SwordAmmo
             {
                 ShootSwords(swordsInHolderDelta);
             }
-            _onChangeSwordsAmmo?.Invoke(_swordsInHolder);
+            //_onChangeSwordsAmmo?.Invoke(_swordsInHolder);
         }
 
         private void TakeSwordAmmo(int swordsInHolderDelta)
         {
-            var trigger = false;
-            if (_swordsInHolder <= 0)
-            {
-                trigger = true;
-            }
             _swordsInHolder += swordsInHolderDelta;
-            _onChangeSwordsAmmo?.Invoke(_swordsInHolder);
+            _onChangeSwordsAmmo?.Invoke(swordsInHolderDelta);
             _onTakeSword?.Invoke();
-            if (trigger)
-            {
-                _goArmSword?.Invoke();
-
-            }
         }
 
         private void ShootSwords(int swordsInHolderDelta)
@@ -68,6 +57,7 @@ namespace PixelCrew.Components.SwordAmmo
                         _swordsInHolder = 1;
                     }
                 }
+                _onChangeSwordsAmmo?.Invoke(swordsInHolderDelta);
             }
             else
             {

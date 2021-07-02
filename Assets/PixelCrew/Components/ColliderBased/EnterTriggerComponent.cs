@@ -11,6 +11,7 @@ namespace PixelCrew.Components.ColliderBased
         [SerializeField] private LayerMask _layer = ~0;
         [SerializeField] private EnterEvent _action;
 
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (!other.gameObject.IsInLayer(_layer)) return;

@@ -17,7 +17,7 @@ namespace PixelCrew.Components.Health
         {
             var healthComponent = go.GetComponent<HealthComponent>();
             if (healthComponent != null)
-                healthComponent.ChangeHealth(_hpDelta);
+                healthComponent.ModifyHealth(_hpDelta);
         }
     }
 }

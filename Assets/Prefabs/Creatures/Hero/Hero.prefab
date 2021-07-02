@@ -402,6 +402,7 @@ MonoBehaviour:
   _waitBeforeMultiThrow: 1
   _armed: {fileID: 9100000, guid: bda44eae4fb1d7943ac17d37be558a92, type: 2}
   _disarmed: {fileID: 9100000, guid: 499d1775a7cdb3945b975b5277598125, type: 2}
+  _healthValue: 5
   _hitParticles: {fileID: 2260517198412371990}
 --- !u!114 &2260517198308532865
 MonoBehaviour:
@@ -504,6 +505,21 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 88efbb10-d38c-4b03-87c5-37fbbebc67cd
     m_ActionName: Hero/Throw[/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2260517198308532867}
+        m_MethodName: OnPressH
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f7492a63-3497-429d-845c-1367cb97a994
+    m_ActionName: Hero/Health[/Keyboard/h]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hero
@@ -639,20 +655,6 @@ MonoBehaviour:
   _onTakeSword:
     m_PersistentCalls:
       m_Calls: []
-  _goArmSword:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2260517198308532864}
-        m_MethodName: GoArmSword
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   _onSingleShoot:
     m_PersistentCalls:
       m_Calls:

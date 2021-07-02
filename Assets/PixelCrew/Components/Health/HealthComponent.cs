@@ -14,7 +14,7 @@ namespace PixelCrew.Components.Health
         [SerializeField] private HealthChangeEvent _onChange;
 
 
-        public void ChangeHealth(int healthDelta)
+        public void ModifyHealth(int healthDelta)
         {
             if (_health <= 0) return;
 

@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 6861205206635908485}
   - component: {fileID: 6861205206635908490}
   - component: {fileID: 6861205206635908491}
-  - component: {fileID: 6861205206635908488}
   - component: {fileID: 6861205206635908489}
+  - component: {fileID: 1304703467343014854}
   m_Layer: 10
   m_Name: GoldCoinPhisics
   m_TagString: Untagged
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2121340639
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 3
   m_Sprite: {fileID: 6582046967323461550, guid: fc2f6558fef8da74da29569caa2e31ba,
     type: 3}
@@ -174,19 +174,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &6861205206635908488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6861205206635908494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc4715bfd4af6124ebe3e4d51a43f27f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _numCoins: 10
 --- !u!114 &6861205206635908489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,6 +187,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 6861205206635908494}
+  _delayToDestroy: 0
+  _destroyOnStart: 0
+--- !u!114 &1304703467343014854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6861205206635908494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecd9b7171a5a827439136fe475c56b4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: Coin
+  _count: 10
 --- !u!1 &6861205206921204489
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,9 +303,9 @@ MonoBehaviour:
           m_StringArgument: destroy
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6861205206635908488}
-        m_MethodName: Take
-        m_Mode: 1
+      - m_Target: {fileID: 1304703467343014854}
+        m_MethodName: Add
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
