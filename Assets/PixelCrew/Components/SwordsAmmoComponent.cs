@@ -29,13 +29,16 @@ public class SwordsAmmoComponent : MonoBehaviour
 
     private void TakeSwordAmmo(int swordsInHolderDelta)
     {
+        var triggerArm = false;
+        if (_swordsInHolder <= 0)
+            triggerArm = true;
+
         _swordsInHolder += swordsInHolderDelta;
         _onChangeSwordsAmmo?.Invoke(_swordsInHolder);
         _onTakeSword?.Invoke();
-        if (_swordsInHolder <= 0)
-        {
+
+        if (triggerArm && _swordsInHolder > 0)
             _goArmSword?.Invoke();
-        }
     }
 
     private void ShootSwords(int swordsInHolderDelta)

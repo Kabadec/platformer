@@ -14,7 +14,7 @@ namespace PixelCrew.Components
         [ContextMenu("Spawn")]
         public void Spawn()
         {
-            var instantiate = Creating();
+            var instantiate = CreatingGameObject();
             if (_isSaveParent)
             {
                 instantiate.transform.parent = this.transform.parent;
@@ -22,10 +22,10 @@ namespace PixelCrew.Components
         }
         public void Spawn(GameObject parentGo)
         {
-            var instantiate = Creating();
+            var instantiate = CreatingGameObject();
             instantiate.transform.parent = parentGo.transform;
         }
-        private GameObject Creating()
+        private GameObject CreatingGameObject()
         {
             var instantiate = Instantiate(_prefab, _target.position, Quaternion.identity);
 

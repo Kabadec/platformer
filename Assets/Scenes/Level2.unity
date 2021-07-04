@@ -313,7 +313,7 @@ MonoBehaviour:
   _defaultData:
     Coins: 0
     Hp: 10
-    SwordsAmmo: 10
+    SwordsAmmo: 0
 --- !u!4 &346455538
 Transform:
   m_ObjectHideFlags: 0
@@ -522,6 +522,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sharky
+      objectReference: {fileID: 0}
+    - target: {fileID: 2260517198308532876, guid: fe70d943f92371c45ae961ae54eb561c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6628374022846212359, guid: fe70d943f92371c45ae961ae54eb561c,
         type: 3}

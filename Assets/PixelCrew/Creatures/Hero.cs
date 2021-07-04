@@ -95,7 +95,7 @@ namespace PixelCrew.Creatures
         {
             base.Update();
             TimerForPlatform();
-            TimerForThrow();
+            ProcessThrowTimer();
 
             if (_wallCheck.IsTouchingLayer && Direction.x == transform.localScale.x)
             {
@@ -207,7 +207,7 @@ namespace PixelCrew.Creatures
                 _triggerPlatform = true;
             }
         }
-        private void TimerForThrow()
+        private void ProcessThrowTimer()
         {
             if (!_isShiftPressed && _triggerThrow)
             {
@@ -275,7 +275,6 @@ namespace PixelCrew.Creatures
         }
         public void MultiThrow(int numSwordsOnMultiThrow)
         {
-
             _multiThrowCoroutine = StartCoroutine(MultiThrowCorroutine(numSwordsOnMultiThrow));
         }
         public IEnumerator MultiThrowCorroutine(int numSwordsOnMultiThrow)
