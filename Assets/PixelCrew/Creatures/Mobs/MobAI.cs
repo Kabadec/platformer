@@ -11,8 +11,8 @@ namespace PixelCrew.Creatures.Mobs
 {
     public class MobAI : MonoBehaviour
     {
-        [SerializeField] private LayerCheck _vision;
-        [SerializeField] private LayerCheck _canAttack;
+        [SerializeField] private ColliderCheck _vision;
+        [SerializeField] private ColliderCheck _canAttack;
 
 
         [SerializeField] private float _alarmDelay = 0.5f;

@@ -27,11 +27,13 @@ namespace PixelCrew.Components.GoBased
 
         [SerializeField] private float _waitTime = 0.1f;
         [SerializeField] private float _speed = 6;
-        [SerializeField] private float _numParticles = 200;
+        [SerializeField] private int _numParticles = 200;
+        private int currNumParticles;
 
         private void Start()
         {
             //Restart();
+            currNumParticles = _numParticles;
         }
         private void OnEnable()
         {
@@ -57,7 +59,7 @@ namespace PixelCrew.Components.GoBased
                 sumChances += _particles[i].ChanceDrop;
             }
 
-            for (var i = 0; i < _numParticles; i++)
+            for (var i = 0; i < currNumParticles; i++)
             {
                 for (var j = 0; j < _itemPerBurst; j++)
                 {
@@ -140,6 +142,10 @@ namespace PixelCrew.Components.GoBased
         {
             if (_routine != null)
                 StopCoroutine(_routine);
+        }
+        public void SetCount(int count)
+        {
+            _numParticles = count;
         }
 
         [Serializable]

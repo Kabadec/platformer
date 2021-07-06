@@ -11,6 +11,7 @@ using PixelCrew.Model;
 using PixelCrew.Components.ColliderBased;
 using PixelCrew.Components.Health;
 using PixelCrew.Components.SwordAmmo;
+using PixelCrew.Components.GoBased;
 
 namespace PixelCrew.Creatures.Hero
 {
@@ -18,7 +19,7 @@ namespace PixelCrew.Creatures.Hero
     public class Hero : Creature
     {
         [SerializeField] private CheckCircleOverlap _interactionCheck;
-        [SerializeField] private LayerCheck _wallCheck;
+        [SerializeField] private ColliderCheck _wallCheck;
 
 
         [SerializeField] private float _fallVelocity;
@@ -40,7 +41,7 @@ namespace PixelCrew.Creatures.Hero
 
         [Space]
         [Header("Particles")]
-        [SerializeField] private ParticleSystem _hitParticles;
+        [SerializeField] private RandomSpawner _hitDrop;
 
 
         private static readonly int ThrowKey = Animator.StringToHash("throw");
@@ -126,7 +127,7 @@ namespace PixelCrew.Creatures.Hero
         {
             base.Update();
             TimerForPlatform();
-            TimerForThrow();
+            ProcessThrowTimer();
 
             var moveToSameDirection = Direction.x * transform.lossyScale.x > 0;
             if (_wallCheck.IsTouchingLayer && moveToSameDirection)
@@ -175,7 +176,7 @@ namespace PixelCrew.Creatures.Hero
         {
             if (!IsGrounded && _allowDoubleJump && !_isOnWall)
             {
-                _particles.Spawn("Jump");
+                DoJumpVfx();
                 _allowDoubleJump = false;
                 return _jumpSpeed;
             }
@@ -202,12 +203,8 @@ namespace PixelCrew.Creatures.Hero
             var numCoinsToDispose = Mathf.Min(CoinCount, 5);
             _session.Data.Inventory.Remove("Coin", numCoinsToDispose);
 
-            var burst = _hitParticles.emission.GetBurst(0);
-            burst.count = numCoinsToDispose;
-            _hitParticles.emission.SetBurst(0, burst);
-
-            _hitParticles.gameObject.SetActive(true);
-            _hitParticles.Play();
+            _hitDrop.SetCount(numCoinsToDispose);
+            _hitDrop.Restart();
         }
         public void Interact()
         {
@@ -238,7 +235,7 @@ namespace PixelCrew.Creatures.Hero
                 _triggerPlatform = true;
             }
         }
-        private void TimerForThrow()
+        private void ProcessThrowTimer()
         {
             if (!_isShiftPressed && _triggerThrow)
             {
@@ -305,6 +302,7 @@ namespace PixelCrew.Creatures.Hero
             if (_singleThrowCoolDown.IsReady)
             {
                 Animator.SetTrigger(ThrowKey);
+                Sounds.Play("Range");
                 _singleThrowCoolDown.Reset();
             }
         }
@@ -317,6 +315,7 @@ namespace PixelCrew.Creatures.Hero
             for (int i = numSwordsOnMultiThrow - 1; i >= 0; i--)
             {
                 Animator.SetTrigger(ThrowKey);
+                Sounds.Play("Range");
                 yield return new WaitForSeconds(_multiThrowCoolDown);
             }
         }

@@ -9,11 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 201224038}
-  - component: {fileID: 201224039}
-  - component: {fileID: 201224040}
-  - component: {fileID: 201224041}
-  m_Layer: 0
-  m_Name: PlatformPatrolWallCheck
+  - component: {fileID: 8169473046777204753}
+  m_Layer: 16
+  m_Name: PlatformPatrolObstacleCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,29 +25,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201224037}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.249, y: -0.068, z: 0}
+  m_LocalPosition: {x: -0.453, y: -0.083, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1834430459341367279}
   m_Father: {fileID: 2260517198308532866}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &201224039
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 201224037}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.09
---- !u!114 &201224040
+--- !u!114 &8169473046777204753
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,57 +41,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 201224037}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2eb5e8ae6bb357248a9fd898bbd74f1f, type: 3}
+  m_Script: {fileID: 11500000, guid: 89b0fe90b3c4bd749bcf7be9d373b227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tag: 
-  _layer:
+  _layers:
     serializedVersion: 2
-    m_Bits: 256
-  _action:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1602599409}
-        m_MethodName: SetIsNextWall
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &201224041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 201224037}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bac5b8847335d2644b122bdc47330910, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _tag: 
-  _layer:
-    serializedVersion: 2
-    m_Bits: 256
-  _action:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1602599409}
-        m_MethodName: SetIsNextWall
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+    m_Bits: 4352
+  _isTouchingLayer: 0
+  _target: {fileID: 1834430459341367279}
 --- !u!1 &577760738
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,10 +58,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 577760739}
-  - component: {fileID: 577760742}
-  - component: {fileID: 577760741}
-  - component: {fileID: 577760740}
-  m_Layer: 0
+  - component: {fileID: 1043499696}
+  m_Layer: 16
   m_Name: PlatformPatrolGroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,29 +74,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577760738}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.486, y: -0.632, z: 0}
+  m_LocalPosition: {x: -0.574, y: -0.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 913369901}
   m_Father: {fileID: 2260517198308532866}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &577760742
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 577760738}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.09
---- !u!114 &577760741
+--- !u!114 &1043499696
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -167,57 +90,44 @@ MonoBehaviour:
   m_GameObject: {fileID: 577760738}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2eb5e8ae6bb357248a9fd898bbd74f1f, type: 3}
+  m_Script: {fileID: 11500000, guid: 89b0fe90b3c4bd749bcf7be9d373b227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tag: 
-  _layer:
+  _layers:
     serializedVersion: 2
     m_Bits: 256
-  _action:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1602599409}
-        m_MethodName: SetIsNextGround
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &577760740
-MonoBehaviour:
+  _isTouchingLayer: 0
+  _target: {fileID: 913369901}
+--- !u!1 &913369900
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 577760738}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bac5b8847335d2644b122bdc47330910, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _tag: 
-  _layer:
-    serializedVersion: 2
-    m_Bits: 256
-  _action:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1602599409}
-        m_MethodName: SetIsNextGround
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 913369901}
+  m_Layer: 16
+  m_Name: Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &913369901
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913369900}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.235, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 577760739}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &314873594853228610
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,7 +294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _layers:
-  - serializedVersion: 2
+    serializedVersion: 2
     m_Bits: 2048
   _isTouchingLayer: 0
 --- !u!114 &7359553086871278959
@@ -478,10 +388,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _layers:
-  - serializedVersion: 2
+    serializedVersion: 2
     m_Bits: 256
-  - serializedVersion: 2
-    m_Bits: 4096
   _isTouchingLayer: 0
 --- !u!1 &2260517198278883604
 GameObject:
@@ -591,7 +499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _layers:
-  - serializedVersion: 2
+    serializedVersion: 2
     m_Bits: 2048
   _isTouchingLayer: 0
 --- !u!1 &2260517198308532876
@@ -612,6 +520,7 @@ GameObject:
   - component: {fileID: 2260517198308532869}
   - component: {fileID: 1798808961}
   - component: {fileID: 1602599409}
+  - component: {fileID: 569451214033162226}
   m_Layer: 14
   m_Name: Sharky
   m_TagString: Enemy
@@ -892,8 +801,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e3a509dc2701974ba2b59123ca06516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isNextGround: 1
-  _isNextWall: 0
+  _groundCheck: {fileID: 1043499696}
+  _obstacleCheck: {fileID: 8169473046777204753}
+--- !u!114 &569451214033162226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2260517198308532876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cda63f09d1fbc544989c51b58f2d38a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _source: {fileID: 0}
+  _sounds: []
 --- !u!1 &2260517198310963410
 GameObject:
   m_ObjectHideFlags: 0
@@ -941,6 +864,36 @@ MonoBehaviour:
   _prefab: {fileID: 8694384271458737854, guid: 781601a9e3a812043a56fc451903b57a, type: 3}
   _isSaveParent: 1
   _invertXScale: 0
+--- !u!1 &2984742648910601767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1834430459341367279}
+  m_Layer: 16
+  m_Name: Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1834430459341367279
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2984742648910601767}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.1, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 201224038}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6628374022846212359
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PixelCrew.Components.ColliderBased;
 
 namespace PixelCrew.Creatures.Mobs.Patrolling
 {
     public class PlatformPatrol : Patrol
     {
 
-        [SerializeField] private bool _isNextGround = true;
-        [SerializeField] private bool _isNextWall = false;
+        [SerializeField] private LayerCheck _groundCheck;
+        [SerializeField] private LayerCheck _obstacleCheck;
 
 
         private Creature _creature;
-        private bool _isRightDirection = true;
+        private int _direction = -1;
 
         private void Start()
         {
@@ -24,7 +25,7 @@ namespace PixelCrew.Creatures.Mobs.Patrolling
             ReloadDirection();
             while (enabled)
             {
-                if (!_isNextGround || _isNextWall)
+                if (!_groundCheck.IsTouchingLayer || _obstacleCheck.IsTouchingLayer)
                 {
                     ChangeDirection();
                 }
@@ -32,38 +33,14 @@ namespace PixelCrew.Creatures.Mobs.Patrolling
             }
         }
 
-        public void SetIsNextGround(bool isNextGround)
-        {
-            _isNextGround = isNextGround;
-        }
-        public void SetIsNextWall(bool isNextWall)
-        {
-            _isNextWall = isNextWall;
-        }
-
         private void ChangeDirection()
         {
-            if (_isRightDirection)
-            {
-                _creature.SetDirection(Vector2.left);
-                _isRightDirection = false;
-            }
-            else
-            {
-                _creature.SetDirection(Vector2.right);
-                _isRightDirection = true;
-            }
+            _direction = -_direction;
+            _creature.SetDirection(new Vector2(_direction, 0));
         }
         private void ReloadDirection()
         {
-            if (_isRightDirection)
-            {
-                _creature.SetDirection(Vector2.right);
-            }
-            else
-            {
-                _creature.SetDirection(Vector2.left);
-            }
+            _creature.SetDirection(new Vector2(_direction, 0));
         }
     }
 }

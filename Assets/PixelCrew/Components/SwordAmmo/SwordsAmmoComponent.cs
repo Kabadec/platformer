@@ -39,25 +39,14 @@ namespace PixelCrew.Components.SwordAmmo
             var ammoToShoot = -1 * swordsInHolderDelta;
             if (_swordsInHolder > 1)
             {
-                if (ammoToShoot == 1)
-                {
+                var numThrows = Mathf.Min(ammoToShoot, _swordsInHolder - 1);
+                if (numThrows == 1)
                     _onSingleShoot?.Invoke();
-                    _swordsInHolder--;
-                }
                 else
-                {
-                    if (_swordsInHolder > ammoToShoot)
-                    {
-                        _onMultiShoot?.Invoke(ammoToShoot);
-                        _swordsInHolder -= ammoToShoot;
-                    }
-                    else
-                    {
-                        _onMultiShoot?.Invoke(_swordsInHolder - 1);
-                        _swordsInHolder = 1;
-                    }
-                }
-                _onChangeSwordsAmmo?.Invoke(swordsInHolderDelta);
+                    _onMultiShoot?.Invoke(numThrows);
+
+                _swordsInHolder -= numThrows;
+                _onChangeSwordsAmmo?.Invoke(-1 * numThrows);
             }
             else
             {
