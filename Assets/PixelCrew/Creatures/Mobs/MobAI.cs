@@ -11,30 +11,30 @@ namespace PixelCrew.Creatures.Mobs
 {
     public class MobAI : MonoBehaviour
     {
-        [SerializeField] private ColliderCheck _vision;
-        [SerializeField] private ColliderCheck _canAttack;
+        [SerializeField] protected ColliderCheck _vision;
+        [SerializeField] protected ColliderCheck _canAttack;
 
 
-        [SerializeField] private float _alarmDelay = 0.5f;
-        [SerializeField] private float _attackCooldown = 1f;
-        [SerializeField] private float _missHeroCooldown = 0.5f;
+        [SerializeField] protected float _alarmDelay = 0.5f;
+        [SerializeField] protected float _attackCooldown = 1f;
+        [SerializeField] protected float _missHeroCooldown = 0.5f;
 
 
-        private IEnumerator _current;
-        private GameObject _target;
+        protected IEnumerator _current;
+        protected GameObject _target;
 
 
-        private static readonly int IsDeadKey = Animator.StringToHash("is-dead");
+        protected static readonly int IsDeadKey = Animator.StringToHash("is-dead");
 
 
-        private SpawnListComponent _particles;
-        private Creature _creature;
-        private Animator _animator;
-        private bool _isDead;
-        private Patrol _patrol;
+        protected SpawnListComponent _particles;
+        protected Creature _creature;
+        protected Animator _animator;
+        protected bool _isDead;
+        protected Patrol _patrol;
 
 
-        private void Awake()
+        protected virtual void Awake()
         {
             _creature = GetComponent<Creature>();
             _particles = GetComponent<SpawnListComponent>();
@@ -42,7 +42,7 @@ namespace PixelCrew.Creatures.Mobs
             _patrol = GetComponent<Patrol>();
         }
 
-        private void Start()
+        protected void Start()
         {
             StartState(_patrol.DoPatrol());
         }
@@ -53,7 +53,7 @@ namespace PixelCrew.Creatures.Mobs
             _target = go;
             StartState(AgroToHero());
         }
-        private IEnumerator AgroToHero()
+        protected IEnumerator AgroToHero()
         {
             LookAtHero();
             _particles.Spawn("Exclamation");
@@ -61,13 +61,13 @@ namespace PixelCrew.Creatures.Mobs
 
             StartState(GoToHero());
         }
-        private void LookAtHero()
+        protected void LookAtHero()
         {
             var direction = GetDirectionToTarget();
             _creature.SetDirection(Vector2.zero);
             _creature.UpdateSpriteDirection(direction);
         }
-        private IEnumerator GoToHero()
+        protected virtual IEnumerator GoToHero()
         {
             while (_vision.IsTouchingLayer)
             {
@@ -87,7 +87,7 @@ namespace PixelCrew.Creatures.Mobs
             yield return new WaitForSeconds(_missHeroCooldown);
             StartState(_patrol.DoPatrol());
         }
-        private IEnumerator Attack()
+        protected virtual IEnumerator Attack()
         {
             while (_canAttack.IsTouchingLayer)
             {
@@ -96,22 +96,22 @@ namespace PixelCrew.Creatures.Mobs
             }
             StartState(GoToHero());
         }
-        private void SetDirectionToTarget()
+        protected void SetDirectionToTarget()
         {
             _creature.SetDirection(GetDirectionToTarget());
         }
-        private Vector2 GetDirectionToTarget()
+        protected Vector2 GetDirectionToTarget()
         {
             var direction = _target.transform.position - transform.position;
             direction.y = 0;
             return direction.normalized;
         }
-        private IEnumerator Patrolling()
+        protected IEnumerator Patrolling()
         {
             yield return null;
         }
 
-        private void StartState(IEnumerator coroutine)
+        protected void StartState(IEnumerator coroutine)
         {
             _creature.SetDirection(Vector2.zero);
             if (_current != null)

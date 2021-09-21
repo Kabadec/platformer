@@ -388,8 +388,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _groundCheck: {fileID: 2260517197962333237}
-  _attackRange: {fileID: 2260517198278883594}
+  _attackRange0: {fileID: 2260517198278883594}
+  _attackRange1: {fileID: 0}
   _particles: {fileID: 1798808961}
+  IsGrounded: 0
   _interactionCheck: {fileID: 7032323897480645751}
   _wallCheck: {fileID: 65551831980373847}
   _fallVelocity: 12
@@ -519,6 +521,21 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: f7492a63-3497-429d-845c-1367cb97a994
     m_ActionName: Hero/Health[/Keyboard/h]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2260517198308532867}
+        m_MethodName: OnDrop
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 40a38156-5d1c-47c9-a611-94a2ca0e022a
+    m_ActionName: Hero/OnDrop[/Keyboard/space,/Keyboard/s]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hero
@@ -649,6 +666,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _immune: 0
 --- !u!114 &4238288378496942028
 MonoBehaviour:
   m_ObjectHideFlags: 0

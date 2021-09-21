@@ -64,6 +64,13 @@ namespace PixelCrew.Creatures.Hero
 
             }
         }
+        public void OnDrop(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                _hero.DropFromPlatform();
+            }
+        }
 
     }
 

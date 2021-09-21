@@ -12,11 +12,12 @@ using PixelCrew.Components.ColliderBased;
 using PixelCrew.Components.Health;
 using PixelCrew.Components.SwordAmmo;
 using PixelCrew.Components.GoBased;
+using PixelCrew.Model.Data;
 
 namespace PixelCrew.Creatures.Hero
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class Hero : Creature
+    public class Hero : Creature, ICanAddInInventory
     {
         [SerializeField] private CheckCircleOverlap _interactionCheck;
         [SerializeField] private ColliderCheck _wallCheck;
@@ -161,6 +162,7 @@ namespace PixelCrew.Creatures.Hero
             if (isJumpPressing && _isSPressed)
             {
                 _goDownWithPlatform = true;
+                //DropFromPlatform();
                 return Rigidbody.velocity.y;
 
             }
@@ -328,6 +330,20 @@ namespace PixelCrew.Creatures.Hero
             _swordAmmo.ModifySwordsAmmo(-1 * _numSwordsOnMultiThrow);
         }
 
+        public void DropFromPlatform()
+        {
+            var position = transform.position;
+            var endPosition = position + new Vector3(0, -1);
+            var hit = Physics2D.Linecast(position, endPosition, _groundLayer);
+
+            if (hit.collider == null) return;
+
+            var component = hit.collider.GetComponent<TmpDisableColliderComponent>();
+            if (component == null) return;
+
+            component.DisableCollider();
+
+        }
 
     }
 }

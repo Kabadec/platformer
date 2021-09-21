@@ -52,6 +52,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "OnDrop",
+                    "type": "Button",
+                    "id": "40a38156-5d1c-47c9-a611-94a2ca0e022a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -164,6 +172,39 @@
                     "action": "Health",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "drop",
+                    "id": "634e0e02-7b63-42c5-a351-19292d989638",
+                    "path": "ButtonWithOneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OnDrop",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "a68ac196-f68c-43cb-85e2-53b2036d70d2",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OnDrop",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "button",
+                    "id": "c249df10-6c2e-4b20-9bbd-80d97901fbe0",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OnDrop",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }

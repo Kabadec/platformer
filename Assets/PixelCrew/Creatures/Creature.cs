@@ -21,7 +21,9 @@ namespace PixelCrew.Creatures
         [Header("Checkers")]
         [SerializeField] protected LayerMask _groundLayer;
         [SerializeField] protected ColliderCheck _groundCheck;
-        [SerializeField] private CheckCircleOverlap _attackRange;
+        [SerializeField] private CheckCircleOverlap _attackRange0;
+        [SerializeField] private CheckCircleOverlap _attackRange1;
+
         [SerializeField] protected SpawnListComponent _particles;
 
 
@@ -29,12 +31,12 @@ namespace PixelCrew.Creatures
         protected Rigidbody2D Rigidbody;
         protected Animator Animator;
         protected PlaySoundsComponent Sounds;
-        protected bool IsGrounded;
+        public bool IsGrounded;
         private bool _isJumping;
 
 
-        private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
-        private static readonly int VerticalVelocity = Animator.StringToHash("vertical-velocity");
+        protected static readonly int IsGroundKey = Animator.StringToHash("is-ground");
+        protected static readonly int VerticalVelocity = Animator.StringToHash("vertical-velocity");
         private static readonly int IsRunning = Animator.StringToHash("is-running");
         private static readonly int Hit = Animator.StringToHash("hit");
         private static readonly int AttackKey = Animator.StringToHash("attack");
@@ -135,7 +137,9 @@ namespace PixelCrew.Creatures
 
         public void OnDoAttack()
         {
-            _attackRange.Check();
+            _attackRange0.Check();
+            if (_attackRange1 != null)
+                _attackRange1.Check();
         }
     }
 }
