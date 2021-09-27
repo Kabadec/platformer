@@ -1229,7 +1229,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2685881427395394948}
-  - component: {fileID: 7471109574268553415}
   - component: {fileID: 7550641984123994337}
   m_Layer: 11
   m_Name: Vfx
@@ -1252,14 +1251,6 @@ Transform:
   m_Father: {fileID: 2260517198308532866}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &7471109574268553415
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8341254676400210939}
-  m_Enabled: 1
 --- !u!82 &7550641984123994337
 AudioSource:
   m_ObjectHideFlags: 0

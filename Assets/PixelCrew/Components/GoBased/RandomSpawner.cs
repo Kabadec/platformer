@@ -53,6 +53,7 @@ namespace PixelCrew.Components.GoBased
 
         private IEnumerator StartSpawn()
         {
+            currNumParticles = _numParticles;
             var sumChances = 0f;
             for (var i = 0; i < _particles.Length; i++)
             {
