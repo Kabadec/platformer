@@ -168,6 +168,7 @@ GameObject:
   - component: {fileID: 4035683985516850080}
   - component: {fileID: 4035683985516850087}
   - component: {fileID: 4035683985516850086}
+  - component: {fileID: 2060676472097589314}
   m_Layer: 5
   m_Name: RestartButton
   m_TagString: Untagged
@@ -290,6 +291,19 @@ MonoBehaviour:
         m_CallState: 2
   _normal: {fileID: 4035683983731224857}
   _pressed: {fileID: 4035683985494698251}
+--- !u!114 &2060676472097589314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4035683985516850084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c8f2c3f352b8f6409cdd1a4f6f4350c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: 1dd82a7490d5eee4189f95d801926c07, type: 3}
 --- !u!1 &6578524162312182412
 GameObject:
   m_ObjectHideFlags: 0
@@ -837,6 +851,7 @@ GameObject:
   - component: {fileID: 6578524163649019469}
   - component: {fileID: 6578524163649019468}
   - component: {fileID: 6578524163649019459}
+  - component: {fileID: 6331455906696145147}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -959,6 +974,19 @@ MonoBehaviour:
         m_CallState: 2
   _normal: {fileID: 6578524164248463726}
   _pressed: {fileID: 6578524162766277311}
+--- !u!114 &6331455906696145147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6578524163649019457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c8f2c3f352b8f6409cdd1a4f6f4350c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: 1dd82a7490d5eee4189f95d801926c07, type: 3}
 --- !u!1 &6578524163857128198
 GameObject:
   m_ObjectHideFlags: 0
@@ -971,6 +999,7 @@ GameObject:
   - component: {fileID: 6578524163857128194}
   - component: {fileID: 6578524163857128193}
   - component: {fileID: 6578524163857128192}
+  - component: {fileID: 2702763710336123492}
   m_Layer: 5
   m_Name: ResumeButton
   m_TagString: Untagged
@@ -1093,6 +1122,19 @@ MonoBehaviour:
         m_CallState: 2
   _normal: {fileID: 6578524164390332283}
   _pressed: {fileID: 6578524162698469726}
+--- !u!114 &2702763710336123492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6578524163857128198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c8f2c3f352b8f6409cdd1a4f6f4350c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: 1dd82a7490d5eee4189f95d801926c07, type: 3}
 --- !u!1 &6578524164248463726
 GameObject:
   m_ObjectHideFlags: 0
@@ -1183,6 +1225,7 @@ GameObject:
   - component: {fileID: 6578524164265372480}
   - component: {fileID: 6578524164265372487}
   - component: {fileID: 6578524164265372486}
+  - component: {fileID: 7529313367164253204}
   m_Layer: 5
   m_Name: OptionsButton
   m_TagString: Untagged
@@ -1305,6 +1348,19 @@ MonoBehaviour:
         m_CallState: 2
   _normal: {fileID: 6578524163179515228}
   _pressed: {fileID: 6578524163157720803}
+--- !u!114 &7529313367164253204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6578524164265372484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c8f2c3f352b8f6409cdd1a4f6f4350c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: 1dd82a7490d5eee4189f95d801926c07, type: 3}
 --- !u!1 &6578524164390332283
 GameObject:
   m_ObjectHideFlags: 0

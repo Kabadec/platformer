@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using PixelCrew.Model.Definitions;
 
 namespace PixelCrew.Components.Health
 {
@@ -21,12 +22,16 @@ namespace PixelCrew.Components.Health
         }
 
 
-        public void ModifyHealth(int healthDelta)
+        public bool ModifyHealth(int healthDelta)
         {
-            if (_health <= 0) return;
-            if (healthDelta < 0 && _immune) return;
+            if (_health <= 0) return false;
+            if (healthDelta > 0 && _health >= DefsFacade.I.Player.MaxHealth) return false;
+            if (healthDelta < 0 && _immune) return false;
 
             _health += healthDelta;
+            if (_health > DefsFacade.I.Player.MaxHealth)
+                _health = DefsFacade.I.Player.MaxHealth;
+
             _onChange?.Invoke(_health);
             if (_health <= 0)
             {
@@ -40,6 +45,7 @@ namespace PixelCrew.Components.Health
             {
                 _onHealth?.Invoke();
             }
+            return true;
             //Debug.Log($"Ваше здоровье: {_health}");
         }
 #if UNITY_EDITOR

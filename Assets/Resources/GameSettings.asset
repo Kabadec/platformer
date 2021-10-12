@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a7fd2d6980a7354aa2c8a04cbe611ac, type: 3}
-  m_Name: DefsFacade
+  m_Script: {fileID: 11500000, guid: 0e7e95e46785a184a989a3ad8b9d88b0, type: 3}
+  m_Name: GameSettings
   m_EditorClassIdentifier: 
-  _items: {fileID: 11400000, guid: 9c36ead85a863d0469e5a2a6a6f47c00, type: 2}
-  _player: {fileID: 11400000, guid: 9ffc20429824d2e4da9d1a021250f244, type: 2}
+  _music:
+    _value: 0.43604627
+  _sfx:
+    _value: 0.90455914

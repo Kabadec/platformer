@@ -12,7 +12,7 @@ namespace PixelCrew.UI
         private static readonly int Hide = Animator.StringToHash("Hide");
 
 
-        private void Start()
+        protected virtual void Start()
         {
             _animator = GetComponent<Animator>();
 

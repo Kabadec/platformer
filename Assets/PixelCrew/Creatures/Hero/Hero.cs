@@ -91,7 +91,7 @@ namespace PixelCrew.Creatures.Hero
             _health = GetComponent<HealthComponent>();
             _swordAmmo = GetComponent<SwordsAmmoComponent>();
 
-            _health.SetHealth(_session.Data.Hp);
+            _health.SetHealth(_session.Data.Hp.Value);
             _swordAmmo.SetSwords(SwordCount);
 
             _session.Data.Inventory.OnChanged += OnInventoryChanged;
@@ -112,7 +112,7 @@ namespace PixelCrew.Creatures.Hero
         }
         public void OnHealthChanged(int currentHealth)
         {
-            _session.Data.Hp = currentHealth;
+            _session.Data.Hp.Value = currentHealth;
         }
         public void OnSwordAmmoChanged(int swordAmmoDelta)
         {
@@ -273,8 +273,8 @@ namespace PixelCrew.Creatures.Hero
             //Debug.Log("U press H");
             if (_session.Data.Inventory.Count("PotionHealth") > 0)
             {
-                _health.ModifyHealth(_healthValue);
-                _session.Data.Inventory.Remove("PotionHealth", 1);
+                if (_health.ModifyHealth(_healthValue))
+                    _session.Data.Inventory.Remove("PotionHealth", 1);
                 //Debug.Log("U used Potion Health");
             }
         }

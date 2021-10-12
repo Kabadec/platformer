@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using PixelCrew.Model.Data;
+using UnityEngine.SceneManagement;
 
 namespace PixelCrew.Model
 {
@@ -14,6 +15,7 @@ namespace PixelCrew.Model
 
         private void Awake()
         {
+            LoadHud();
             SetDefaultData(_data);
             if (IsSessionExit())
             {
@@ -25,6 +27,11 @@ namespace PixelCrew.Model
                 SetData(_defaultData);
                 //Debug.Log("xyi");
             }
+        }
+
+        private void LoadHud()
+        {
+            SceneManager.LoadScene("Hud", LoadSceneMode.Additive);
         }
 
         private bool IsSessionExit()
