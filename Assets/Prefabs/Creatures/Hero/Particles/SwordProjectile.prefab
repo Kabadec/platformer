@@ -124,7 +124,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1577660841
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8974c1093f229574fac9238a5c3dce25, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -187,6 +187,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 8462409005816164618}
+  _delayToDestroy: 0
+  _destroyOnStart: 0
 --- !u!50 &4876276002588836589
 Rigidbody2D:
   serializedVersion: 4
@@ -307,7 +309,7 @@ MonoBehaviour:
   _tag: 
   _layer:
     serializedVersion: 2
-    m_Bits: 24832
+    m_Bits: 16640
   _action:
     m_PersistentCalls:
       m_Calls:

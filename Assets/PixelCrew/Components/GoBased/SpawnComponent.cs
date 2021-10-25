@@ -27,7 +27,7 @@ namespace PixelCrew.Components.GoBased
         }
         private GameObject CreatingGameObject()
         {
-            var instantiate = Instantiate(_prefab, _target.position, Quaternion.identity);
+            var instantiate = SpawnUtils.Spawn(_prefab, _target.position);
 
             var scale = _target.lossyScale;
             scale.x *= _invertXScale ? -1 : 1;
@@ -36,5 +36,9 @@ namespace PixelCrew.Components.GoBased
             return instantiate;
         }
 
+        public void SetPrefab(GameObject prefab)
+        {
+            _prefab = prefab;
+        }
     }
 }

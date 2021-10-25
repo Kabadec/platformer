@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using PixelCrew.Model.Data.Properties;
+using PixelCrew.Utils.Disposables;
 
 namespace PixelCrew.UI.Widgets
 {
@@ -13,15 +14,17 @@ namespace PixelCrew.UI.Widgets
 
         private FloatPersistentProperty _model;
 
+        private readonly CompositeDisposable _trash = new CompositeDisposable();
 
         private void Start()
         {
-            _slider.onValueChanged.AddListener(OnSliderValueChanged);
+            _trash.Retain(_slider.onValueChanged.Subscribe(OnSliderValueChanged));
         }
         public void SetModel(FloatPersistentProperty model)
         {
             _model = model;
-            model.OnChanged += OnValueChanged;
+            _trash.Retain(model.Subscribe(OnValueChanged));
+
             OnValueChanged(model.Value, model.Value);
         }
         private void OnSliderValueChanged(float value)
@@ -39,8 +42,7 @@ namespace PixelCrew.UI.Widgets
         }
         private void OnDestroy()
         {
-            _slider.onValueChanged.RemoveListener(OnSliderValueChanged);
-            _model.OnChanged -= OnValueChanged;
+            _trash.Dispose();
         }
     }
 }

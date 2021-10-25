@@ -1853,7 +1853,7 @@ MonoBehaviour:
       - Id: Coin
         Value: 10000
     Hp:
-      _value: 10
+      _value: 5
 --- !u!4 &346455538
 Transform:
   m_ObjectHideFlags: 0

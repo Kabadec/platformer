@@ -42,7 +42,7 @@ namespace PixelCrew.Creatures.Hero
         {
             if (context.performed)
             {
-                _hero.UsePotionHealth();
+                //_hero.UsePotionHealth();
             }
         }
         public void OnAttack(InputAction.CallbackContext context)
@@ -71,7 +71,13 @@ namespace PixelCrew.Creatures.Hero
                 _hero.DropFromPlatform();
             }
         }
-
+        public void OnNextItem(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                _hero.NextItem();
+            }
+        }
     }
 
 }

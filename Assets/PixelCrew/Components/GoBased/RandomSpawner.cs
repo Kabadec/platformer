@@ -86,7 +86,7 @@ namespace PixelCrew.Components.GoBased
         [ContextMenu("Spawn one")]
         private void Spawn(GameObject particle)
         {
-            var instance = Instantiate(particle, transform.position, Quaternion.identity);
+            var instance = SpawnUtils.Spawn(particle, transform.position);
             var delta = 0.001f;
             instance.transform.position += new Vector3(Random.Range(-delta, delta), Random.Range(-delta, delta), 0f);
 

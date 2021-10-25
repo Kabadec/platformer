@@ -12,6 +12,7 @@ namespace PixelCrew.Model
 
         private PlayerData _defaultData;
         public PlayerData DefaultData => _defaultData;
+        public QuickInventoryModel QuickInventory { get; private set; }
 
         private void Awake()
         {
@@ -24,9 +25,15 @@ namespace PixelCrew.Model
             else
             {
                 DontDestroyOnLoad(this);
+                
                 SetData(_defaultData);
-                //Debug.Log("xyi");
+                InitModels();
             }
+        }
+
+        private void InitModels()
+        {
+            QuickInventory = new QuickInventoryModel(Data);
         }
 
         private void LoadHud()

@@ -269,7 +269,6 @@ GameObject:
   - component: {fileID: 2260517198308532870}
   - component: {fileID: 2260517198308532868}
   - component: {fileID: 2260517198308532869}
-  - component: {fileID: 4238288378496942028}
   - component: {fileID: 1798808961}
   - component: {fileID: 323262983}
   - component: {fileID: 1664042934751621717}
@@ -395,14 +394,18 @@ MonoBehaviour:
   _wallCheck: {fileID: 65551831980373847}
   _fallVelocity: 12
   _secForDisablePlatform: 0.1
-  _numSwordsOnMultiThrow: 3
+  _numAmmoOnMultiThrow: 3
   _singleThrowCoolDown:
     _value: 0.5
   _multiThrowCoolDown: 0.1
   _waitBeforeMultiThrow: 1
+  _bigPotionHeal: 5
+  _potionHeal: 1
+  _durationSpeedBuff: 5
+  _powerSpeedBuff: 4
   _armed: {fileID: 9100000, guid: bda44eae4fb1d7943ac17d37be558a92, type: 2}
   _disarmed: {fileID: 9100000, guid: 499d1775a7cdb3945b975b5277598125, type: 2}
-  _healthValue: 5
+  _throwSpawner: {fileID: 6190857971245302580}
   _hitDrop: {fileID: 8340698991908983792}
 --- !u!114 &2260517198308532865
 MonoBehaviour:
@@ -535,6 +538,21 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 40a38156-5d1c-47c9-a611-94a2ca0e022a
     m_ActionName: Hero/OnDrop[/Keyboard/space,/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2260517198308532867}
+        m_MethodName: OnNextItem
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 46b0514a-d2ed-43f1-8df5-ecb20568d4d9
+    m_ActionName: Hero/NextItem[/Keyboard/q]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hero
@@ -587,7 +605,7 @@ Animator:
   m_GameObject: {fileID: 2260517198308532876}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bda44eae4fb1d7943ac17d37be558a92, type: 2}
+  m_Controller: {fileID: 9100000, guid: 499d1775a7cdb3945b975b5277598125, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -666,67 +684,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _immune: 0
---- !u!114 &4238288378496942028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2260517198308532876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 450e80c90193e5641944dc10f882cc0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _swordsInHolder: 0
-  _onTakeSword:
-    m_PersistentCalls:
-      m_Calls: []
-  _onSingleShoot:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2260517198308532864}
-        m_MethodName: SingleThrow
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _onMultiShoot:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2260517198308532864}
-        m_MethodName: MultiThrow
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _onNoAmmo:
-    m_PersistentCalls:
-      m_Calls: []
-  _onChangeSwordsAmmo:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2260517198308532864}
-        m_MethodName: OnSwordAmmoChanged
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1798808961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1011,7 +968,7 @@ GameObject:
   - component: {fileID: 1112241784562477805}
   - component: {fileID: 6190857971245302580}
   m_Layer: 0
-  m_Name: ThrowSwordSpawnPosition
+  m_Name: ThrowSpawnPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

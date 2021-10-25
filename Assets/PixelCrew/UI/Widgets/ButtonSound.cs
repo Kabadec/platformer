@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using PixelCrew.Components.Audio;
 
 
 namespace PixelCrew.UI.Widgets
@@ -14,7 +15,7 @@ namespace PixelCrew.UI.Widgets
         public void OnPointerClick(PointerEventData eventData)
         {
             if (_source == null)
-                _source = GameObject.FindWithTag("SfxAudioSource").GetComponent<AudioSource>();
+                _source = AudioUtils.FindSfxSource();
 
             _source.PlayOneShot(_audioClip);
 
