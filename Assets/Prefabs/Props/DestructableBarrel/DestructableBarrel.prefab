@@ -63,7 +63,7 @@ GameObject:
   - component: {fileID: 968826362671157292}
   - component: {fileID: 968826362671157293}
   - component: {fileID: 1639195594853951673}
-  - component: {fileID: 5696741842474020510}
+  - component: {fileID: 7917071824297212452}
   m_Layer: 12
   m_Name: DestructableBarrel
   m_TagString: Enemy
@@ -287,7 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e091fc3f47091524597214955c46f036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 1
+  _health: 2
   _onDamage:
     m_PersistentCalls:
       m_Calls:
@@ -316,7 +316,7 @@ MonoBehaviour:
           m_StringArgument: destroy
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 5696741842474020510}
+      - m_Target: {fileID: 7917071824297212452}
         m_MethodName: Play
         m_Mode: 1
         m_Arguments:
@@ -333,6 +333,7 @@ MonoBehaviour:
   _onChange:
     m_PersistentCalls:
       m_Calls: []
+  _immune: 0
 --- !u!114 &1639195594853951673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,103 +351,19 @@ MonoBehaviour:
     Component: {fileID: 195981570249646600}
   - Id: BarrelDrop
     Component: {fileID: 2716488305851948775}
---- !u!82 &5696741842474020510
-AudioSource:
+--- !u!114 &7917071824297212452
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 968826362671157298}
   m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: ef4eb828f0ccc5145ad0cdb0d87dfbfc,
-    type: 2}
-  m_audioClip: {fileID: 8300000, guid: db1d2ce6379297f40992f658e2a53318, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b765f6beb5b80e949a92dbe3587c2589, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clip: {fileID: 8300000, guid: 5da039ae7e4f45448a0b53d82b141ef3, type: 3}
 --- !u!1 &5134441512050062230
 GameObject:
   m_ObjectHideFlags: 0

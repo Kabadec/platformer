@@ -18674,8 +18674,8 @@ Transform:
   - {fileID: 414989513}
   - {fileID: 1343754113}
   - {fileID: 1547156323}
-  - {fileID: 170881380}
   - {fileID: 1452402489}
+  - {fileID: 170881380}
   - {fileID: 1744714718}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -19497,7 +19497,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -50.26, y: -0.38, z: -10}
+  m_LocalPosition: {x: 16.6, y: 9.1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1238278177}
@@ -27961,8 +27961,6 @@ MonoBehaviour:
       _inventory:
       - Id: Coin
         Value: 30
-      - Id: Key
-        Value: 0
       - Id: BigPotionHealth
         Value: 2
       - Id: PearlProjectile
@@ -38157,17 +38155,17 @@ PrefabInstance:
     - target: {fileID: 5529705685600571244, guid: 55613efb8291fe7479faacf7e7c9853f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5529705685600571244, guid: 55613efb8291fe7479faacf7e7c9853f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.61
+      value: 15.22
       objectReference: {fileID: 0}
     - target: {fileID: 5529705685600571244, guid: 55613efb8291fe7479faacf7e7c9853f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.54
+      value: 10.73
       objectReference: {fileID: 0}
     - target: {fileID: 5529705685600571244, guid: 55613efb8291fe7479faacf7e7c9853f,
         type: 3}
@@ -42769,7 +42767,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1520236734}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -64.06004, y: -8.274325, z: 0}
+  m_LocalPosition: {x: 2.7999592, y: 1.2056751, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 150877357}
@@ -43771,6 +43769,7 @@ GameObject:
   - component: {fileID: 1586293963}
   - component: {fileID: 1586293962}
   - component: {fileID: 1586293965}
+  - component: {fileID: 1586293967}
   - component: {fileID: 1586293966}
   m_Layer: 9
   m_Name: WoodenDoor(Exit)
@@ -43858,7 +43857,7 @@ MonoBehaviour:
   _action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1586293966}
+      - m_Target: {fileID: 1586293967}
         m_MethodName: Check
         m_Mode: 1
         m_Arguments:
@@ -43954,12 +43953,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 1586293959}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9b04aeba01d49628d4bfe2aaa5d4428, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mode: 0
+  _bound:
+    _sentences:
+    - You need a key...
+    - Try to search upper floor.
+  _external: {fileID: 0}
+--- !u!114 &1586293967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586293959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3993d9cb1b06d64cbbbeaaa85e4ee32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _required:
-  - Id: Coin
-    Value: 2
   - Id: Key
     Value: 1
   _removeAfterUse: 1
@@ -43991,12 +44006,12 @@ MonoBehaviour:
   _onFail:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
+      - m_Target: {fileID: 1586293966}
+        m_MethodName: Show
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -52527,12 +52542,12 @@ PrefabInstance:
     - target: {fileID: 2260517198308532866, guid: 435e6481a06e62b42a410b33714c06dd,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -50.26
+      value: 16.6
       objectReference: {fileID: 0}
     - target: {fileID: 2260517198308532866, guid: 435e6481a06e62b42a410b33714c06dd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.38
+      value: 9.1
       objectReference: {fileID: 0}
     - target: {fileID: 2260517198308532866, guid: 435e6481a06e62b42a410b33714c06dd,
         type: 3}
