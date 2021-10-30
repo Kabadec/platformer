@@ -1,23 +1,30 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System;
+﻿using System;
+using PixelCrew.Creatures;
+using PixelCrew.Model;
+using PixelCrew.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using PixelCrew.Creatures;
 
-namespace PixelCrew.UI.GameMenu
+namespace PixelCrew.UI.InGameMenu
 {
-    public class GameMenuWindow : AnimatedWindow
+    public class InGameMenuWindow : AnimatedWindow
     {
         private Action _closeAction;
+        private float _defaultTimeScale;
 
+        protected override void Start()
+        {
+            base.Start();
+
+            _defaultTimeScale = Time.timeScale;
+            Time.timeScale = 0;
+        }
+        
+        
 
         public void OnShowSettings()
         {
-            var window = Resources.Load<GameObject>("UI/SettingsWindow");
-            var canvas = FindObjectOfType<Canvas>();
-            Instantiate(window, canvas.transform);
-
+            WindowUtils.CreateWindow("UI/SettingsWindow");
         }
 
         public void OnResumeGame()
@@ -43,10 +50,15 @@ namespace PixelCrew.UI.GameMenu
             SceneManager.LoadScene(scene.name);
             Close();
         }
+        public void OnLangauges()
+        {
+            WindowUtils.CreateWindow("UI/LocalizationWindow");
+
+        }
 
         public void OnExit()
         {
-            _closeAction = () =>
+           /* _closeAction = () =>
             {
                 Application.Quit();
 
@@ -54,8 +66,10 @@ namespace PixelCrew.UI.GameMenu
                 UnityEditor.EditorApplication.isPlaying = false;
 #endif
             };
-            Close();
-
+            Close();*/
+           SceneManager.LoadScene("MainMenu");
+           var session = FindObjectOfType<GameSession>();
+           Destroy(session.gameObject);
         }
 
         public override void OnCloseAnimationComplete()
@@ -64,5 +78,9 @@ namespace PixelCrew.UI.GameMenu
             base.OnCloseAnimationComplete();
         }
 
+        private void OnDestroy()
+        {
+            Time.timeScale = _defaultTimeScale;
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System;
+using PixelCrew.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,13 +10,7 @@ namespace PixelCrew.UI.MainMenu
     public class MainMenuWindow : AnimatedWindow
     {
         private Action _closeAction;
-        public void OnShowSettings()
-        {
-            var window = Resources.Load<GameObject>("UI/SettingsWindow");
-            var canvas = FindObjectOfType<Canvas>();
-            Instantiate(window, canvas.transform);
-
-        }
+        
 
         public void OnStartGame()
         {
@@ -24,6 +19,17 @@ namespace PixelCrew.UI.MainMenu
                 SceneManager.LoadScene("Level1");
             };
             Close();
+        }
+        
+        public void OnShowSettings()
+        {
+            WindowUtils.CreateWindow("UI/SettingsWindow");
+        }
+
+        public void OnLangauges()
+        {
+            WindowUtils.CreateWindow("UI/LocalizationWindow");
+
         }
 
         public void OnExit()

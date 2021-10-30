@@ -10,6 +10,7 @@ TagManager:
   - Ground
   - CREATURES
   - SfxAudioSource
+  - MainCanvas
   layers:
   - Default
   - TransparentFX

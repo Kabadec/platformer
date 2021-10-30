@@ -15,8 +15,7 @@ namespace PixelCrew.UI
         protected virtual void Start()
         {
             _animator = GetComponent<Animator>();
-
-
+            
             _animator.SetTrigger(Show);
         }
         public void Close()

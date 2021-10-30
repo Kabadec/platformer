@@ -1,6 +1,7 @@
 ﻿using System;
 using PixelCrew.Model.Data;
 using PixelCrew.Model.Definitions;
+using PixelCrew.Model.Definitions.Localization;
 using PixelCrew.UI.Hud.Dialogs;
 using UnityEngine;
 
@@ -18,7 +19,20 @@ namespace PixelCrew.Components.Dialogs
         {
             if (_dialogBox == null)
                 _dialogBox = FindObjectOfType<DialogBoxController>();
-            _dialogBox.ShowDialog(Data);
+            var localizedData = new string[_bound.Sentences.Length];
+            if (_mode == Mode.Bound)
+            {
+                var i = 0;
+                foreach (var key in _bound.Sentences)
+                {
+                    localizedData[i] = LocalizationManager.I.Localize(key);
+                    i++;
+                }
+                DialogData data = new DialogData(localizedData);
+                _dialogBox.ShowDialog(data);
+            }
+            else
+                _dialogBox.ShowDialog(Data);
         }
 
         public void Show(DialogDef def)

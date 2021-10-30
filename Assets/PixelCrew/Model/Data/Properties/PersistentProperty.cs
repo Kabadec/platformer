@@ -7,11 +7,8 @@ namespace PixelCrew.Model.Data.Properties
     {
         protected TPropertyType _stored;
         private TPropertyType _defaultValue;
-
-
-
-
-        public PersistentProperty(TPropertyType defaultValue)
+        
+        protected PersistentProperty(TPropertyType defaultValue)
         {
             _defaultValue = defaultValue;
         }

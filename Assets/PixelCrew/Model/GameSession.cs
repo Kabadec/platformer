@@ -36,7 +36,7 @@ namespace PixelCrew.Model
 
         private void InitModels()
         {
-            QuickInventory = new QuickInventoryModel(Data);
+            QuickInventory = new QuickInventoryModel(_data);
             _trash.Retain(QuickInventory);
         }
 
@@ -58,7 +58,11 @@ namespace PixelCrew.Model
         }
         public void SetData(PlayerData data)
         {
+            
+            
             _data = data.Clone();
+            _trash.Dispose();
+            InitModels();
         }
         public void SetDefaultData(PlayerData data)
         {
