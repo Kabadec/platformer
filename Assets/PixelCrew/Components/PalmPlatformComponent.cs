@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,8 +21,12 @@ namespace PixelCrew.Components
 
         private void Awake()
         {
-            _hero = FindObjectOfType<Hero>();
             _collider = GetComponent<Collider2D>();
+        }
+
+        private void Start()
+        {
+            _hero = FindObjectOfType<Hero>();
         }
 
         private void FixedUpdate()
