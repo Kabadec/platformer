@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using PixelCrew.UI.Widgets;
 using PixelCrew.Model.Data;
+using PixelCrew.UI.Windows;
+
 namespace PixelCrew.UI.SettingsWindow
 {
 

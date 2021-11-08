@@ -132,7 +132,6 @@ namespace PixelCrew.Creatures
         public virtual void Attack()
         {
             Animator.SetTrigger(AttackKey);
-            Sounds.Play("Melee");
         }
 
         public void OnDoAttack()
@@ -140,6 +139,7 @@ namespace PixelCrew.Creatures
             _attackRange0.Check();
             if (_attackRange1 != null)
                 _attackRange1.Check();
+            Sounds.Play("Melee");
         }
     }
 }

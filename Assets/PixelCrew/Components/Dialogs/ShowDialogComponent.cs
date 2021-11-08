@@ -49,10 +49,8 @@ namespace PixelCrew.Components.Dialogs
                 {
                     case Mode.Bound:
                         return _bound;
-                        break;
                     case Mode.External:
                         return _external.Data;
-                        break;
                     default:
                         throw new ArgumentOutOfRangeException();
                 }

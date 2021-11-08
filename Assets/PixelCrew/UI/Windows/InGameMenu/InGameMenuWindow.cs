@@ -1,6 +1,8 @@
 ﻿using System;
 using PixelCrew.Creatures;
+using PixelCrew.Creatures.Hero;
 using PixelCrew.Model;
+using PixelCrew.UI.Windows;
 using PixelCrew.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,6 +14,7 @@ namespace PixelCrew.UI.InGameMenu
         private Action _closeAction;
         private float _defaultTimeScale;
 
+        
         protected override void Start()
         {
             base.Start();
@@ -19,8 +22,6 @@ namespace PixelCrew.UI.InGameMenu
             _defaultTimeScale = Time.timeScale;
             Time.timeScale = 0;
         }
-        
-        
 
         public void OnShowSettings()
         {
@@ -29,20 +30,8 @@ namespace PixelCrew.UI.InGameMenu
 
         public void OnResumeGame()
         {
-            //игра возобновляется
-            //Time.timeScale = 1;
-            //_creatures = 
-            //_creatures.SetActive(false);
-            var parentCreatures = GameObject.FindWithTag("CREATURES");
-            var creatures = parentCreatures.GetComponentsInChildren<Creature>(true);
-            foreach (var creature in creatures)
-            {
-                creature.gameObject.SetActive(true);
-            }
-
             Close();
         }
-
 
         public void OnRestartGame()
         {
@@ -57,16 +46,7 @@ namespace PixelCrew.UI.InGameMenu
         }
 
         public void OnExit()
-        {
-           /* _closeAction = () =>
-            {
-                Application.Quit();
-
-#if UNITY_EDITOR
-                UnityEditor.EditorApplication.isPlaying = false;
-#endif
-            };
-            Close();*/
+        { 
            SceneManager.LoadScene("MainMenu");
            var session = FindObjectOfType<GameSession>();
            Destroy(session.gameObject);
@@ -80,6 +60,8 @@ namespace PixelCrew.UI.InGameMenu
 
         private void OnDestroy()
         {
+            var hero = FindObjectOfType<Hero>();
+            hero.IsPause = false;
             Time.timeScale = _defaultTimeScale;
         }
     }

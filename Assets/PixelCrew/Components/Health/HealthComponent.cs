@@ -13,22 +13,27 @@ namespace PixelCrew.Components.Health
         [SerializeField] public UnityEvent _onDie;
         [SerializeField] private UnityEvent _onHealth;
         [SerializeField] public HealthChangeEvent _onChange;
-        [SerializeField] private bool _immune;
+        [SerializeField] private bool _immuneAfterHitAfterHit;
+        [SerializeField] private bool _immuneForceShield;
 
         public int Health => _health;
         
-        public bool Immune
+        public bool ImmuneAfterHit
         {
-            get => _immune;
-            set => _immune = value;
+            get => _immuneAfterHitAfterHit;
+            set => _immuneAfterHitAfterHit = value;
         }
-
+        public bool ImmuneForceShield
+        {
+            get => _immuneForceShield;
+            set => _immuneForceShield = value;
+        }
 
         public bool ModifyHealth(int healthDelta)
         {
             if (_health <= 0) return false;
             if (healthDelta > 0 && _health >= DefsFacade.I.Player.MaxHealth) return false;
-            if (healthDelta < 0 && _immune) return false;
+            if (healthDelta < 0 && (_immuneAfterHitAfterHit || _immuneForceShield)) return false;
 
             _health += healthDelta;
             if (_health > DefsFacade.I.Player.MaxHealth)

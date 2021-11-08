@@ -41,4 +41,10 @@ MonoBehaviour:
   - Key: door_key0
     Value: "You need a key...\r"
   - Key: door_key1
-    Value: Try to search upper floor.
+    Value: "Try to search upper floor.\r"
+  - Key: This is Double jump.
+    Value: "This is Double jump.\r"
+  - Key: This is Super Throw.
+    Value: "This is Super Throw.\r"
+  - Key: This is Force Shield. Press F to use.
+    Value: This is Force Shield. Press F to use.

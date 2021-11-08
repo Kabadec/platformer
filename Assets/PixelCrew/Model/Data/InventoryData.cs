@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using PixelCrew.Model.Definitions;
+using PixelCrew.Model.Definitions.Repositories;
+using PixelCrew.Model.Definitions.Repositories.Items;
 
 namespace PixelCrew.Model.Data
 {
@@ -20,7 +22,7 @@ namespace PixelCrew.Model.Data
         {
             if (value <= 0) return false;
 
-            var itemDef = DefsFacade.I.Items.Get(id);
+            var itemDef = DefsFacade.I.Itemses.Get(id);
             if (itemDef.IsVoid) return false;
 
             var item = GetItem(id);
@@ -48,7 +50,7 @@ namespace PixelCrew.Model.Data
 
         public void Remove(string id, int value)
         {
-            var itemDef = DefsFacade.I.Items.Get(id);
+            var itemDef = DefsFacade.I.Itemses.Get(id);
             if (itemDef.IsVoid) return;
 
             var item = GetItem(id);
@@ -66,7 +68,7 @@ namespace PixelCrew.Model.Data
             var retValue = new List<InventoryItemData>();
             foreach (var item in _inventory)
             {
-                var itemDef = DefsFacade.I.Items.Get(item.Id);
+                var itemDef = DefsFacade.I.Itemses.Get(item.Id);
                 var isAllRequirementsMet = tags.All(x => itemDef.HasTag(x));
                 if (isAllRequirementsMet)
                 {
@@ -98,6 +100,27 @@ namespace PixelCrew.Model.Data
                 }
             }
             return count;
+        }
+
+        public bool IsEnough(params ItemWithCount[] items)
+        {
+            var joined = new Dictionary<string, int>();
+            foreach (var item in items)
+            {
+                if (joined.ContainsKey(item.ItemId))
+                    joined[item.ItemId] += item.Count;
+                else
+                {
+                    joined.Add(item.ItemId, item.Count);
+                }
+            }
+
+            foreach (var kvp in joined)
+            {
+                var count = Count(kvp.Key);
+                if (count < kvp.Value) return false;
+            }
+            return true;
         }
     }
 

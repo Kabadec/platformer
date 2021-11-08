@@ -5,6 +5,7 @@ using PixelCrew.Creatures.Hero;
 using PixelCrew.Model.Definitions;
 using PixelCrew.Utils;
 using PixelCrew.Model.Data;
+using PixelCrew.Model.Definitions.Repositories.Items;
 
 namespace PixelCrew.Components.Collectables
 {

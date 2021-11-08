@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using PixelCrew.Creatures.Hero;
 using UnityEngine;
 using PixelCrew.UI.Widgets.Editor;
 using PixelCrew.Model;
@@ -30,6 +31,8 @@ namespace PixelCrew.UI.Hud
 
         public void OnSettings()
         {
+            var hero = FindObjectOfType<Hero>();
+            hero.IsPause = true;
             WindowUtils.CreateWindow("UI/InGameMenuWindow");
         }
         private void OnDestroy()

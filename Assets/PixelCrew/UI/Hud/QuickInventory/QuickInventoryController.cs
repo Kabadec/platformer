@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using PixelCrew.Model;
 using PixelCrew.Model.Data;
+using PixelCrew.Model.Data.Properties;
 using PixelCrew.UI.Widgets;
 using PixelCrew.Utils.Disposables;
 using UnityEngine;
@@ -12,10 +13,14 @@ namespace PixelCrew.UI.Hud.QuickInventory
     {
         [SerializeField] private Transform _container;
         [SerializeField] private InventoryItemWidget _prefab;
+        [Space] [SerializeField] private int _leftAndRightPadding = 3;
+        [SerializeField] private int _widthItem = 15;
+        [SerializeField] private int _heightInventory = 24;
 
         private readonly CompositeDisposable _trash = new CompositeDisposable();
 
         private GameSession _session;
+        private RectTransform _rectTransform;
         private List<InventoryItemWidget> _createdItem = new List<InventoryItemWidget>();
 
         private DataGroup<InventoryItemData, InventoryItemWidget> _dataGroup;
@@ -24,6 +29,7 @@ namespace PixelCrew.UI.Hud.QuickInventory
         {
             _dataGroup = new DataGroup<InventoryItemData, InventoryItemWidget>(_prefab, _container);
             _session = FindObjectOfType<GameSession>();
+            _rectTransform = GetComponent<RectTransform>();
             _trash.Retain(_session.QuickInventory.Subscribe(Rebuild));
             Rebuild();
         }
@@ -33,25 +39,12 @@ namespace PixelCrew.UI.Hud.QuickInventory
         {
             var inventory = _session.QuickInventory.Inventory;
             _dataGroup.SetData(inventory);
-            // // create required items
-            // for (var i = _createdItem.Count; i < inventory.Length; i++)
-            // {
-            //     var item = Instantiate(_prefab, _container);
-            //     _createdItem.Add(item);
-            // }
-            //
-            // // update data and activate
-            // for (var i = 0; i < inventory.Length; i++)
-            // {
-            //     _createdItem[i].SetData(inventory[i], i);
-            //     _createdItem[i].gameObject.SetActive(true);
-            // }
-            //
-            // // hide unused itemsв
-            // for (var i = inventory.Length; i < _createdItem.Count; i++)
-            // {
-            //     _createdItem[i].gameObject.SetActive(false);
-            // }
+
+            var widthInventory = inventory.Length <= 3
+                ? _leftAndRightPadding * 2 + _widthItem * 3
+                : _leftAndRightPadding * 2 + _widthItem * inventory.Length;
+            
+            _rectTransform.sizeDelta = new Vector2(widthInventory, _heightInventory);
         }
 
         private void OnDestroy()

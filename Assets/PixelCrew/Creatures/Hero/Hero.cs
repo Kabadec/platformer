@@ -13,6 +13,9 @@ using PixelCrew.Components.Health;
 using PixelCrew.Components.GoBased;
 using PixelCrew.Model.Data;
 using PixelCrew.Model.Definitions;
+using PixelCrew.Model.Definitions.Repositories;
+using PixelCrew.Model.Definitions.Repositories.Items;
+using PixelCrew.Utils.Disposables;
 
 namespace PixelCrew.Creatures.Hero
 {
@@ -32,12 +35,7 @@ namespace PixelCrew.Creatures.Hero
         [SerializeField] private Cooldown _singleThrowCoolDown;
         [SerializeField] private float _multiThrowCoolDown = 0.1f;
         [SerializeField] private float _waitBeforeMultiThrow = 1f;
-
-        [Header("Potions")]
-        [SerializeField] private int _bigPotionHeal = 5;
-        [SerializeField] private int _potionHeal = 1;
-        [SerializeField] private float _durationSpeedBuff = 5f;
-        [SerializeField] private float _powerSpeedBuff = 4;
+        
 
         [Space]
         [SerializeField] AnimatorController _armed;
@@ -47,10 +45,17 @@ namespace PixelCrew.Creatures.Hero
         
         [Header("Particles")]
         [SerializeField] private RandomSpawner _hitDrop;
+        [Header("ForceShield")]
+        [SerializeField] private GameObject _forceShield;
+
+        [SerializeField] private float _durationForceShield = 3;
 
 
         private static readonly int ThrowKey = Animator.StringToHash("throw");
         private static readonly int IsOnWall = Animator.StringToHash("is-on-wall");
+        
+        private readonly CompositeDisposable _trash = new CompositeDisposable();
+
 
         private const string SwordId = "Sword";
 
@@ -58,7 +63,10 @@ namespace PixelCrew.Creatures.Hero
         private int SwordCount => _session.Data.Inventory.Count(SwordId);
         private string SelectedId => _session.QuickInventory.SelectedItem.Id;
 
+        //private float _timeHowPerkUsed = 0;
 
+        //public float TimeHowPerkUsed => _timeHowPerkUsed;
+        private float _coolDownPerk;
 
         private bool _allowDoubleJump;
         private bool _isOnWall;
@@ -83,13 +91,14 @@ namespace PixelCrew.Creatures.Hero
         private float _defaultGravityScale;
         private HealthComponent _health;
         private Coroutine _multiThrowCoroutine;
+        private Coroutine _forceShieldCoroutine;
+        public bool IsPause { get; set; }
 
 
         protected override void Awake()
         {
             base.Awake();
             _defaultGravityScale = Rigidbody.gravityScale;
-
         }
 
 
@@ -101,8 +110,15 @@ namespace PixelCrew.Creatures.Hero
             _health.SetHealth(_session.Data.Hp.Value);
 
             _session.Data.Inventory.OnChanged += OnInventoryChanged;
+            _trash.Retain(_session.PerksModel.Subscribe(OnActivePerkChanged));
 
             UpdateHeroWeapon();
+        }
+
+        private void OnActivePerkChanged()
+        {
+            var def = DefsFacade.I.Perks.Get(_session.PerksModel.Used);
+            _coolDownPerk = def.Cooldown;
         }
 
         private void OnDestroy()
@@ -119,8 +135,6 @@ namespace PixelCrew.Creatures.Hero
         {
             _session.Data.Hp.Value = currentHealth;
         }
-       
-
 
         protected override void Update()
         {
@@ -147,7 +161,6 @@ namespace PixelCrew.Creatures.Hero
             base.FixedUpdate();
         }
 
-
         protected override float CalculateYVelocity()
         {
             var isJumpPressing = Direction.y > 0;
@@ -160,9 +173,7 @@ namespace PixelCrew.Creatures.Hero
             if (isJumpPressing && _isSPressed)
             {
                 _goDownWithPlatform = true;
-                //DropFromPlatform();
                 return Rigidbody.velocity.y;
-
             }
             else if (!isJumpPressing && _isOnWall)
             {
@@ -174,8 +185,10 @@ namespace PixelCrew.Creatures.Hero
 
         protected override float CalculateJumpVelocity(float yVelocity)
         {
-            if (!IsGrounded && _allowDoubleJump && !_isOnWall)
+            if (!IsGrounded && _allowDoubleJump && _session.PerksModel.IsDoubleJumpSupported && !_isOnWall
+                && Time.time > _session.PerksModel.TimeHowPerkUsed + _coolDownPerk)
             {
+                _session.PerksModel.SetTimeHowPerkUsed(Time.time);
                 DoJumpVfx();
                 _allowDoubleJump = false;
                 return _jumpSpeed;
@@ -195,8 +208,6 @@ namespace PixelCrew.Creatures.Hero
             {
                 SpawnCoins();
             }
-            //Debug.Log($"У вас {_sumCoins} монет");
-
         }
         private void SpawnCoins()
         {
@@ -251,7 +262,11 @@ namespace PixelCrew.Creatures.Hero
                 }
                 else
                 {
-                    MultiThrow();
+                    if (_session.PerksModel.IsSuperThrowSupported 
+                        && Time.time > _session.PerksModel.TimeHowPerkUsed + _coolDownPerk)
+                    {
+                        MultiThrow();
+                    }
                 }
                 _triggerThrow = false;
             }
@@ -264,24 +279,75 @@ namespace PixelCrew.Creatures.Hero
 
         private void UseSomething()
         {
-            if (DefsFacade.I.Items.Get(SelectedId).HasTag(ItemTag.Throwable))
+            if (DefsFacade.I.Itemses.Get(SelectedId).HasTag(ItemTag.Throwable))
             {
                 SingleThrow();
                 return;
+            }else if (DefsFacade.I.Itemses.Get(SelectedId).HasTag(ItemTag.Potion))
+            {
+                UsePotion();
             }
-            if(SelectedId == "PotionHealth") UsePotionHealth("PotionHealth");
-            if(SelectedId == "BigPotionHealth") UsePotionHealth("BigPotionHealth");
-            if (SelectedId == "SpeedPotion") UseSpeedPotion();
+            
+        }
+        private void UsePotion()
+        {
+            var potion = DefsFacade.I.Potions.Get(SelectedId);
+
+            switch (potion.Effect)
+            {
+                case Effect.AddHp:
+                    if (_session.Data.Inventory.Count(SelectedId) > 0)
+                    {
+                        if (_health.ModifyHealth((int)potion.Value))
+                            _session.Data.Inventory.Remove(SelectedId, 1);
+                    }
+                    break;
+                case Effect.SpeedUp:
+                    if (!_isBuffSpeed && _session.Data.Inventory.Count(SelectedId) > 0)
+                    {
+                        _speedBuffCoroutine = StartCoroutine(SpeedBuffCoroutine(SelectedId));
+                        _session.Data.Inventory.Remove(SelectedId, 1);
+                    }
+                    break;
+            }
+            
+        }
+        
+        public void UseForceShield()
+        {
+            if (_session.PerksModel.IsForceShieldSupported
+                && Time.time > _session.PerksModel.TimeHowPerkUsed + _coolDownPerk)
+            {
+                _session.PerksModel.SetTimeHowPerkUsed(Time.time);
+                _forceShieldCoroutine = StartCoroutine(ForceShieldCoroutine());
+            }
         }
 
-        
+        private IEnumerator ForceShieldCoroutine()
+        {
+            _health.ImmuneForceShield = true;
+            _forceShield.SetActive(true);
+            yield return new WaitForSeconds(_durationForceShield);
+            _health.ImmuneForceShield = false;
+            _forceShield.SetActive(false);
+        }
+
+        public IEnumerator SpeedBuffCoroutine(string id)
+        {
+            var potion = DefsFacade.I.Potions.Get(SelectedId);
+            _isBuffSpeed = true;
+            _speed += potion.Value;
+            yield return new WaitForSeconds(potion.Time);
+            _isBuffSpeed = false;
+            _speed -= potion.Value;
+        }
+
 
         public override void Attack()
         {
             if (SwordCount <= 0) return;
             base.Attack();
         }
-        
 
         private void UpdateHeroWeapon()
         {
@@ -303,7 +369,7 @@ namespace PixelCrew.Creatures.Hero
 
         private bool CanThrow()
         {
-            if (!DefsFacade.I.Items.Get(SelectedId).HasTag(ItemTag.Throwable)) return false;
+            if (!DefsFacade.I.Itemses.Get(SelectedId).HasTag(ItemTag.Throwable)) return false;
             if (SelectedId == SwordId)
             {
                 if (SwordCount > 1) return true;
@@ -330,6 +396,7 @@ namespace PixelCrew.Creatures.Hero
         public void MultiThrow()
         {
             if(!CanThrow()) return;
+            _session.PerksModel.SetTimeHowPerkUsed(Time.time);
             var throwableCount = _session.Data.Inventory.Count(SelectedId);
             var possibleCount = SelectedId == SwordId ? throwableCount - 1 : throwableCount;
             var numAmmo = Mathf.Min(_numAmmoOnMultiThrow, possibleCount);;
@@ -371,36 +438,13 @@ namespace PixelCrew.Creatures.Hero
             component.DisableCollider();
 
         }
-        public void UsePotionHealth(string potionId)
-        {
-            var deltaHeal = (potionId == "PotionHealth") ? _potionHeal : _bigPotionHeal;
-            if (_session.Data.Inventory.Count(potionId) > 0)
-            {
-                if (_health.ModifyHealth(deltaHeal))
-                    _session.Data.Inventory.Remove(potionId, 1);
-            }
-        }
-        private void UseSpeedPotion()
-        {
-            if (!_isBuffSpeed && _session.Data.Inventory.Count("SpeedPotion") > 0)
-            {
-                _speedBuffCoroutine = StartCoroutine(SpeedBuffCoroutine());
-                _session.Data.Inventory.Remove("SpeedPotion", 1);
-            }
-        }
-
-        public IEnumerator SpeedBuffCoroutine()
-        {
-            _isBuffSpeed = true;
-            _speed += _powerSpeedBuff;
-            yield return new WaitForSeconds(_durationSpeedBuff);
-            _isBuffSpeed = false;
-            _speed -= _powerSpeedBuff;
-        }
+        
         
         public void NextItem()
         {
             _session.QuickInventory.SetNextItem();
         }
+
+        
     }
 }

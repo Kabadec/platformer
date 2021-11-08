@@ -36,9 +36,9 @@ namespace PixelCrew.Components.Health
 
         private IEnumerator MakeImmune()
         {
-            _health.Immune = true;
+            _health.ImmuneAfterHit = true;
             yield return new WaitForSeconds(_immuneTime);
-            _health.Immune = false;
+            _health.ImmuneAfterHit = false;
             _coroutine = null;
         }
     }

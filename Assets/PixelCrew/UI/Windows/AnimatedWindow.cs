@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace PixelCrew.UI
+namespace PixelCrew.UI.Windows
 {
     public class AnimatedWindow : MonoBehaviour
     {

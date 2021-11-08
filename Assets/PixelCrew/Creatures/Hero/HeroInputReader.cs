@@ -30,12 +30,17 @@ namespace PixelCrew.Creatures.Hero
             if (context.performed)
             {
                 _hero.SetSPressed(true);
-                //Debug.Log(true);
             }
             if (context.canceled)
             {
                 _hero.SetSPressed(false);
-                //Debug.Log(false);
+            }
+        }
+        public void OnPressF(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                _hero.UseForceShield();
             }
         }
         public void OnPressH(InputAction.CallbackContext context)
@@ -47,7 +52,7 @@ namespace PixelCrew.Creatures.Hero
         }
         public void OnAttack(InputAction.CallbackContext context)
         {
-            if (context.performed)
+            if (context.canceled && _hero.IsPause == false)
             {
                 _hero.Attack();
             }

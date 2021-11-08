@@ -43,4 +43,10 @@ MonoBehaviour:
   - Key: door_key0
     Value: "\u0422\u0435\u0431\u0435 \u043D\u0443\u0436\u0435\u043D \u043A\u043B\u044E\u0447...\r"
   - Key: door_key1
-    Value: "\u041F\u043E\u043F\u0440\u043E\u0431\u0443\u0439 \u0435\u0433\u043E \u043F\u043E\u0438\u0441\u043A\u0430\u0442\u044C..."
+    Value: "\u041F\u043E\u043F\u0440\u043E\u0431\u0443\u0439 \u0435\u0433\u043E \u043F\u043E\u0438\u0441\u043A\u0430\u0442\u044C...\r"
+  - Key: This is Double jump.
+    Value: "This is Double jump.\r"
+  - Key: This is Super Throw.
+    Value: "This is Super Throw.\r"
+  - Key: This is Force Shield. Press F to use.
+    Value: This is Force Shield. Press F to use.

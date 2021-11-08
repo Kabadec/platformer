@@ -2,6 +2,7 @@
 using PixelCrew.Model;
 using PixelCrew.Model.Data;
 using PixelCrew.Model.Definitions;
+using PixelCrew.Model.Definitions.Repositories.Items;
 using PixelCrew.UI.Widgets;
 using PixelCrew.Utils.Disposables;
 using UnityEngine;
@@ -34,7 +35,7 @@ namespace PixelCrew.UI.Hud.QuickInventory
         public void SetData(InventoryItemData item, int index)
         {
             _index = index;
-            var def = DefsFacade.I.Items.Get(item.Id);
+            var def = DefsFacade.I.Itemses.Get(item.Id);
             _icon.sprite = def.Icon;
             _value.text = def.HasTag(ItemTag.Stackable) ? item.Value.ToString() : string.Empty;
         }
