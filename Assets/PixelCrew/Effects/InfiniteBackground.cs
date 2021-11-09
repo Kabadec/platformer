@@ -19,6 +19,7 @@ namespace PixelCrew.Effects
         private void Start()
         {
             var sprites = _container.GetComponentsInChildren<SpriteRenderer>();
+            _containerBounds = sprites[0].bounds;
             foreach (var sprite in sprites)
             {
                 _containerBounds.Encapsulate(sprite.bounds);

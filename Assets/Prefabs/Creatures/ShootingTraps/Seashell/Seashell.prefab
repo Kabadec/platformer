@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lifeBar: {fileID: 1249085196}
-  _hp: {fileID: 0}
+  _hp: {fileID: 2824018011714003569}
 --- !u!1 &944472532
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,7 +523,8 @@ MonoBehaviour:
   _onChange:
     m_PersistentCalls:
       m_Calls: []
-  _immune: 0
+  _immuneAfterHitAfterHit: 0
+  _immuneForceShield: 0
 --- !u!114 &2889582825660397091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -773,6 +774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hpDelta: -5
+  _sourceDamage: 0
 --- !u!58 &4155295586439302705
 CircleCollider2D:
   m_ObjectHideFlags: 0

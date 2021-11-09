@@ -5,6 +5,7 @@ using UnityEngine;
 using PixelCrew.UI.Widgets.Editor;
 using PixelCrew.Model;
 using PixelCrew.Model.Definitions;
+using PixelCrew.Model.Definitions.Player;
 using PixelCrew.Utils;
 
 namespace PixelCrew.UI.Hud
@@ -24,7 +25,7 @@ namespace PixelCrew.UI.Hud
 
         private void OnHealthChanged(int newValue, int oldValue)
         {
-            var maxHealth = DefsFacade.I.Player.MaxHealth;
+            var maxHealth = _session.StatsModel.GetValue(StatId.Hp);
             var value = (float)newValue / maxHealth;
             _healthBar.SetProgress(value);
         }
@@ -34,6 +35,13 @@ namespace PixelCrew.UI.Hud
             var hero = FindObjectOfType<Hero>();
             hero.IsPause = true;
             WindowUtils.CreateWindow("UI/InGameMenuWindow");
+        }
+
+        public void OnStatsWindow()
+        {
+            var hero = FindObjectOfType<Hero>();
+            hero.IsPause = true;
+            WindowUtils.CreateWindow("UI/PlayerStatsWindow");
         }
         private void OnDestroy()
         {

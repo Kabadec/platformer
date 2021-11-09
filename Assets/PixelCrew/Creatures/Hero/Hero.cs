@@ -13,6 +13,7 @@ using PixelCrew.Components.Health;
 using PixelCrew.Components.GoBased;
 using PixelCrew.Model.Data;
 using PixelCrew.Model.Definitions;
+using PixelCrew.Model.Definitions.Player;
 using PixelCrew.Model.Definitions.Repositories;
 using PixelCrew.Model.Definitions.Repositories.Items;
 using PixelCrew.Utils.Disposables;
@@ -106,14 +107,30 @@ namespace PixelCrew.Creatures.Hero
         {
             _session = FindObjectOfType<GameSession>();
             _health = GetComponent<HealthComponent>();
-
-            _health.SetHealth(_session.Data.Hp.Value);
-
+            
             _session.Data.Inventory.OnChanged += OnInventoryChanged;
+            _session.StatsModel.OnUpgraded += OnHeroUpgraded;
+            
+            //_health.SetHealth(_session.Data.Hp.Value);
             _trash.Retain(_session.PerksModel.Subscribe(OnActivePerkChanged));
 
+            OnHeroUpgraded(StatId.Hp);
             UpdateHeroWeapon();
         }
+
+        private void OnHeroUpgraded(StatId statId)
+        {
+            switch (statId)
+            {
+                case StatId.Hp:
+                    var health = (int) _session.StatsModel.GetValue(statId);
+                    _session.Data.Hp.Value = health;
+                    _health.SetHealth(health);
+                    break;
+
+            }
+        }
+
 
         private void OnActivePerkChanged()
         {
@@ -124,6 +141,8 @@ namespace PixelCrew.Creatures.Hero
         private void OnDestroy()
         {
             _session.Data.Inventory.OnChanged -= OnInventoryChanged;
+            _session.StatsModel.OnUpgraded -= OnHeroUpgraded;
+
         }
 
         private void OnInventoryChanged(string id, int value)
@@ -195,6 +214,15 @@ namespace PixelCrew.Creatures.Hero
             }
 
             return base.CalculateJumpVelocity(yVelocity);
+        }
+
+        protected override float CalculateSpeed()
+        {
+            var potion = DefsFacade.I.Potions.Get(SelectedId);
+            if(_isBuffSpeed)
+                return _session.StatsModel.GetValue(StatId.Speed) + potion.Value;
+            else
+                return _session.StatsModel.GetValue(StatId.Speed);
         }
 
         public bool AddInInventory(string id, int value)
@@ -336,10 +364,8 @@ namespace PixelCrew.Creatures.Hero
         {
             var potion = DefsFacade.I.Potions.Get(SelectedId);
             _isBuffSpeed = true;
-            _speed += potion.Value;
             yield return new WaitForSeconds(potion.Time);
             _isBuffSpeed = false;
-            _speed -= potion.Value;
         }
 
 

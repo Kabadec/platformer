@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using PixelCrew.Creatures.Hero;
+using PixelCrew.Model;
 using UnityEngine;
 using UnityEngine.Events;
 using PixelCrew.Model.Definitions;
+using PixelCrew.Model.Definitions.Player;
 
 namespace PixelCrew.Components.Health
 {
@@ -16,8 +19,18 @@ namespace PixelCrew.Components.Health
         [SerializeField] private bool _immuneAfterHitAfterHit;
         [SerializeField] private bool _immuneForceShield;
 
+        private int _maxHealth;
+        
         public int Health => _health;
         
+        private GameSession _session;
+
+        private void Start()
+        {
+            _session = FindObjectOfType<GameSession>();
+            SetHealth(_health);
+        }
+
         public bool ImmuneAfterHit
         {
             get => _immuneAfterHitAfterHit;
@@ -32,12 +45,12 @@ namespace PixelCrew.Components.Health
         public bool ModifyHealth(int healthDelta)
         {
             if (_health <= 0) return false;
-            if (healthDelta > 0 && _health >= DefsFacade.I.Player.MaxHealth) return false;
+            if (healthDelta > 0 && _health >= _maxHealth) return false;
             if (healthDelta < 0 && (_immuneAfterHitAfterHit || _immuneForceShield)) return false;
 
             _health += healthDelta;
-            if (_health > DefsFacade.I.Player.MaxHealth)
-                _health = DefsFacade.I.Player.MaxHealth;
+            if (_health > _maxHealth)
+                _health = _maxHealth;
 
             _onChange?.Invoke(_health);
             if (_health <= 0)
@@ -53,7 +66,6 @@ namespace PixelCrew.Components.Health
                 _onHealth?.Invoke();
             }
             return true;
-            //Debug.Log($"Ваше здоровье: {_health}");
         }
 #if UNITY_EDITOR
         [ContextMenu("Update Health")]
@@ -64,7 +76,7 @@ namespace PixelCrew.Components.Health
 #endif
         public void SetHealth(int health)
         {
-            _health = health;
+            _health = _maxHealth = health;
         }
         [Serializable]
         public class HealthChangeEvent : UnityEvent<int>

@@ -47,6 +47,7 @@ namespace PixelCrew.Model.Definitions.Localization
                 {
                     AddLocaleItem(row);
                 }
+                Debug.Log("Locales upgraded.");
             }
         }
 

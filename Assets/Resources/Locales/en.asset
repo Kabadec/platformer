@@ -47,4 +47,12 @@ MonoBehaviour:
   - Key: This is Super Throw.
     Value: "This is Super Throw.\r"
   - Key: This is Force Shield. Press F to use.
-    Value: This is Force Shield. Press F to use.
+    Value: "This is Force Shield. Press F to use.\r"
+  - Key: Upgrade
+    Value: "Upgrade\r"
+  - Key: Health
+    Value: "Health\r"
+  - Key: Speed
+    Value: "Speed\r"
+  - Key: Range Damage
+    Value: Range Damage

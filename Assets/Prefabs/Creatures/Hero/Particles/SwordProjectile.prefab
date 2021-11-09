@@ -294,6 +294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hpDelta: -1
+  _sourceDamage: 1
 --- !u!114 &4636364683730380695
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -27,7 +27,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 240973034674063277}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4784314, g: 0.69411767, b: 0.4784314, a: 1}
+  m_Color: {r: 0.9339623, g: 0.76532835, b: 0.2687344, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -123,7 +123,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_MethodName: OnStartGame
+        m_MethodName: OnUpgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 7452079789201422611}
   - component: {fileID: 4378171231460878956}
   - component: {fileID: 7386873071038296905}
-  - component: {fileID: 1680706807182214499}
+  - component: {fileID: 7582985100905767386}
   m_Layer: 5
   m_Name: PressedText
   m_TagString: Untagged
@@ -183,7 +183,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.10000229}
+  m_AnchoredPosition: {x: 0, y: -0.1000061}
   m_SizeDelta: {x: 0, y: -2.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4378171231460878956
@@ -226,8 +226,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: START
---- !u!114 &1680706807182214499
+  m_Text: Upgrade
+--- !u!114 &7582985100905767386
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -239,8 +239,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a81c7c451814672b5de3d7c63813e0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _key: button_start
-  _capitalize: 1
+  _key: Upgrade
+  _capitalize: 0
 --- !u!1 &8780783216151661833
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 6467990086591164464}
   - component: {fileID: 2856318710418864515}
   - component: {fileID: 2092104668293695421}
-  - component: {fileID: 4105513893604674783}
+  - component: {fileID: 3534716055151382198}
   m_Layer: 5
   m_Name: NormalText
   m_TagString: Untagged
@@ -319,8 +319,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: START
---- !u!114 &4105513893604674783
+  m_Text: Upgrade
+--- !u!114 &3534716055151382198
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -332,5 +332,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a81c7c451814672b5de3d7c63813e0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _key: button_start
-  _capitalize: 1
+  _key: Upgrade
+  _capitalize: 0

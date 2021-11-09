@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using PixelCrew.Model.Definitions.Player;
 using PixelCrew.Model.Definitions.Repositories;
 using PixelCrew.Model.Definitions.Repositories.Items;
 using UnityEngine;

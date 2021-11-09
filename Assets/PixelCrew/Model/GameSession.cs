@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using PixelCrew.Components.LevelManagement;
 using PixelCrew.Model.Data;
+using PixelCrew.Model.Definitions.Player;
 using PixelCrew.Model.Models;
 using PixelCrew.Utils.Disposables;
 using UnityEngine.SceneManagement;
@@ -23,6 +24,7 @@ namespace PixelCrew.Model
         public QuickInventoryModel QuickInventory { get; private set; }
         
         public PerksModel PerksModel { get; private set; }
+        public StatsModel StatsModel { get; private set; }
 
         private readonly List<string> _checkPoints = new List<string>();
 
@@ -74,6 +76,11 @@ namespace PixelCrew.Model
 
             PerksModel = new PerksModel(_data);
             _trash.Retain(PerksModel);
+
+            StatsModel = new StatsModel(_data);
+            _trash.Retain(StatsModel);
+
+            _data.Hp.Value = (int) StatsModel.GetValue(StatId.Hp);
         }
 
         private void LoadHud()

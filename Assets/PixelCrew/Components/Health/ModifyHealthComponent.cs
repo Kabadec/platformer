@@ -1,5 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using PixelCrew.Model;
+using PixelCrew.Model.Definitions.Player;
 using UnityEngine;
 namespace PixelCrew.Components.Health
 {
@@ -7,6 +10,7 @@ namespace PixelCrew.Components.Health
     {
         [SerializeField] private int _hpDelta;
 
+        [SerializeField] private SourceDamage _sourceDamage;
         //private Hero _hero;
 
         private void Start()
@@ -15,9 +19,29 @@ namespace PixelCrew.Components.Health
         }
         public void ModifyHealth(GameObject go)
         {
+            var hpDelta = (int) 0;
+            switch (_sourceDamage)
+            {
+                case SourceDamage.HpDelta:
+                    hpDelta = _hpDelta;
+                    break;
+                case SourceDamage.RangeDamageInGameSession:
+                    var session = FindObjectOfType<GameSession>();
+                    hpDelta = (int) (-1 * session.StatsModel.GetValue(StatId.RangeDamage));
+                    Debug.Log(hpDelta);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
             var healthComponent = go.GetComponent<HealthComponent>();
             if (healthComponent != null)
-                healthComponent.ModifyHealth(_hpDelta);
+                healthComponent.ModifyHealth(hpDelta);
         }
+    }
+
+    public enum SourceDamage
+    {
+        HpDelta,
+        RangeDamageInGameSession
     }
 }
