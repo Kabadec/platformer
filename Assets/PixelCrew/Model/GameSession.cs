@@ -16,15 +16,16 @@ namespace PixelCrew.Model
         [SerializeField] private PlayerData _data;
         [SerializeField] private string _defaultCheckPoint;
         public PlayerData Data => _data;
-
         private PlayerData _defaultData;
         public PlayerData DefaultData => _defaultData;
         
         private readonly CompositeDisposable _trash = new CompositeDisposable();
-        public QuickInventoryModel QuickInventory { get; private set; }
         
+        public QuickInventoryModel QuickInventory { get; private set; }
+        public BigInventoryModel BigInventory { get; private set; }
         public PerksModel PerksModel { get; private set; }
         public StatsModel StatsModel { get; private set; }
+        
 
         private readonly List<string> _checkPoints = new List<string>();
 
@@ -80,6 +81,9 @@ namespace PixelCrew.Model
             StatsModel = new StatsModel(_data);
             _trash.Retain(StatsModel);
 
+            BigInventory = new BigInventoryModel(_data);
+            _trash.Retain(BigInventory);
+
             _data.Hp.Value = (int) StatsModel.GetValue(StatId.Hp);
         }
 
@@ -128,7 +132,17 @@ namespace PixelCrew.Model
             _trash.Dispose();
         }
 
+        private List<string> _removedItems = new List<string>();
 
-        
+        public bool RestoreState(string itemID)
+        {
+            return _removedItems.Contains(itemID);
+        }
+
+        public void StoreState(string itemID)
+        {
+            if(!_removedItems.Contains(itemID))
+                _removedItems.Add(itemID);
+        }
     }
 }

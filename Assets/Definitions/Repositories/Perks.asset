@@ -34,3 +34,10 @@ MonoBehaviour:
     _price:
       _itemId: Coin
       _count: 100
+  - _id: sword-shield
+    _icon: {fileID: 21300000, guid: 8974c1093f229574fac9238a5c3dce25, type: 3}
+    _info: This is Sword Shield. Press Z to use.
+    _cooldown: 10
+    _price:
+      _itemId: Coin
+      _count: 200

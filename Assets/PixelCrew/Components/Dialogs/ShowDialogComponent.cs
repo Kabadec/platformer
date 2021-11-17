@@ -17,22 +17,44 @@ namespace PixelCrew.Components.Dialogs
         
         public void Show()
         {
-            if (_dialogBox == null)
-                _dialogBox = FindObjectOfType<DialogBoxController>();
-            var localizedData = new string[_bound.Sentences.Length];
+            _dialogBox = FindDialogController();
+            
             if (_mode == Mode.Bound)
-            {
-                var i = 0;
-                foreach (var key in _bound.Sentences)
-                {
-                    localizedData[i] = LocalizationManager.I.Localize(key);
-                    i++;
-                }
-                DialogData data = new DialogData(localizedData);
-                _dialogBox.ShowDialog(data);
-            }
+                _dialogBox.ShowDialog(LocalizedBound());
             else
                 _dialogBox.ShowDialog(Data);
+        }
+
+        private DialogData LocalizedBound()
+        {
+            var localizedBound = _bound.Clone();
+            var i = 0;
+            foreach (var key in _bound.Sentences)
+            {
+                localizedBound.Sentences[i].Valued = LocalizationManager.I.Localize(key.Valued);
+                i++;
+            }
+            return localizedBound;
+        }
+
+        private DialogBoxController FindDialogController()
+        {
+            if (_dialogBox != null) return _dialogBox;
+
+            GameObject controllerGo = null;
+            switch (Data.Type)
+            {
+                case DialogType.Simple:
+                    controllerGo = GameObject.FindWithTag("SimpleDialog");
+                    break;
+                case DialogType.Personalized:
+                    controllerGo = GameObject.FindWithTag("PersonalizedDialog");
+                    break;
+                default:
+                    throw new ArgumentException("Undefined dialog type");
+            }
+
+            return controllerGo.GetComponent<DialogBoxController>();
         }
 
         public void Show(DialogDef def)

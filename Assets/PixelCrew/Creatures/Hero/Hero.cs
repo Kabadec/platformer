@@ -17,6 +17,7 @@ using PixelCrew.Model.Definitions.Player;
 using PixelCrew.Model.Definitions.Repositories;
 using PixelCrew.Model.Definitions.Repositories.Items;
 using PixelCrew.Utils.Disposables;
+using Random = UnityEngine.Random;
 
 namespace PixelCrew.Creatures.Hero
 {
@@ -51,6 +52,11 @@ namespace PixelCrew.Creatures.Hero
 
         [SerializeField] private float _durationForceShield = 3;
 
+        [Header("SwordShield")] 
+        [SerializeField] private GameObject _swordShieldPrefab;
+        
+
+
 
         private static readonly int ThrowKey = Animator.StringToHash("throw");
         private static readonly int IsOnWall = Animator.StringToHash("is-on-wall");
@@ -59,10 +65,13 @@ namespace PixelCrew.Creatures.Hero
 
 
         private const string SwordId = "Sword";
+        private const string PotionSpeedId = "SpeedPotion";
+
 
         private int CoinCount => _session.Data.Inventory.Count("Coin");
         private int SwordCount => _session.Data.Inventory.Count(SwordId);
         private string SelectedId => _session.QuickInventory.SelectedItem.Id;
+        private InventoryItemData SelectedItem => _session.QuickInventory.SelectedItem;
 
         //private float _timeHowPerkUsed = 0;
 
@@ -93,13 +102,18 @@ namespace PixelCrew.Creatures.Hero
         private HealthComponent _health;
         private Coroutine _multiThrowCoroutine;
         private Coroutine _forceShieldCoroutine;
+
+        private GameObject _swordShieldGO;
         public bool IsPause { get; set; }
+        
+        public bool CanControlHero { get; set; }
 
 
         protected override void Awake()
         {
             base.Awake();
             _defaultGravityScale = Rigidbody.gravityScale;
+            CanControlHero = true;
         }
 
 
@@ -218,9 +232,8 @@ namespace PixelCrew.Creatures.Hero
 
         protected override float CalculateSpeed()
         {
-            var potion = DefsFacade.I.Potions.Get(SelectedId);
             if(_isBuffSpeed)
-                return _session.StatsModel.GetValue(StatId.Speed) + potion.Value;
+                return _session.StatsModel.GetValue(StatId.Speed) + DefsFacade.I.Potions.Get(PotionSpeedId).Value;
             else
                 return _session.StatsModel.GetValue(StatId.Speed);
         }
@@ -307,6 +320,7 @@ namespace PixelCrew.Creatures.Hero
 
         private void UseSomething()
         {
+            if(SelectedItem == null) return;
             if (DefsFacade.I.Itemses.Get(SelectedId).HasTag(ItemTag.Throwable))
             {
                 SingleThrow();
@@ -362,7 +376,7 @@ namespace PixelCrew.Creatures.Hero
 
         public IEnumerator SpeedBuffCoroutine(string id)
         {
-            var potion = DefsFacade.I.Potions.Get(SelectedId);
+            var potion = DefsFacade.I.Potions.Get(PotionSpeedId);
             _isBuffSpeed = true;
             yield return new WaitForSeconds(potion.Time);
             _isBuffSpeed = false;
@@ -395,6 +409,7 @@ namespace PixelCrew.Creatures.Hero
 
         private bool CanThrow()
         {
+            if (SelectedId == null) return false;
             if (!DefsFacade.I.Itemses.Get(SelectedId).HasTag(ItemTag.Throwable)) return false;
             if (SelectedId == SwordId)
             {
@@ -446,9 +461,40 @@ namespace PixelCrew.Creatures.Hero
             var throwableDef = DefsFacade.I.Throwable.Get(throwableId);
             if (throwableDef.Projectile == null) return;
             _throwSpawner.SetPrefab(throwableDef.Projectile);
-            _throwSpawner.Spawn();
+            var projectile = _throwSpawner.SpawnInstance();
+
+            ApplyRangeDamageStat(projectile);
+            
+            
+        }
+
+        private void ApplyRangeDamageStat(GameObject projectile)
+        {
+            var hpModify = projectile.GetComponent<ModifyHealthComponent>();
+            var damageValue = _session.StatsModel.GetValue(StatId.RangeDamage);
+            damageValue = ModifyDamageByCrit((int)damageValue);
+            hpModify.SetHpDelta((int) (-1 * damageValue));
+        }
+
+        private int ModifyDamageByCrit(int damage)
+        {
+            var critChange = _session.StatsModel.GetValue(StatId.CriticalDamage);
+            if (Random.value * 100 <= critChange)
+                return damage * 2;
+            
+            return damage;
         }
         
+        public void UseSwordShield()
+        {
+            if (_session.PerksModel.IsSwordShieldSupported 
+                && Time.time > _session.PerksModel.TimeHowPerkUsed + _coolDownPerk)
+            {
+                _session.PerksModel.SetTimeHowPerkUsed(Time.time);
+                if(_swordShieldGO != null) Destroy(_swordShieldGO);
+                _swordShieldGO = Instantiate(_swordShieldPrefab, gameObject.transform);
+            }
+        }
 
         public void DropFromPlatform()
         {
@@ -470,6 +516,7 @@ namespace PixelCrew.Creatures.Hero
         {
             _session.QuickInventory.SetNextItem();
         }
+
 
         
     }

@@ -173,7 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _layers:
     serializedVersion: 2
-    m_Bits: 4352
+    m_Bits: 20736
   _isTouchingLayer: 0
 --- !u!1 &2260517198278883604
 GameObject:
@@ -405,6 +405,9 @@ MonoBehaviour:
   _throwSpawner: {fileID: 6190857971245302580}
   _hitDrop: {fileID: 8340698991908983792}
   _forceShield: {fileID: 6781192322846209739}
+  _durationForceShield: 3
+  _swordShieldPrefab: {fileID: 8665624065357713250, guid: f8067d93e68e19545bdf794719b9979d,
+    type: 3}
 --- !u!114 &2260517198308532865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -566,6 +569,61 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e5f8a6aa-4b63-4ce5-a152-a669b9d940b7
     m_ActionName: Hero/PressF[/Keyboard/f]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2260517198308532867}
+        m_MethodName: OnPressZ
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7e6a483c-679a-4b07-9edc-645bdc2cf3ff
+    m_ActionName: Hero/PressZ[/Keyboard/z]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 11bade24-3a26-47dd-ba91-8728ea511fd6
+    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1379218c-3e14-42fd-a71d-dc15535beb4c
+    m_ActionName: UI/Submit[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a7afb5c2-828e-4be8-afef-e1de6d2ad33e
+    m_ActionName: UI/Cancel[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0e122fae-efad-439e-a8cf-ed2f36f8c991
+    m_ActionName: UI/Point[/Mouse/position,/Pen/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a6b029f8-41d0-4a50-82bd-d1436aa02afb
+    m_ActionName: UI/Click[/Mouse/leftButton,/Pen/tip]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 97077057-9f73-410f-8872-c9e34d04d959
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2311c5b7-5210-40de-84c8-ef25f6080dc1
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bbd1da70-2935-4398-b928-10a13b66f7fc
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f4e10705-60cf-4e70-83d8-20d947336448
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a394d277-e1c0-40e9-8dbe-d578afa21abe
+    m_ActionName: UI/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hero
@@ -696,7 +754,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _immune: 0
+  _immuneAfterHitAfterHit: 0
+  _immuneForceShield: 0
 --- !u!114 &1798808961
 MonoBehaviour:
   m_ObjectHideFlags: 0

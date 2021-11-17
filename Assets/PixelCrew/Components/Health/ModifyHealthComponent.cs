@@ -10,34 +10,39 @@ namespace PixelCrew.Components.Health
     {
         [SerializeField] private int _hpDelta;
 
-        [SerializeField] private SourceDamage _sourceDamage;
-        //private Hero _hero;
-
-        private void Start()
-        {
-            //_hero = FindObjectOfType<Hero>();
-        }
+        //[SerializeField] private SourceDamage _sourceDamage;
+        
         public void ModifyHealth(GameObject go)
         {
-            var hpDelta = (int) 0;
-            switch (_sourceDamage)
-            {
-                case SourceDamage.HpDelta:
-                    hpDelta = _hpDelta;
-                    break;
-                case SourceDamage.RangeDamageInGameSession:
-                    var session = FindObjectOfType<GameSession>();
-                    hpDelta = (int) (-1 * session.StatsModel.GetValue(StatId.RangeDamage));
-                    Debug.Log(hpDelta);
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+            // var hpDelta = (int) 0;
+            // switch (_sourceDamage)
+            // {
+            //     case SourceDamage.HpDelta:
+            //         hpDelta = _hpDelta;
+            //         break;
+            //     case SourceDamage.RangeDamageInGameSession:
+            //         var session = FindObjectOfType<GameSession>();
+            //         hpDelta = (int) (-1 * session.StatsModel.GetValue(StatId.RangeDamage));
+            //         Debug.Log(hpDelta);
+            //         break;
+            //     default:
+            //         throw new ArgumentOutOfRangeException();
+            // }
+            // var healthComponent = go.GetComponent<HealthComponent>();
+            // if (healthComponent != null)
+            //     healthComponent.ModifyHealth(hpDelta);
             var healthComponent = go.GetComponent<HealthComponent>();
             if (healthComponent != null)
-                healthComponent.ModifyHealth(hpDelta);
+                healthComponent.ModifyHealth(_hpDelta);
+        }
+        public void SetHpDelta(int hpDelta)
+        {
+            _hpDelta = hpDelta;
         }
     }
+    
+    
+    
 
     public enum SourceDamage
     {

@@ -11,6 +11,8 @@ TagManager:
   - CREATURES
   - SfxAudioSource
   - MainCanvas
+  - SimpleDialog
+  - PersonalizedDialog
   layers:
   - Default
   - TransparentFX

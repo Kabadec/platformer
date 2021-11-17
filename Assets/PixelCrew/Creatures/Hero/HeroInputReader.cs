@@ -20,7 +20,7 @@ namespace PixelCrew.Creatures.Hero
 
         public void OnInteract(InputAction.CallbackContext context)
         {
-            if (context.canceled)
+            if (context.canceled && _hero.IsPause == false)
             {
                 _hero.Interact();
             }
@@ -50,9 +50,16 @@ namespace PixelCrew.Creatures.Hero
                 //_hero.UsePotionHealth();
             }
         }
+        public void OnPressZ(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                _hero.UseSwordShield();
+            }
+        }
         public void OnAttack(InputAction.CallbackContext context)
         {
-            if (context.canceled && _hero.IsPause == false)
+            if (context.canceled && _hero.IsPause == false && _hero.CanControlHero)
             {
                 _hero.Attack();
             }

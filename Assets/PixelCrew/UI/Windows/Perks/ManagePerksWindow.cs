@@ -5,6 +5,7 @@ using PixelCrew.Model.Definitions;
 using PixelCrew.Model.Definitions.Localization;
 using PixelCrew.Model.Definitions.Repositories;
 using PixelCrew.UI.Widgets;
+using PixelCrew.Utils;
 using PixelCrew.Utils.Disposables;
 using UnityEngine;
 using UnityEngine.UI;
@@ -80,8 +81,8 @@ namespace PixelCrew.UI.Windows.Perks
         {
             _trash.Dispose();
             Time.timeScale = _defaultTimeScale;
-            var hero = FindObjectOfType<Hero>();
-            hero.IsPause = false;
+            //var hero = FindObjectOfType<Hero>();
+            MainGOsUtils.GetMainHero().IsPause = false;
         }
     }
 }

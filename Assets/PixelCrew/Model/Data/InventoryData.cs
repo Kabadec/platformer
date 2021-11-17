@@ -6,6 +6,7 @@ using UnityEngine;
 using PixelCrew.Model.Definitions;
 using PixelCrew.Model.Definitions.Repositories;
 using PixelCrew.Model.Definitions.Repositories.Items;
+using Random = UnityEngine.Random;
 
 namespace PixelCrew.Model.Data
 {
@@ -29,6 +30,7 @@ namespace PixelCrew.Model.Data
             if (item == null || !itemDef.HasTag(ItemTag.Stackable))
             {
                 item = new InventoryItemData(id);
+                item.UniqueId = CreateUniqueId();
                 _inventory.Add(item);
             }
 
@@ -88,6 +90,15 @@ namespace PixelCrew.Model.Data
             }
             return null;
         }
+        public InventoryItemData GetItemByUniqueId(int uniqueId)
+        {
+            foreach (var itemData in _inventory)
+            {
+                if (itemData.UniqueId == uniqueId)
+                    return itemData;
+            }
+            return null;
+        }
 
         public int Count(string id)
         {
@@ -122,6 +133,33 @@ namespace PixelCrew.Model.Data
             }
             return true;
         }
+
+        private int CreateUniqueId()
+        {
+            var uniqueId = 0;
+            while (true)
+            {
+                uniqueId = (int)(Random.value * 10000);
+                foreach (var item in _inventory)
+                {
+                    if(uniqueId == -1) continue;
+                    if (item.UniqueId == uniqueId) uniqueId = -1;
+                }
+
+                if (uniqueId != -1) return uniqueId;
+            }
+        }
+
+        public void SetPosBigInventory(int uniqueId, int posX, int posY)
+        {
+            foreach (var item in _inventory)
+            {
+                if(item.UniqueId != uniqueId) continue;
+                item.PosBigInventory[0] = posX;
+                item.PosBigInventory[1] = posY;
+                return;
+            }
+        }
     }
 
     [Serializable]
@@ -129,6 +167,9 @@ namespace PixelCrew.Model.Data
     {
         [InventoryId] public string Id;
         public int Value;
+        [Space]
+        public int UniqueId;
+        public int[] PosBigInventory = {-1, -1};
 
         public InventoryItemData(string id)
         {

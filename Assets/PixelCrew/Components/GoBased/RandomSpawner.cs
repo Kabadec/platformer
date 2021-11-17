@@ -3,6 +3,7 @@ using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using System;
+using PixelCrew.Utils;
 using UnityEngine.Events;
 
 namespace PixelCrew.Components.GoBased

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using PixelCrew.Utils;
 using UnityEngine;
 
 namespace PixelCrew.Components.GoBased
@@ -14,11 +15,18 @@ namespace PixelCrew.Components.GoBased
         [ContextMenu("Spawn")]
         public void Spawn()
         {
+            SpawnInstance();
+        }
+
+        public GameObject SpawnInstance()
+        {
             var instantiate = CreatingGameObject();
             if (_isSaveParent)
             {
                 instantiate.transform.parent = this.transform.parent;
             }
+
+            return instantiate;
         }
         public void Spawn(GameObject parentGo)
         {

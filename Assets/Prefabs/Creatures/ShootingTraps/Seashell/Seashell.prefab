@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 871339105}
   - component: {fileID: 871339104}
   - component: {fileID: 871339103}
-  m_Layer: 14
+  m_Layer: 16
   m_Name: LifeBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 944472533}
   - component: {fileID: 944472535}
   - component: {fileID: 944472534}
-  m_Layer: 14
+  m_Layer: 16
   m_Name: Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 1249085198}
   - component: {fileID: 1249085197}
   - component: {fileID: 1249085196}
-  m_Layer: 14
+  m_Layer: 16
   m_Name: ProgressBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -538,8 +538,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 4155295584458803763}
+  _id: 
   _delayToDestroy: 0
   _destroyOnStart: 0
+  _state: {fileID: 0}
 --- !u!114 &103974879813490882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -658,7 +660,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4155295586139940987}
   - component: {fileID: 4155295586139940984}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: PearlThrowSpawnPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -673,7 +675,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4155295586139940986}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.311, y: -0.283, z: 0}
+  m_LocalPosition: {x: -0.362, y: -0.334, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4155295584458803761}
@@ -774,7 +776,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hpDelta: -5
-  _sourceDamage: 0
 --- !u!58 &4155295586439302705
 CircleCollider2D:
   m_ObjectHideFlags: 0
