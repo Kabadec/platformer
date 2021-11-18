@@ -50,7 +50,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frameRate: 10
   _clips:
-  - Name: PalmTreeStraight
+  - _name: 
     _sprites:
     - {fileID: 8683632313750085214, guid: b8ed3cdd87d35874d9429f83d1b2d919, type: 3}
     - {fileID: 262518517033693272, guid: b8ed3cdd87d35874d9429f83d1b2d919, type: 3}
@@ -105,6 +105,7 @@ MonoBehaviour:
     - {fileID: 1400697303485121525, guid: b8ed3cdd87d35874d9429f83d1b2d919, type: 3}
     _loop: 1
     _allowNextClip: 0
-  _onComplete:
-    m_PersistentCalls:
-      m_Calls: []
+    _nextClipName: 
+    _onComplete:
+      m_PersistentCalls:
+        m_Calls: []

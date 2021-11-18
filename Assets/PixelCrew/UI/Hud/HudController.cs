@@ -13,12 +13,14 @@ namespace PixelCrew.UI.Hud
     public class HudController : MonoBehaviour
     {
         [SerializeField] private ProgressBarWidget _healthBar;
+        [SerializeField] private ProgressBarWidget _oilBar;
 
         private GameSession _session;
         private void Start()
         {
             _session = FindObjectOfType<GameSession>();
             _session.Data.Hp.OnChanged += OnHealthChanged;
+            _session.Data.Oil.OnChanged += OnOilChanged;
 
             OnHealthChanged(_session.Data.Hp.Value, 0);
         }
@@ -28,6 +30,13 @@ namespace PixelCrew.UI.Hud
             var maxHealth = _session.StatsModel.GetValue(StatId.Hp);
             var value = (float)newValue / maxHealth;
             _healthBar.SetProgress(value);
+        }
+        
+        private void OnOilChanged(float newValue, float oldValue)
+        {
+            var maxOil = DefsFacade.I.Player.MaxOil;
+            var value = (float)newValue / maxOil;
+            _oilBar.SetProgress(value);
         }
 
         public void OnSettings()
@@ -46,6 +55,8 @@ namespace PixelCrew.UI.Hud
         private void OnDestroy()
         {
             _session.Data.Hp.OnChanged -= OnHealthChanged;
+            _session.Data.Oil.OnChanged -= OnOilChanged;
+
         }
 
     }

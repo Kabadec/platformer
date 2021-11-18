@@ -12,6 +12,7 @@ using PixelCrew.Components.ColliderBased;
 using PixelCrew.Components.Health;
 using PixelCrew.Components.GoBased;
 using PixelCrew.Model.Data;
+using PixelCrew.Model.Data.Properties;
 using PixelCrew.Model.Definitions;
 using PixelCrew.Model.Definitions.Player;
 using PixelCrew.Model.Definitions.Repositories;
@@ -55,6 +56,8 @@ namespace PixelCrew.Creatures.Hero
         [Header("SwordShield")] 
         [SerializeField] private GameObject _swordShieldPrefab;
         
+        [Header("Candle")] 
+        [SerializeField] private GameObject _candle;
 
 
 
@@ -72,6 +75,8 @@ namespace PixelCrew.Creatures.Hero
         private int SwordCount => _session.Data.Inventory.Count(SwordId);
         private string SelectedId => _session.QuickInventory.SelectedItem.Id;
         private InventoryItemData SelectedItem => _session.QuickInventory.SelectedItem;
+        
+        
 
         //private float _timeHowPerkUsed = 0;
 
@@ -512,12 +517,18 @@ namespace PixelCrew.Creatures.Hero
         }
         
         
+        
         public void NextItem()
         {
             _session.QuickInventory.SetNextItem();
         }
 
+        public void OnOffCandle()
+        {
+            _candle.SetActive(!_candle.activeSelf);
+        }
 
+        
         
     }
 }

@@ -56,6 +56,12 @@ namespace PixelCrew.Creatures.Hero
             {
                 _hero.UseSwordShield();
             }
+        }public void OnPressX(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                _hero.OnOffCandle();
+            }
         }
         public void OnAttack(InputAction.CallbackContext context)
         {

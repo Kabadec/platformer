@@ -84,6 +84,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "PressX",
+                    "type": "Button",
+                    "id": "4463b80c-5c54-452c-8b9a-096ad2f5ddd8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -260,6 +268,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "PressZ",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "62a68e4c-ac52-44f5-90d4-0186aef498d9",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PressX",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

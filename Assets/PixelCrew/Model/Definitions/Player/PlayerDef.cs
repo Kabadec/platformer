@@ -6,9 +6,11 @@ namespace PixelCrew.Model.Definitions.Player
     [CreateAssetMenu(menuName = "Defs/PlayerDef", fileName = "PlayerDef")]
     public class PlayerDef : ScriptableObject
     {
-        [SerializeField] private int _maxHealth;
+        [SerializeField] private float _maxOil;
         [SerializeField] private StatDef[] _stats;
 
+        public float MaxOil => _maxOil;
+        
         public StatDef[] Stats => _stats;
 
 

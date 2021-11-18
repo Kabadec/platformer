@@ -10,6 +10,7 @@ namespace PixelCrew.Model.Data
         [Space]
         [Space]
         public IntProperty Hp = new IntProperty();
+        public FloatProperty Oil = new FloatProperty();
         public PerksData Perks = new PerksData();
         public LevelData Levels = new LevelData();
         public InventoryData Inventory => _inventory;
