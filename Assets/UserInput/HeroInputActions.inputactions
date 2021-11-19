@@ -92,6 +92,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "PressMiddleMouse",
+                    "type": "Button",
+                    "id": "73dfe60a-56d6-4bd5-b0be-d063a15a8595",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -279,6 +287,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "PressX",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d030d44c-b6e6-41b6-8b5d-621ee0806fef",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PressMiddleMouse",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -1,12 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System;
-using PixelCrew.UI.Windows;
+﻿using System;
 using PixelCrew.Utils;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-namespace PixelCrew.UI.MainMenu
+namespace PixelCrew.UI.Windows.MainMenu
 {
     public class MainMenuWindow : AnimatedWindow
     {
@@ -17,7 +13,7 @@ namespace PixelCrew.UI.MainMenu
         {
             _closeAction = () =>
             {
-                SceneManager.LoadScene("Level1");
+                MainGOsUtils.GetLevelLoader().LoadLevel("Level1");
             };
             Close();
         }

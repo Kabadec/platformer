@@ -11,6 +11,7 @@ using PixelCrew.Model;
 using PixelCrew.Components.ColliderBased;
 using PixelCrew.Components.Health;
 using PixelCrew.Components.GoBased;
+using PixelCrew.Effects.CameraRelated;
 using PixelCrew.Model.Data;
 using PixelCrew.Model.Data.Properties;
 using PixelCrew.Model.Definitions;
@@ -105,6 +106,7 @@ namespace PixelCrew.Creatures.Hero
         private GameSession _session;
         private float _defaultGravityScale;
         private HealthComponent _health;
+        private CameraShakeEffect _cameraShake;
         private Coroutine _multiThrowCoroutine;
         private Coroutine _forceShieldCoroutine;
 
@@ -126,6 +128,7 @@ namespace PixelCrew.Creatures.Hero
         {
             _session = FindObjectOfType<GameSession>();
             _health = GetComponent<HealthComponent>();
+            _cameraShake = FindObjectOfType<CameraShakeEffect>();
             
             _session.Data.Inventory.OnChanged += OnInventoryChanged;
             _session.StatsModel.OnUpgraded += OnHeroUpgraded;
@@ -250,6 +253,7 @@ namespace PixelCrew.Creatures.Hero
         public override void TakeDamage()
         {
             base.TakeDamage();
+            _cameraShake?.Shake();
             if (CoinCount > 0)
             {
                 SpawnCoins();
@@ -490,17 +494,29 @@ namespace PixelCrew.Creatures.Hero
             return damage;
         }
         
-        public void UseSwordShield()
+        public bool TryUseSwordShield()
         {
             if (_session.PerksModel.IsSwordShieldSupported 
                 && Time.time > _session.PerksModel.TimeHowPerkUsed + _coolDownPerk)
             {
                 _session.PerksModel.SetTimeHowPerkUsed(Time.time);
-                if(_swordShieldGO != null) Destroy(_swordShieldGO);
-                _swordShieldGO = Instantiate(_swordShieldPrefab, gameObject.transform);
+                SwordShield();
+                return true;
             }
-        }
 
+            return false;
+        }
+        private void SwordShield()
+        {
+            if(_swordShieldGO != null) Destroy(_swordShieldGO);
+            _swordShieldGO = Instantiate(_swordShieldPrefab, gameObject.transform);
+        }
+#if UNITY_EDITOR
+        public void CheatSwordShield()
+        {
+            SwordShield();
+        }
+#endif
         public void DropFromPlatform()
         {
             var position = transform.position;

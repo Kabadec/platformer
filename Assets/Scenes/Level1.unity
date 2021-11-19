@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -19497,7 +19497,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.6, y: 9.1, z: -10}
+  m_LocalPosition: {x: 18.44004, y: 6.5243254, z: -17.876514}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1238278177}
@@ -27961,18 +27961,20 @@ MonoBehaviour:
       _inventory:
       - Id: Coin
         Value: 30
-        UniqueId: 0
-        PosBigInventory: 
+        UniqueId: 8887
+        PosBigInventory: ffffffffffffffff
       - Id: BigPotionHealth
         Value: 2
-        UniqueId: 0
-        PosBigInventory: 
+        UniqueId: 4532
+        PosBigInventory: ffffffffffffffff
       - Id: PearlProjectile
         Value: 10
-        UniqueId: 0
-        PosBigInventory: 
+        UniqueId: 7888
+        PosBigInventory: ffffffffffffffff
     Hp:
       _value: 10
+    Oil:
+      _value: 100
     Perks:
       _used:
         _value: 
@@ -29615,7 +29617,6 @@ GameObject:
   m_Component:
   - component: {fileID: 838009446}
   - component: {fileID: 838009451}
-  - component: {fileID: 838009450}
   - component: {fileID: 838009449}
   - component: {fileID: 838009448}
   - component: {fileID: 838009447}
@@ -29985,53 +29986,6 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
---- !u!483693784 &838009450
-TilemapRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 838009445}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 0
-  m_ReflectionProbeUsage: 0
-  m_RayTracingMode: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1086957685
-  m_SortingLayer: 3
-  m_SortingOrder: 2
-  m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
-  m_MaxChunkCount: 16
-  m_MaxFrameAge: 16
-  m_SortOrder: 0
-  m_Mode: 0
-  m_DetectChunkCullingBounds: 0
-  m_MaskInteraction: 0
 --- !u!1839735485 &838009451
 Tilemap:
   m_ObjectHideFlags: 0

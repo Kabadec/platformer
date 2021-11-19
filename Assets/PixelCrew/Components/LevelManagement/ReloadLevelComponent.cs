@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using PixelCrew.Model;
+using PixelCrew.Utils;
 
 
 namespace PixelCrew.Components.LevelManagement
@@ -11,11 +12,13 @@ namespace PixelCrew.Components.LevelManagement
     {
         public void Reload()
         {
-            var session = FindObjectOfType<GameSession>();
+            var session = MainGOsUtils.GetGameSession();
             session.SetData(session.DefaultData);
-
+            
             var scene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(scene.name);
+            var loader = MainGOsUtils.GetLevelLoader();
+            
+            loader.LoadLevel(scene.name);
         }
     }
 }

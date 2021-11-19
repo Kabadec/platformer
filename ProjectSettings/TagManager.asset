@@ -10,9 +10,9 @@ TagManager:
   - Ground
   - CREATURES
   - SfxAudioSource
-  - MainCanvas
   - SimpleDialog
   - PersonalizedDialog
+  - MainUICanvas
   layers:
   - Default
   - TransparentFX
@@ -70,4 +70,7 @@ TagManager:
     locked: 0
   - name: Particles
     uniqueID: 1577660841
+    locked: 0
+  - name: Overlay
+    uniqueID: 4218407487
     locked: 0

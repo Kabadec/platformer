@@ -29,19 +29,15 @@ namespace PixelCrew.Components.Candle
             if (Oil.Value <= 0)
                 Oil.Value = 0;
             
-            var percentOilLeft = Oil.Value / MaxOil;
-            var percentThresholdDecreaseBrightness = _thresholdDecreaseBrightness / 100;
-            if (percentOilLeft <= percentThresholdDecreaseBrightness)
+            var normalizedOilValue = Oil.Value / MaxOil;
+            var normalizedThresholdDecreaseBrightness = _thresholdDecreaseBrightness / 100;
+            if (normalizedOilValue <= normalizedThresholdDecreaseBrightness)
             {
-                var percentLightIntensity = percentOilLeft / percentThresholdDecreaseBrightness;
-                Debug.Log(percentLightIntensity);
-                _sourceLight.intensity = percentLightIntensity * _maxIntensity;
+                var normalizedLightIntensity = normalizedOilValue / normalizedThresholdDecreaseBrightness;
+                _sourceLight.intensity = normalizedLightIntensity * _maxIntensity;
             }
             else
-            {
                 _sourceLight.intensity = _maxIntensity;
-            }
-            
         }
     }
 }

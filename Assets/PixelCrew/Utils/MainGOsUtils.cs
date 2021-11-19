@@ -1,6 +1,7 @@
 ﻿using PixelCrew.Creatures.Hero;
 using PixelCrew.Model;
 using PixelCrew.Model.Definitions.Player;
+using PixelCrew.UI.LevelsLoader;
 using UnityEngine;
 
 namespace PixelCrew.Utils
@@ -9,12 +10,13 @@ namespace PixelCrew.Utils
     public static class MainGOsUtils
     {
         private const string CameraTag = "MainCamera";
-        private const string CanvasTag = "MainCanvas";
+        private const string CanvasTag = "MainUICanvas";
         
         private static Camera _camera;
         private static GameSession _session;
         private static Hero _hero;
         private static Canvas _canvas;
+        private static LevelLoader _loader;
         
         public static Camera GetMainCamera()
         {
@@ -43,20 +45,19 @@ namespace PixelCrew.Utils
 
             return _hero = Object.FindObjectOfType<Hero>();
         }
+        
+        public static LevelLoader GetLevelLoader()
+        {
+            if (_loader != null) return _loader;
+
+            return _loader = Object.FindObjectOfType<LevelLoader>();
+        }
 
         public static Canvas GetMainCanvas()
         {
             if (_canvas != null) return _canvas;
             
-            var canvases = Object.FindObjectsOfType<Canvas>();
-            foreach (var canvas in canvases)
-            {
-                if (!canvas.CompareTag(CanvasTag)) continue;
-                _canvas = canvas;
-                return _canvas;
-            }
-
-            return default;
+            return _canvas = GameObject.FindWithTag(CanvasTag).GetComponent<Canvas>();
         }
         
     }

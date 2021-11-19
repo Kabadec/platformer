@@ -54,7 +54,7 @@ namespace PixelCrew.Creatures.Hero
         {
             if (context.performed)
             {
-                _hero.UseSwordShield();
+                _hero.TryUseSwordShield();
             }
         }public void OnPressX(InputAction.CallbackContext context)
         {

@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using PixelCrew.Model;
+﻿using UnityEngine;
+using PixelCrew.Utils;
 
 namespace PixelCrew.Components.LevelManagement
 {
@@ -11,9 +8,11 @@ namespace PixelCrew.Components.LevelManagement
         [SerializeField] private string _sceneName;
         public void Exit()
         {
-            var session = FindObjectOfType<GameSession>();
+            var session = MainGOsUtils.GetGameSession();
             session.SetDefaultData(session.Data);
-            SceneManager.LoadScene(_sceneName);
+
+            var loader = MainGOsUtils.GetLevelLoader();
+            loader.LoadLevel(_sceneName);
         }
     }
 }

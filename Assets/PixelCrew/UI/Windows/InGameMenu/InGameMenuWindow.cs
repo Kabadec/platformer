@@ -35,20 +35,24 @@ namespace PixelCrew.UI.InGameMenu
 
         public void OnRestartGame()
         {
+            var loader = MainGOsUtils.GetLevelLoader();
             var scene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(scene.name);
+            loader.LoadLevel(scene.name);
             Close();
         }
         public void OnLangauges()
         {
             WindowUtils.CreateWindow("UI/LocalizationWindow");
-
         }
 
         public void OnExit()
         { 
-           SceneManager.LoadScene("MainMenu");
-           var session = FindObjectOfType<GameSession>();
+            Time.timeScale = _defaultTimeScale;
+            
+            var loader = MainGOsUtils.GetLevelLoader();
+            loader.LoadLevel("MainMenu");
+            
+           var session = MainGOsUtils.GetGameSession();
            Destroy(session.gameObject);
         }
 
@@ -60,8 +64,9 @@ namespace PixelCrew.UI.InGameMenu
 
         private void OnDestroy()
         {
-            var hero = FindObjectOfType<Hero>();
-            hero.IsPause = false;
+            var hero = MainGOsUtils.GetMainHero();
+            if(hero != null)
+                hero.IsPause = false;
             Time.timeScale = _defaultTimeScale;
         }
     }

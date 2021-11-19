@@ -641,6 +641,21 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 4463b80c-5c54-452c-8b9a-096ad2f5ddd8
     m_ActionName: Hero/PressX[/Keyboard/x]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2260517198308532864}
+        m_MethodName: CheatSwordShield
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 73dfe60a-56d6-4bd5-b0be-d063a15a8595
+    m_ActionName: Hero/PressMiddleMouse[/Mouse/middleButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hero
