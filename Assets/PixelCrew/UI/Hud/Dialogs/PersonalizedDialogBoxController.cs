@@ -1,5 +1,6 @@
 ﻿using PixelCrew.Model.Data;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace PixelCrew.UI.Hud.Dialogs
 {
@@ -16,9 +17,9 @@ namespace PixelCrew.UI.Hud.Dialogs
             base.OnStartDialogAnimation();
         }
 
-        public override void ShowDialog(DialogData data)
+        public override void ShowDialog(DialogData data, UnityEvent onComplete)
         {
-            base.ShowDialog(data);
+            base.ShowDialog(data, onComplete);
             SetActiveRightOrLeft();
         }
 

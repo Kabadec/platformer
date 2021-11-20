@@ -29,6 +29,7 @@ namespace PixelCrew.Components.Dialogs.Editor
                         break;
                 }
             }
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("_onComplete"));
 
             serializedObject.ApplyModifiedProperties();
         }

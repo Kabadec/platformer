@@ -16,7 +16,7 @@ MonoBehaviour:
   - _id: double-jump
     _icon: {fileID: 21300000, guid: a2635cf15a2f13e4fa07643310dce52e, type: 3}
     _info: This is Double jump.
-    _cooldown: 3
+    _cooldown: 0.5
     _price:
       _itemId: Coin
       _count: 10

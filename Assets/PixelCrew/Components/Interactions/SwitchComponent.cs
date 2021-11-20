@@ -13,17 +13,13 @@ namespace PixelCrew.Components.Interactions
         {
             _animator.SetBool(_animatorKey, _state);
         }
-
+        
+        [ContextMenu("Switch")]
         public void Switch()
         {
             _state = !_state;
             _animator.SetBool(_animatorKey, _state);
         }
 
-        [ContextMenu("Switch")]
-        public void SwitchIt()
-        {
-            Switch();
-        }
     }
 }

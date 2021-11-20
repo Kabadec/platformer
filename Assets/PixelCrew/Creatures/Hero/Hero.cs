@@ -135,6 +135,7 @@ namespace PixelCrew.Creatures.Hero
             
             //_health.SetHealth(_session.Data.Hp.Value);
             _trash.Retain(_session.PerksModel.Subscribe(OnActivePerkChanged));
+            OnActivePerkChanged();
 
             OnHeroUpgraded(StatId.Hp);
             UpdateHeroWeapon();

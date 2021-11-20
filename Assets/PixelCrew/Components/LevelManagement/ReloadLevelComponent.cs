@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using PixelCrew.Model;
 using PixelCrew.Utils;
+using UnityEngine.InputSystem;
 
 
 namespace PixelCrew.Components.LevelManagement
@@ -12,6 +13,10 @@ namespace PixelCrew.Components.LevelManagement
     {
         public void Reload()
         {
+            var hero = MainGOsUtils.GetMainHero();
+            var heroInput = hero.GetComponent<PlayerInput>();
+            heroInput.DeactivateInput();
+            
             var session = MainGOsUtils.GetGameSession();
             session.SetData(session.DefaultData);
             
