@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using PixelCrew.Model.Definitions;
 using PixelCrew.Model.Definitions.Player;
+using PixelCrew.Utils;
 
 namespace PixelCrew.Components.Health
 {
@@ -16,8 +17,8 @@ namespace PixelCrew.Components.Health
         [SerializeField] public UnityEvent _onDie;
         [SerializeField] private UnityEvent _onHealth;
         [SerializeField] public HealthChangeEvent _onChange;
-        [SerializeField] private bool _immuneAfterHitAfterHit;
-        [SerializeField] private bool _immuneForceShield;
+
+        private Lock _immune = new Lock();
 
         private int _maxHealth;
         
@@ -31,22 +32,13 @@ namespace PixelCrew.Components.Health
             SetHealth(_health);
         }
 
-        public bool ImmuneAfterHit
-        {
-            get => _immuneAfterHitAfterHit;
-            set => _immuneAfterHitAfterHit = value;
-        }
-        public bool ImmuneForceShield
-        {
-            get => _immuneForceShield;
-            set => _immuneForceShield = value;
-        }
+        public Lock Immune => _immune;
 
         public bool ModifyHealth(int healthDelta)
         {
             if (_health <= 0) return false;
             if (healthDelta > 0 && _health >= _maxHealth) return false;
-            if (healthDelta < 0 && (_immuneAfterHitAfterHit || _immuneForceShield)) return false;
+            if (healthDelta < 0 && _immune.IsLocked) return false;
 
             _health += healthDelta;
             if (_health > _maxHealth)

@@ -377,10 +377,10 @@ namespace PixelCrew.Creatures.Hero
 
         private IEnumerator ForceShieldCoroutine()
         {
-            _health.ImmuneForceShield = true;
+            _health.Immune.Retain(this);
             _forceShield.SetActive(true);
             yield return new WaitForSeconds(_durationForceShield);
-            _health.ImmuneForceShield = false;
+            _health.Immune.Release(this);
             _forceShield.SetActive(false);
         }
 

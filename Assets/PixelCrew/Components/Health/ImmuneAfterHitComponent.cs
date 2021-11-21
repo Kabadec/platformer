@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using PixelCrew.Utils.Disposables;
 using UnityEngine;
 
 namespace PixelCrew.Components.Health
@@ -9,23 +10,26 @@ namespace PixelCrew.Components.Health
     {
         [SerializeField] private float _immuneTime;
         private HealthComponent _health;
+        private readonly CompositeDisposable _trash = new CompositeDisposable();
         private Coroutine _coroutine;
 
         private void Awake()
         {
             _health = GetComponent<HealthComponent>();
-            _health._onDamage.AddListener(OnDamage);
+            _trash.Retain(_health._onDamage.Subscribe(OnDamage));
         }
         private void OnDestroy()
         {
-            _health._onDamage.RemoveListener(OnDamage);
+            TryStop();
+            _trash.Dispose();
         }
 
 
         private void OnDamage()
         {
             TryStop();
-            _coroutine = StartCoroutine(MakeImmune());
+            if(_immuneTime > 0)
+                _coroutine = StartCoroutine(MakeImmune());
         }
         private void TryStop()
         {
@@ -36,9 +40,9 @@ namespace PixelCrew.Components.Health
 
         private IEnumerator MakeImmune()
         {
-            _health.ImmuneAfterHit = true;
+            _health.Immune.Retain(this);
             yield return new WaitForSeconds(_immuneTime);
-            _health.ImmuneAfterHit = false;
+            _health.Immune.Release(this);
             _coroutine = null;
         }
     }

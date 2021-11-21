@@ -8,6 +8,12 @@ namespace PixelCrew.Utils
     {
         [SerializeField] private float _value;
 
+        public float Value
+        {
+            get => _value;
+            set => _value = value;
+        }
+        
         private float _timesUp;
         public void Reset()
         {

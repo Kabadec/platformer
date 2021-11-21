@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using PixelCrew.Creatures.Hero;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using PixelCrew.Model;
