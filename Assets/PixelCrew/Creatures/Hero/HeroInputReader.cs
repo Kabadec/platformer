@@ -60,7 +60,7 @@ namespace PixelCrew.Creatures.Hero
         {
             if (context.performed)
             {
-                _hero.OnOffCandle();
+                _hero.OnOffFlashLight();
             }
         }
         public void OnAttack(InputAction.CallbackContext context)

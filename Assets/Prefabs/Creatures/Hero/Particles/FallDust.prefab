@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5084787553239837340}
   - component: {fileID: 8548962375483202779}
   - component: {fileID: 3806002852559133601}
-  - component: {fileID: 4468800784742854780}
+  - component: {fileID: 8998108351052193201}
   m_Layer: 0
   m_Name: FallDust
   m_TagString: Untagged
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frameRate: 10
   _clips:
-  - _name: 
+  - _name: idle
     _sprites:
     - {fileID: 21300000, guid: 6dcf61ac4c5ac684d8e824afd27f17b9, type: 3}
     - {fileID: 21300000, guid: 05788e2ac98b6874aa61555e51f1dec9, type: 3}
@@ -110,8 +110,8 @@ MonoBehaviour:
     _onComplete:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 4468800784742854780}
-          m_MethodName: DestroyObject
+        - m_Target: {fileID: 8998108351052193201}
+          m_MethodName: Release
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -121,7 +121,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &4468800784742854780
+--- !u!114 &8998108351052193201
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,11 +130,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 2418808808711754911}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9574ddf765a34c64899c7f408a1dc07f, type: 3}
+  m_Script: {fileID: 11500000, guid: 80fd4f2e6f544cc08c2c93fc96ca60db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectToDestroy: {fileID: 2418808808711754911}
-  _id: 
-  _delayToDestroy: 0
-  _destroyOnStart: 0
-  _state: {fileID: 0}
+  _onRestart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3806002852559133601}
+        m_MethodName: SetClip
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: idle
+          m_BoolArgument: 0
+        m_CallState: 2

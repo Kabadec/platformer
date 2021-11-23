@@ -4,6 +4,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 using System;
 using PixelCrew.Utils;
+using PixelCrew.Utils.ObjectPool;
 using UnityEngine.Events;
 
 namespace PixelCrew.Components.GoBased
@@ -87,7 +88,9 @@ namespace PixelCrew.Components.GoBased
         [ContextMenu("Spawn one")]
         private void Spawn(GameObject particle)
         {
-            var instance = SpawnUtils.Spawn(particle, transform.position);
+            //var instance = SpawnUtils.Spawn(particle, transform.position);
+            var instance = Pool.Instance.Get(particle, transform.position, Vector3.one);
+            
             var delta = 0.001f;
             instance.transform.position += new Vector3(Random.Range(-delta, delta), Random.Range(-delta, delta), 0f);
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using PixelCrew.Utils;
+using PixelCrew.Utils.ObjectPool;
 using UnityEngine;
 
 namespace PixelCrew.Components.GoBased
@@ -9,6 +10,7 @@ namespace PixelCrew.Components.GoBased
     {
         [SerializeField] private Transform _target;
         [SerializeField] private GameObject _prefab;
+        [SerializeField] private bool _usePool;
         [SerializeField] private bool _isSaveParent = false;
         [SerializeField] private bool _invertXScale;
 
@@ -33,13 +35,24 @@ namespace PixelCrew.Components.GoBased
             var instantiate = CreatingGameObject();
             instantiate.transform.parent = parentGo.transform;
         }
+
         private GameObject CreatingGameObject()
         {
-            var instantiate = SpawnUtils.Spawn(_prefab, _target.position);
+            var position = _target.position;
 
             var scale = _target.lossyScale;
             scale.x *= _invertXScale ? -1 : 1;
-            instantiate.transform.localScale = scale;
+
+            GameObject instantiate;
+            if (_usePool)
+            {
+                instantiate = Pool.Instance.Get(_prefab, position, scale);
+            }
+            else
+            {
+                instantiate = SpawnUtils.Spawn(_prefab, position);
+                instantiate.transform.localScale = scale;
+            }
 
             return instantiate;
         }

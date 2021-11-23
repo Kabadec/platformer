@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1607026694216263167}
   - component: {fileID: 3275918222197050551}
   - component: {fileID: -4577230692868775339}
-  - component: {fileID: -6200517675251692364}
+  - component: {fileID: 6186489877168788987}
   m_Layer: 0
   m_Name: PearlProjectile
   m_TagString: Untagged
@@ -168,8 +168,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: -6200517675251692364}
-        m_MethodName: DestroyObject
+      - m_Target: {fileID: 6186489877168788987}
+        m_MethodName: Release
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hpDelta: -1
---- !u!114 &-6200517675251692364
+--- !u!114 &6186489877168788987
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -201,11 +201,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 8460775947124550993}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9574ddf765a34c64899c7f408a1dc07f, type: 3}
+  m_Script: {fileID: 11500000, guid: 80fd4f2e6f544cc08c2c93fc96ca60db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectToDestroy: {fileID: 8460775947124550993}
-  _id: 
-  _delayToDestroy: 0
-  _destroyOnStart: 0
-  _state: {fileID: 0}
+  _onRestart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1607026694216263167}
+        m_MethodName: ResetProjectile
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

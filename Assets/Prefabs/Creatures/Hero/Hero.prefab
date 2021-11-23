@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1329470717561381639
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5703989119522965092}
+  - component: {fileID: 264311053807759894}
+  m_Layer: 11
+  m_Name: SwordShield
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5703989119522965092
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329470717561381639}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2260517198308532866}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &264311053807759894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329470717561381639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8af8b3190f94443a26606af49331e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _swordShieldPrefab: {fileID: 8665624065357713250, guid: f8067d93e68e19545bdf794719b9979d,
+    type: 3}
 --- !u!1 &1676176224671496070
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 2260517197401314589}
   _prefab: {fileID: 5208701862325091669, guid: 9150bdbc7c01b5946915ace14aa71211, type: 3}
+  _usePool: 1
   _isSaveParent: 0
   _invertXScale: 0
 --- !u!1 &2260517197962333239
@@ -301,6 +347,7 @@ Transform:
   - {fileID: 1386942573705990728}
   - {fileID: 1112241784562477805}
   - {fileID: 8340698991908983793}
+  - {fileID: 5703989119522965092}
   - {fileID: 376287840467943936}
   - {fileID: 7273256812080208626}
   m_Father: {fileID: 0}
@@ -406,10 +453,8 @@ MonoBehaviour:
   _disarmed: {fileID: 9100000, guid: 499d1775a7cdb3945b975b5277598125, type: 2}
   _throwSpawner: {fileID: 6190857971245302580}
   _hitDrop: {fileID: 8340698991908983792}
-  _forceShield: {fileID: 6781192322846209739}
-  _durationForceShield: 3
-  _swordShieldPrefab: {fileID: 8665624065357713250, guid: f8067d93e68e19545bdf794719b9979d,
-    type: 3}
+  _heroForceShield: {fileID: 4686308748849125715}
+  _heroSwordShield: {fileID: 264311053807759894}
   _candle: {fileID: 7273256812080208625}
 --- !u!114 &2260517198308532865
 MonoBehaviour:
@@ -901,6 +946,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 2260517198310963411}
   _prefab: {fileID: 8694384271458737854, guid: d0d39864cfb6fa84aa3431d158976a67, type: 3}
+  _usePool: 1
   _isSaveParent: 1
   _invertXScale: 0
 --- !u!1 &2260517198548666152
@@ -948,6 +994,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 2260517198548666153}
   _prefab: {fileID: 2418808808711754911, guid: 8c2d78be0f5207f4a9912c187e46f417, type: 3}
+  _usePool: 1
   _isSaveParent: 0
   _invertXScale: 0
 --- !u!1 &2260517198786738738
@@ -995,6 +1042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 2260517198786738739}
   _prefab: {fileID: 8462409005816164618, guid: 1757e059a3b0cb1408f32c59745f2e68, type: 3}
+  _usePool: 1
   _isSaveParent: 0
   _invertXScale: 0
 --- !u!1 &3579988025796185624
@@ -1118,6 +1166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 1112241784562477805}
   _prefab: {fileID: 8462409005816164618, guid: 13deb49ea3661ea4bba1bb5b2d0178fe, type: 3}
+  _usePool: 1
   _isSaveParent: 0
   _invertXScale: 0
 --- !u!1 &6781192322846209739
@@ -1131,6 +1180,7 @@ GameObject:
   - component: {fileID: 376287840467943936}
   - component: {fileID: 957849096946029035}
   - component: {fileID: 8279154127605578135}
+  - component: {fileID: 4686308748849125715}
   m_Layer: 11
   m_Name: ForceShield
   m_TagString: Untagged
@@ -1150,7 +1200,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2260517198308532866}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &957849096946029035
 SpriteRenderer:
@@ -1229,6 +1279,20 @@ MonoBehaviour:
     _onComplete:
       m_PersistentCalls:
         m_Calls: []
+--- !u!114 &4686308748849125715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6781192322846209739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c20bbfcd16d455591cf1d10788d9c59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 2260517198308532869}
+  _durationForceShield: 3
 --- !u!1 &7273256812080208625
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,7 +1304,7 @@ GameObject:
   - component: {fileID: 7273256812080208626}
   - component: {fileID: 7273256812080208620}
   - component: {fileID: 7273256812080208627}
-  - component: {fileID: 7110201904622035965}
+  - component: {fileID: 3264339336712563862}
   m_Layer: 0
   m_Name: Candle
   m_TagString: Untagged
@@ -1261,7 +1325,7 @@ Transform:
   m_Children:
   - {fileID: 7273256813723324866}
   m_Father: {fileID: 2260517198308532866}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7273256812080208620
 SpriteRenderer:
@@ -1307,7 +1371,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.32, y: 0.32}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1341,7 +1405,7 @@ MonoBehaviour:
     _onComplete:
       m_PersistentCalls:
         m_Calls: []
---- !u!114 &7110201904622035965
+--- !u!114 &3264339336712563862
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1353,10 +1417,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9e70f5dfe79441bafb1bf0dc38ecc5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _decreaseSpeed: 0.05
+  _decreaseOilSpeedPerSecond: 2.5
   _thresholdDecreaseBrightness: 10
   _sourceLight: {fileID: 7273256813723324867}
-  _maxIntensity: 1
 --- !u!1 &7273256813723324865
 GameObject:
   m_ObjectHideFlags: 0

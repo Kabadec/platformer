@@ -11,10 +11,12 @@ namespace PixelCrew.Creatures.Weapons
 
         private float _originalY;
         private float _time;
-        protected override void Start()
+
+        public override void ResetProjectile()
         {
-            base.Start();
+            base.ResetProjectile();
             _originalY = Rigidbody.position.y;
+            _time = 0f;
         }
 
         private void FixedUpdate()

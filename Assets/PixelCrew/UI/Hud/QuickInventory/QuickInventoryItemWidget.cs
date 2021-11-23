@@ -17,7 +17,8 @@ namespace PixelCrew.UI.Hud.QuickInventory
             get => _uniqueId;
             set => _uniqueId = value;
         }
-        private bool _isActive;
+        public bool IsActive { get; private set; }
+        
 
         
         protected override void Start()
@@ -34,7 +35,7 @@ namespace PixelCrew.UI.Hud.QuickInventory
         {
             _icon.gameObject.SetActive(isActive);
             _value.gameObject.SetActive(isActive);
-            _isActive = isActive;
+            IsActive = isActive;
             if (!isActive)
                 _uniqueId = -1;
         }

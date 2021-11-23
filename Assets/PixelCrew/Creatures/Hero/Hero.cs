@@ -1,19 +1,14 @@
-using System.Diagnostics.Contracts;
-using System.ComponentModel.Design;
-using System;
 using UnityEngine;
 using UnityEditor.Animations;
-using UnityEditor;
 using System.Collections;
-using PixelCrew.Components;
 using PixelCrew.Utils;
 using PixelCrew.Model;
 using PixelCrew.Components.ColliderBased;
 using PixelCrew.Components.Health;
 using PixelCrew.Components.GoBased;
+using PixelCrew.Creatures.Hero.Features;
 using PixelCrew.Effects.CameraRelated;
 using PixelCrew.Model.Data;
-using PixelCrew.Model.Data.Properties;
 using PixelCrew.Model.Definitions;
 using PixelCrew.Model.Definitions.Player;
 using PixelCrew.Model.Definitions.Repositories;
@@ -50,14 +45,12 @@ namespace PixelCrew.Creatures.Hero
         [Header("Particles")]
         [SerializeField] private RandomSpawner _hitDrop;
         [Header("ForceShield")]
-        [SerializeField] private GameObject _forceShield;
-
-        [SerializeField] private float _durationForceShield = 3;
+        [SerializeField] private HeroForceShieldComponent _heroForceShield;
 
         [Header("SwordShield")] 
-        [SerializeField] private GameObject _swordShieldPrefab;
+        [SerializeField] private HeroSwordShieldComponent _heroSwordShield;
         
-        [Header("Candle")] 
+        [Header("FlashLight")] 
         [SerializeField] private GameObject _candle;
 
 
@@ -78,10 +71,6 @@ namespace PixelCrew.Creatures.Hero
         private InventoryItemData SelectedItem => _session.QuickInventory.SelectedItem;
         
         
-
-        //private float _timeHowPerkUsed = 0;
-
-        //public float TimeHowPerkUsed => _timeHowPerkUsed;
         private float _coolDownPerk;
 
         private bool _allowDoubleJump;
@@ -110,7 +99,7 @@ namespace PixelCrew.Creatures.Hero
         private Coroutine _multiThrowCoroutine;
         private Coroutine _forceShieldCoroutine;
 
-        private GameObject _swordShieldGO;
+        private bool IsReadyPerk => Time.time > _session.PerksModel.TimeHowPerkUsed + _coolDownPerk;
         public bool IsPause { get; set; }
         
         public bool CanControlHero { get; set; }
@@ -367,22 +356,14 @@ namespace PixelCrew.Creatures.Hero
         
         public void UseForceShield()
         {
-            if (_session.PerksModel.IsForceShieldSupported
-                && Time.time > _session.PerksModel.TimeHowPerkUsed + _coolDownPerk)
+            if (_session.PerksModel.IsForceShieldSupported && IsReadyPerk)
             {
                 _session.PerksModel.SetTimeHowPerkUsed(Time.time);
-                _forceShieldCoroutine = StartCoroutine(ForceShieldCoroutine());
+                _heroForceShield.Use();
             }
         }
 
-        private IEnumerator ForceShieldCoroutine()
-        {
-            _health.Immune.Retain(this);
-            _forceShield.SetActive(true);
-            yield return new WaitForSeconds(_durationForceShield);
-            _health.Immune.Release(this);
-            _forceShield.SetActive(false);
-        }
+        
 
         public IEnumerator SpeedBuffCoroutine(string id)
         {
@@ -498,24 +479,20 @@ namespace PixelCrew.Creatures.Hero
         public bool TryUseSwordShield()
         {
             if (_session.PerksModel.IsSwordShieldSupported 
-                && Time.time > _session.PerksModel.TimeHowPerkUsed + _coolDownPerk)
+                && IsReadyPerk)
             {
                 _session.PerksModel.SetTimeHowPerkUsed(Time.time);
-                SwordShield();
+                _heroSwordShield.Use();
                 return true;
             }
 
             return false;
         }
-        private void SwordShield()
-        {
-            if(_swordShieldGO != null) Destroy(_swordShieldGO);
-            _swordShieldGO = Instantiate(_swordShieldPrefab, gameObject.transform);
-        }
+        
 #if UNITY_EDITOR
         public void CheatSwordShield()
         {
-            SwordShield();
+            _heroSwordShield.Use();
         }
 #endif
         public void DropFromPlatform()
@@ -540,9 +517,14 @@ namespace PixelCrew.Creatures.Hero
             _session.QuickInventory.SetNextItem();
         }
 
-        public void OnOffCandle()
+        public void OnOffFlashLight()
         {
-            _candle.SetActive(!_candle.activeSelf);
+            var isFlashLightActive = _candle.activeSelf;
+            if(isFlashLightActive)
+                _candle.SetActive(false);
+            else
+                if(_session.Data.Oil.Value > 0f)
+                    _candle.SetActive(true);
         }
 
         
