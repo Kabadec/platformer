@@ -22,7 +22,7 @@ namespace PixelCrew.UI.Windows.Perks
 
         private void Start()
         {
-            _session = FindObjectOfType<GameSession>();
+            _session = GameSession.Instance;
 
             _trash.Retain(_session.PerksModel.Subscribe(OnActivePerkChanged));
             OnActivePerkChanged();

@@ -12,7 +12,10 @@ namespace PixelCrew.Creatures.Hero
         private void Start()
         {
             var hero = MainGOsUtils.GetMainHero();
-            _input = hero.GetComponent<PlayerInput>();
+            if(hero != null)
+                _input = hero.GetComponent<PlayerInput>();
+            else
+                Debug.Log("hero is null!");
         }
 
         public void SetInput(bool isEnabled)

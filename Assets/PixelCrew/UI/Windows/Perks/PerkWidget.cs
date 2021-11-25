@@ -19,7 +19,7 @@ namespace PixelCrew.UI.Windows.Perks
 
         private void Start()
         {
-            _sessoin = FindObjectOfType<GameSession>();
+            _sessoin = GameSession.Instance;
             UpdateView();
         }
 

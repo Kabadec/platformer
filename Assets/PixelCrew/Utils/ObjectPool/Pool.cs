@@ -33,6 +33,7 @@ namespace PixelCrew.Utils.ObjectPool
                 var pooledItem = queue.Dequeue();
                 var pooledItemTransform = pooledItem.transform;
                 
+                
                 pooledItemTransform.position = position;
                 pooledItemTransform.localScale = scale;
                 pooledItem.gameObject.SetActive(true);

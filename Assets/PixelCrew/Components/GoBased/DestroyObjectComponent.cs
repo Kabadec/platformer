@@ -22,7 +22,7 @@ namespace PixelCrew.Components.GoBased
         public void DestroyObject()
         {
             if (_state != null)
-                FindObjectOfType<GameSession>().StoreState(_state.Id);
+                GameSession.Instance.StoreState(_state.Id);
             Destroy(_objectToDestroy, _delayToDestroy);
         }
     }

@@ -22,7 +22,7 @@ namespace PixelCrew.UI.Hud
 
         protected virtual void Start()
         {
-            Session = MainGOsUtils.GetGameSession();
+            Session = GameSession.Instance;
         }
 
         public virtual void SetData(InventoryItemData item, int index)

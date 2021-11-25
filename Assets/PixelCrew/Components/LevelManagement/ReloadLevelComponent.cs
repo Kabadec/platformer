@@ -18,7 +18,7 @@ namespace PixelCrew.Components.LevelManagement
             var heroInput = hero.GetComponent<PlayerInput>();
             heroInput.DeactivateInput();
             
-            var session = MainGOsUtils.GetGameSession();
+            var session = GameSession.Instance;
             session.SetData(session.DefaultData);
             
             var scene = SceneManager.GetActiveScene();

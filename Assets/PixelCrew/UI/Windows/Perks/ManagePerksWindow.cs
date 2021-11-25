@@ -39,7 +39,7 @@ namespace PixelCrew.UI.Windows.Perks
             Time.timeScale = 0;
             
             _dataGroup = new PredefinedDataGroup<PerkDef, PerkWidget>(_perksContainer);
-            _session = FindObjectOfType<GameSession>();
+            _session = GameSession.Instance;
             
             _trash.Retain(_session.PerksModel.Subscribe(OnPerksChanged));
             _trash.Retain(_buyButton.onClick.Subscribe(OnBuy));

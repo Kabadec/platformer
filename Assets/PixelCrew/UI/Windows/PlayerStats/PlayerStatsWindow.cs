@@ -33,7 +33,7 @@ namespace PixelCrew.UI.Windows.PlayerStats
             _defaultTimeScale = Time.timeScale;
             Time.timeScale = 0;
             
-            _session = FindObjectOfType<GameSession>();
+            _session = GameSession.Instance;
             _session.StatsModel.InterfaceSelectedStat.Value = DefsFacade.I.Player.Stats[0].ID;
             _dataGroup = new DataGroup<StatDef, StatsWidget>(_prefab, _statsContainer);
             _trash.Retain(_session.StatsModel.Subscribe(OnStatsChanged));

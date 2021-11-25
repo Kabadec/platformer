@@ -52,7 +52,7 @@ namespace PixelCrew.UI.InGameMenu
             var loader = MainGOsUtils.GetLevelLoader();
             loader.LoadLevel("MainMenu");
             
-           var session = MainGOsUtils.GetGameSession();
+           var session = GameSession.Instance;
            Destroy(session.gameObject);
         }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using Cinemachine;
 using PixelCrew.Creatures.Hero;
+using PixelCrew.Utils;
 using UnityEngine;
 
 namespace PixelCrew.Components.LevelManagement
@@ -11,7 +12,11 @@ namespace PixelCrew.Components.LevelManagement
         private void Start()
         {
             var vCamera = GetComponent<CinemachineVirtualCamera>();
-            vCamera.Follow = FindObjectOfType<Hero>().transform;
+            var hero = MainGOsUtils.GetMainHero();
+            if(hero != null)
+                vCamera.Follow = FindObjectOfType<Hero>().transform;
+            else
+                Debug.Log("hero is null!");
         }
     }
 }

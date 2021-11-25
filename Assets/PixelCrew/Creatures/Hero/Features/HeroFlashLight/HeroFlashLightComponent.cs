@@ -21,7 +21,7 @@ namespace PixelCrew.Creatures.Hero.Features.Candle
 
         private void Start()
         {
-            _session = MainGOsUtils.GetGameSession();
+            _session = GameSession.Instance;
             _maxIntensity = _sourceLight.intensity;
         }
 

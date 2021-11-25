@@ -25,7 +25,7 @@ namespace PixelCrew.UI.Windows.PlayerStats
 
         private void Start()
         {
-            _session = FindObjectOfType<GameSession>();
+            _session = GameSession.Instance;
             UpgradeView();
         }
 

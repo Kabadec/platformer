@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿#if UNITY_EDITOR
 using UnityEditor;
-using PixelCrew.Components;
+#endif
+
+using UnityEngine;
 using PixelCrew.Utils;
 using UnityEngine.Events;
 using System;
@@ -9,8 +10,6 @@ using System.Linq;
 
 namespace PixelCrew.Components.ColliderBased
 {
-
-
     public class CheckCircleOverlap : MonoBehaviour
     {
         [SerializeField] private float _radius = 1f;
@@ -18,13 +17,14 @@ namespace PixelCrew.Components.ColliderBased
         [SerializeField] private string[] _tags;
         [SerializeField] private OnOverlapEvent _onOverlap;
         private readonly Collider2D[] _interactionResult = new Collider2D[20];
+#if UNITY_EDITOR
 
         private void OnDrawGizmosSelected()
         {
             Handles.color = HandlesUtils.TransparentRed;
             Handles.DrawSolidDisc(transform.position, Vector3.forward, _radius);
         }
-
+#endif
         public void Check()
         {
             var size = Physics2D.OverlapCircleNonAlloc(

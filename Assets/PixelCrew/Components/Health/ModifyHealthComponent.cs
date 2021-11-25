@@ -21,7 +21,7 @@ namespace PixelCrew.Components.Health
             //         hpDelta = _hpDelta;
             //         break;
             //     case SourceDamage.RangeDamageInGameSession:
-            //         var session = FindObjectOfType<GameSession>();
+            //         var session = GameSession.Instance;
             //         hpDelta = (int) (-1 * session.StatsModel.GetValue(StatId.RangeDamage));
             //         Debug.Log(hpDelta);
             //         break;

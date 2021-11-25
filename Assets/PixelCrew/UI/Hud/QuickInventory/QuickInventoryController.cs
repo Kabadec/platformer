@@ -25,7 +25,7 @@ namespace PixelCrew.UI.Hud.QuickInventory
 
         private void Start()
         {
-            _session = MainGOsUtils.GetGameSession();
+            _session = GameSession.Instance;
             var items = _container.gameObject.GetComponentsInChildren<QuickInventoryItemWidget>();
             var itemsData = _session.Data.Inventory.GetAll();
             for (int i = 0; i < items.Length; i++)

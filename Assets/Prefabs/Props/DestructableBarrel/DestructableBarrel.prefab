@@ -45,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 7193193663743548109}
   _prefab: {fileID: 8340698992220650523, guid: 74741fa2250810e498e5e17b266525a1, type: 3}
+  _usePool: 0
   _isSaveParent: 0
   _invertXScale: 0
 --- !u!1 &968826362671157298
@@ -335,8 +336,6 @@ MonoBehaviour:
   _onChange:
     m_PersistentCalls:
       m_Calls: []
-  _immuneAfterHitAfterHit: 0
-  _immuneForceShield: 0
 --- !u!114 &1639195594853951673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,5 +411,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 2043663205186001635}
   _prefab: {fileID: 2945780856859788289, guid: c5ecabf88d845c14db1f911af371c89e, type: 3}
+  _usePool: 0
   _isSaveParent: 0
   _invertXScale: 0

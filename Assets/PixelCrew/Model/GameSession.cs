@@ -1,20 +1,25 @@
 ﻿using UnityEngine;
-using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using PixelCrew.Components.LevelManagement;
 using PixelCrew.Model.Data;
 using PixelCrew.Model.Definitions.Player;
 using PixelCrew.Model.Models;
 using PixelCrew.Utils.Disposables;
+using UnityEngine.Analytics;
 using UnityEngine.SceneManagement;
 
 namespace PixelCrew.Model
 {
     public class GameSession : MonoBehaviour
     {
+        [SerializeField] private int _levelIndex;
         [SerializeField] private PlayerData _data;
         [SerializeField] private string _defaultCheckPoint;
+        
+        public static GameSession Instance { get; private set; }
+        
         public PlayerData Data => _data;
         private PlayerData _defaultData;
         public PlayerData DefaultData => _defaultData;
@@ -31,29 +36,46 @@ namespace PixelCrew.Model
 
         private void Awake()
         {
+            // level_start
+            // level_complete
+            // level_index
             SetDefaultData(_data);
             
             var existsSession = GetExistsSession();
             if (existsSession != null)
             {
-                existsSession.StartSession(_defaultCheckPoint);
+                existsSession.StartSession(_defaultCheckPoint, _levelIndex);
                 Destroy(gameObject);
             }
             else
             {
                 DontDestroyOnLoad(this);
-                StartSession(_defaultCheckPoint);
+                Instance = this;
+                StartSession(_defaultCheckPoint, _levelIndex);
                 SetData(_defaultData);
                 InitModels();
             }
         }
+        
+        
 
-        private void StartSession(string defaultCheckPoint)
+        private void StartSession(string defaultCheckPoint, int levelIndex)
         {
             SetChecked(defaultCheckPoint);
+            TrackSessionStart(levelIndex);
             
-            LoadHud();
+            LoadUIs();
             SpawnHero();
+        }
+
+        private void TrackSessionStart(int levelIndex)
+        {
+            var eventParams = new Dictionary<string, object>
+            {
+                {"level_index", levelIndex}
+            };
+            
+            AnalyticsEvent.Custom("level_start", eventParams);
         }
 
         private void SpawnHero()
@@ -87,9 +109,17 @@ namespace PixelCrew.Model
             _data.Hp.Value = (int) StatsModel.GetValue(StatId.Hp);
         }
 
-        private void LoadHud()
+        private void LoadUIs()
         {
             SceneManager.LoadScene("Hud", LoadSceneMode.Additive);
+            LoadOnScreenControls();
+        }
+
+        [Conditional("USE_ONSCREEN_CONTROLS")]
+        private void LoadOnScreenControls()
+        {
+            SceneManager.LoadScene("Controls", LoadSceneMode.Additive);
+
         }
 
         private GameSession GetExistsSession()
@@ -119,16 +149,14 @@ namespace PixelCrew.Model
         }
         public void SetChecked(string id)
         {
-            if (!_checkPoints.Contains(id))
-            {
-                SetDefaultData(_data);
-                _checkPoints.Add(id);
-            }
-            
+            SetDefaultData(_data);
+            _checkPoints.Add(id);
         }
 
         private void OnDestroy()
         {
+            if (Instance == this)
+                Instance = null;
             _trash.Dispose();
         }
 

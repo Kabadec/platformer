@@ -16,7 +16,6 @@ namespace PixelCrew.Utils
         
         
         private static Camera _camera;
-        private static GameSession _session;
         private static Hero _hero;
         private static Canvas _canvas;
         private static LevelLoader _loader;
@@ -35,14 +34,7 @@ namespace PixelCrew.Utils
             }
             return default;
         }
-
-        public static GameSession GetGameSession()
-        {
-            if (_session != null) return _session;
-
-            return _session = Object.FindObjectOfType<GameSession>();
-        }
-
+        
         public static Hero GetMainHero()
         {
             if (_hero != null) return _hero;

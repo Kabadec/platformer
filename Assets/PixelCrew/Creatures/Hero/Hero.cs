@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEditor.Animations;
+//using UnityEditor.Animations;
 using System.Collections;
 using PixelCrew.Utils;
 using PixelCrew.Model;
@@ -37,8 +37,10 @@ namespace PixelCrew.Creatures.Hero
         
 
         [Space]
-        [SerializeField] AnimatorController _armed;
-        [SerializeField] AnimatorController _disarmed;
+        [SerializeField] RuntimeAnimatorController _armed;
+        [SerializeField] RuntimeAnimatorController _disarmed;
+        
+        
         
         [SerializeField] private SpawnComponent _throwSpawner;
         
@@ -115,7 +117,7 @@ namespace PixelCrew.Creatures.Hero
 
         private void Start()
         {
-            _session = FindObjectOfType<GameSession>();
+            _session = GameSession.Instance;
             _health = GetComponent<HealthComponent>();
             _cameraShake = FindObjectOfType<CameraShakeEffect>();
             

@@ -18,6 +18,7 @@ namespace PixelCrew.Effects.CameraRelated
         private Vector3 _overScale;
         private GameSession _session;
 
+
         private readonly CompositeDisposable _trash = new CompositeDisposable();
 
         private void Start()
@@ -25,12 +26,16 @@ namespace PixelCrew.Effects.CameraRelated
             _animator = GetComponent<Animator>();
             _overScale = _overlay.localScale - Vector3.one;
 
-            _session = MainGOsUtils.GetGameSession();
+            _session = GameSession.Instance;
             _session.Data.Hp.SubscribeAndInvoke(OnHpChanged);
+            
         }
 
         private void OnHpChanged(int newValue, int _)
         {
+            if (_animator == null || _overlay == null)
+                return;
+            
             var maxHp = _session.StatsModel.GetValue(StatId.Hp);
             var hpNormalized = newValue / maxHp;
             _animator.SetFloat(Health, hpNormalized);

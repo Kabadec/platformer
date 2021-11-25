@@ -16,7 +16,7 @@ namespace PixelCrew.Model.Models
 
         public readonly QuickInventoryItemWidget[] Items = new QuickInventoryItemWidget[3];
         
-        private QuickInventoryItemWidget[] _items => MainGOsUtils.GetGameSession().QuickInventory.Items;
+        private QuickInventoryItemWidget[] _items => GameSession.Instance.QuickInventory.Items;
 
         public readonly IntProperty SelectedIndex = new IntProperty();
 

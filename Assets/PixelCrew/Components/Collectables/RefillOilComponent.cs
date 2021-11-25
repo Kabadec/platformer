@@ -1,5 +1,5 @@
-﻿using PixelCrew.Model.Definitions;
-using PixelCrew.Utils;
+﻿using PixelCrew.Model;
+using PixelCrew.Model.Definitions;
 using UnityEngine;
 
 namespace PixelCrew.Components.Collectables
@@ -8,7 +8,7 @@ namespace PixelCrew.Components.Collectables
     {
         public void RefillOil()
         {
-            MainGOsUtils.GetGameSession().Data.Oil.Value = DefsFacade.I.Player.MaxOil;
+            GameSession.Instance.Data.Oil.Value = DefsFacade.I.Player.MaxOil;
         }
     }
 }

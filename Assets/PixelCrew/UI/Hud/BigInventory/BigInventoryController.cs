@@ -29,7 +29,7 @@ namespace PixelCrew.UI.Hud.BigInventory
 
         private void Start()
         {
-            _session = MainGOsUtils.GetGameSession();
+            _session = GameSession.Instance;
             _trash.Retain(_session.BigInventory.Subscribe(Rebuild));
             TakeAllItemWidgets();
             DisableAllItems();
