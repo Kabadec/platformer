@@ -1,5 +1,5 @@
 ﻿using System;
-using PixelCrew.Creatures.Hero;
+using PixelCrew.Creatures.HeroAll;
 using PixelCrew.Model;
 using PixelCrew.Model.Definitions;
 using PixelCrew.Model.Definitions.Player;

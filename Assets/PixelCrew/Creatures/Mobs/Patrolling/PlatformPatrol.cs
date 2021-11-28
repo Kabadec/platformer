@@ -14,13 +14,17 @@ namespace PixelCrew.Creatures.Mobs.Patrolling
         [SerializeField] private LayerCheck _obstacleCheck;
         [SerializeField] private int _direction = -1;
         [SerializeField] private OnChangeDirection _onChangeDirection;
-
-
-
+        
         private void Start()
         {
             ReloadDirection();
         }
+
+        private void OnEnable()
+        {
+            ReloadDirection();
+        }
+
         public override IEnumerator DoPatrol()
         {
             ReloadDirection();
@@ -30,6 +34,8 @@ namespace PixelCrew.Creatures.Mobs.Patrolling
                 {
                     ChangeDirection();
                 }
+                yield return null;
+                yield return null;
                 yield return null;
             }
         }

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using PixelCrew.Creatures.Hero;
 using PixelCrew.Creatures;
 namespace PixelCrew.Creatures.Mobs.Crab
 {
@@ -14,12 +13,12 @@ namespace PixelCrew.Creatures.Mobs.Crab
         [SerializeField] private float _coefY = 2.2f;
         [SerializeField] private float _minY = 10f;
 
-        private PixelCrew.Creatures.Hero.Hero _hero;
+        private HeroAll.Hero _hero;
         private Rigidbody2D _rb;
         protected override void Awake()
         {
             base.Awake();
-            _hero = FindObjectOfType<PixelCrew.Creatures.Hero.Hero>();
+            _hero = FindObjectOfType<HeroAll.Hero>();
             _rb = GetComponent<Rigidbody2D>(); ;
         }
         protected override void FixedUpdate()

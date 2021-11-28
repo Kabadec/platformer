@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using PixelCrew.Creatures.Hero;
+﻿using PixelCrew.Creatures.HeroAll;
 using UnityEngine;
 using PixelCrew.UI.Widgets.Editor;
 using PixelCrew.Model;

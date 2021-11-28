@@ -1,6 +1,4 @@
-﻿using System;
-using PixelCrew.Creatures.Hero;
-using PixelCrew.Model;
+﻿using PixelCrew.Model;
 using PixelCrew.Model.Definitions;
 using PixelCrew.UI.Widgets.Editor;
 using PixelCrew.Utils.Disposables;

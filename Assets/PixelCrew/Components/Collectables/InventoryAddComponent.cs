@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using PixelCrew.Creatures.Hero;
-using PixelCrew.Model.Definitions;
+﻿using UnityEngine;
 using PixelCrew.Utils;
 using PixelCrew.Model.Data;
 using PixelCrew.Model.Definitions.Repositories.Items;

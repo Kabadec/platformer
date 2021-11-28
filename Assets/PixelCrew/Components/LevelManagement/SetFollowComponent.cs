@@ -1,6 +1,5 @@
-﻿using System;
-using Cinemachine;
-using PixelCrew.Creatures.Hero;
+﻿using Cinemachine;
+using PixelCrew.Creatures.HeroAll;
 using PixelCrew.Utils;
 using UnityEngine;
 

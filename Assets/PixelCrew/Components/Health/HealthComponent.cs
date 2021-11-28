@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using PixelCrew.Creatures.Hero;
 using PixelCrew.Model;
 using UnityEngine;
 using UnityEngine.Events;
-using PixelCrew.Model.Definitions;
-using PixelCrew.Model.Definitions.Player;
 using PixelCrew.Utils;
 
 namespace PixelCrew.Components.Health

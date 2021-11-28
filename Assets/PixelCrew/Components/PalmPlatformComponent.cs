@@ -1,9 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using PixelCrew.Creatures;
-using PixelCrew.Creatures.Hero;
+using PixelCrew.Creatures.HeroAll;
 
 namespace PixelCrew.Components
 {

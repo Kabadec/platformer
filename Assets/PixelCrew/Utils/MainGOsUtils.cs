@@ -1,6 +1,4 @@
-﻿using PixelCrew.Creatures.Hero;
-using PixelCrew.Model;
-using PixelCrew.Model.Definitions.Player;
+﻿using PixelCrew.Creatures.HeroAll;
 using PixelCrew.UI.LevelsLoader;
 using UnityEngine;
 using UnityEngine.Rendering;

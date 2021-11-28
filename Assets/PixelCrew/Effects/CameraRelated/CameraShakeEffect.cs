@@ -28,7 +28,19 @@ namespace PixelCrew.Effects.CameraRelated
             _coroutine = StartCoroutine(StartAnimation());
         }
 
-        
+        public void Shake(float animationTime, float intensity)
+        {
+            if (_coroutine != null)
+                StopAnimation();
+            _coroutine = StartCoroutine(StartAnimation(animationTime, intensity));
+        }
+
+        private IEnumerator StartAnimation(float animationTime, float intensity)
+        {
+            _cameraNoise.m_FrequencyGain = intensity;
+            yield return new WaitForSeconds(animationTime);
+            StopAnimation();
+        }
 
         private IEnumerator StartAnimation()
         {

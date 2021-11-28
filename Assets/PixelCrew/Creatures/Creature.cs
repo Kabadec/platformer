@@ -28,7 +28,7 @@ namespace PixelCrew.Creatures
         [SerializeField] protected SpawnListComponent _particles;
 
 
-        protected Vector2 Direction;
+        [SerializeField] protected Vector2 Direction;
         protected Rigidbody2D Rigidbody;
         protected Animator Animator;
         protected PlaySoundsComponent Sounds;
@@ -49,8 +49,10 @@ namespace PixelCrew.Creatures
             Animator = GetComponent<Animator>();
             Sounds = GetComponent<PlaySoundsComponent>();
         }
-        public void SetDirection(Vector2 direction)
+        public virtual void SetDirection(Vector2 direction)
         {
+            if(!_groundCheck.IsTouchingLayer)
+                return;
             Direction = direction;
         }
         protected virtual void Update()
@@ -62,6 +64,8 @@ namespace PixelCrew.Creatures
 
             var xVelocity = Direction.x * CalculateSpeed();
             var yVelocity = CalculateYVelocity();
+            if (yVelocity >= _jumpSpeed + 4f)
+                yVelocity = _jumpSpeed + 4f;
 
             Rigidbody.velocity = new Vector2(xVelocity, yVelocity);
 
