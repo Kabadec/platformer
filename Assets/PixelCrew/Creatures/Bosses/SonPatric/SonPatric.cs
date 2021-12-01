@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using PixelCrew.Components.ColliderBased;
+﻿using System.Collections;
 using PixelCrew.Components.GoBased;
 using PixelCrew.Components.Health;
 using PixelCrew.Creatures.Bosses.SonPatric.Spikes;
@@ -65,7 +63,12 @@ namespace PixelCrew.Creatures.Bosses.SonPatric
             _spikeController = GetComponent<BossSpikeController>();
             _cameraShake = FindObjectOfType<CameraShakeEffect>();
             _health.Immune.Retain(this);
-            
+
+
+
+
+            //var animation1 = new Animation();
+            //animation1.clip.
         }
 
         [ContextMenu("Lets fight")]

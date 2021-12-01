@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _id: Coin
-  _count: 10
+  _count: 5
   _added:
     m_PersistentCalls:
       m_Calls: []

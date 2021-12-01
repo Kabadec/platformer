@@ -36,28 +36,24 @@ namespace PixelCrew.Creatures.HeroAll
         {
             if (context.performed)
             {
-                _hero.UseForceShield();
+                _hero.OnOffFlashLight();
             }
         }
-        public void OnPressH(InputAction.CallbackContext context)
+        public void OnPressX(InputAction.CallbackContext context)
         {
             if (context.performed)
             {
-                //_hero.UsePotionHealth();
+                _hero.UseForceShield();
             }
         }
-        public void OnPressZ(InputAction.CallbackContext context)
+
+        public void OnPressC(InputAction.CallbackContext context)
         {
             if (context.performed)
             {
                 _hero.TryUseSwordShield();
             }
-        }public void OnPressX(InputAction.CallbackContext context)
-        {
-            if (context.performed)
-            {
-                _hero.OnOffFlashLight();
-            }
+        
         }
         public void OnAttack(InputAction.CallbackContext context)
         {

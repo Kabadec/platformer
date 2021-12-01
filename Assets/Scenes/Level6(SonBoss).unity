@@ -1104,16 +1104,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sharky
       objectReference: {fileID: 0}
-    - target: {fileID: 2260517198308532876, guid: fe70d943f92371c45ae961ae54eb561c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8203055672924562757, guid: fe70d943f92371c45ae961ae54eb561c,
-        type: 3}
-      propertyPath: Direction.x
-      value: -1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe70d943f92371c45ae961ae54eb561c, type: 3}
 --- !u!1 &601971764
@@ -9188,8 +9178,9 @@ MonoBehaviour:
   _target: {fileID: 1103557154}
   _prefab: {fileID: 2260517198308532876, guid: 435e6481a06e62b42a410b33714c06dd, type: 3}
   _usePool: 0
-  _isSaveParent: 0
+  _setTargetScale: 1
   _invertXScale: 0
+  _isSaveParent: 0
 --- !u!1 &1113948070
 GameObject:
   m_ObjectHideFlags: 0
@@ -9992,8 +9983,9 @@ MonoBehaviour:
   _target: {fileID: 1378585762}
   _prefab: {fileID: 8340698992220650523, guid: ba779eee9e97cbb44ad79c0419ceef77, type: 3}
   _usePool: 0
-  _isSaveParent: 0
+  _setTargetScale: 1
   _invertXScale: 0
+  _isSaveParent: 0
 --- !u!1 &1408248725
 GameObject:
   m_ObjectHideFlags: 0

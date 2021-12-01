@@ -14,7 +14,6 @@ namespace PixelCrew.UI.Windows.Perks
     public class ManagePerksWindow : AnimatedWindow
     {
         [SerializeField] private Button _buyButton;
-        [SerializeField] private Button _useButton;
         [SerializeField] private ItemWidget _price;
         [SerializeField] private Text _infoText;
         [SerializeField] private Transform _perksContainer;
@@ -42,7 +41,6 @@ namespace PixelCrew.UI.Windows.Perks
             
             _trash.Retain(_session.PerksModel.Subscribe(OnPerksChanged));
             _trash.Retain(_buyButton.onClick.Subscribe(OnBuy));
-            _trash.Retain(_useButton.onClick.Subscribe(OnUse));
             
             OnPerksChanged();
         }
@@ -52,10 +50,8 @@ namespace PixelCrew.UI.Windows.Perks
             _dataGroup.SetData(DefsFacade.I.Perks.All);
 
             var selected = _session.PerksModel.InterfaceSelection.Value;
-            _useButton.gameObject.SetActive(_session.PerksModel.IsUnlocked(selected));
-            _useButton.interactable = _session.PerksModel.Used != selected;
             
-            _buyButton.gameObject.SetActive(!_session.PerksModel.IsUnlocked(selected));
+            _buyButton.gameObject.SetActive(!_session.PerksModel.IsUnlockedForManage(selected));
             _buyButton.interactable = _session.PerksModel.CanBuy(selected);
 
             var def = DefsFacade.I.Perks.Get(selected);
@@ -64,11 +60,7 @@ namespace PixelCrew.UI.Windows.Perks
             _infoText.text = LocalizationManager.I.Localize(def.Info);
         }
 
-        private void OnUse()
-        {
-            var selected = _session.PerksModel.InterfaceSelection.Value;
-            _session.PerksModel.UsePerk(selected);
-        }
+        
 
         private void OnBuy()
         {
@@ -80,7 +72,6 @@ namespace PixelCrew.UI.Windows.Perks
         {
             _trash.Dispose();
             Time.timeScale = _defaultTimeScale;
-            //var hero = FindObjectOfType<Hero>();
             MainGOsUtils.GetMainHero().IsPause = false;
         }
     }

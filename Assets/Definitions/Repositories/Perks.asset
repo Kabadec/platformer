@@ -41,3 +41,24 @@ MonoBehaviour:
     _price:
       _itemId: Coin
       _count: 200
+  - _id: get-swords
+    _icon: {fileID: 21300000, guid: 63f2d553fa518e340a6e7928fc2d415b, type: 3}
+    _info: Add 10 sword in inventory.
+    _cooldown: 0
+    _price:
+      _itemId: Coin
+      _count: 10
+  - _id: get-potion-health
+    _icon: {fileID: 6519628818910804322, guid: 2c0a5b150ffdb7048aa5a209697052e8, type: 3}
+    _info: Heal 2 HP
+    _cooldown: 1
+    _price:
+      _itemId: Coin
+      _count: 10
+  - _id: get-big-potion-health
+    _icon: {fileID: 1638098966691201504, guid: 005f0fc547aba5a4990b2204ba6830c5, type: 3}
+    _info: Heal 10 HP
+    _cooldown: 1
+    _price:
+      _itemId: Coin
+      _count: 10

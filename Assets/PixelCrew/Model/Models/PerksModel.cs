@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using PixelCrew.Model.Data;
 using PixelCrew.Model.Data.Properties;
 using PixelCrew.Model.Definitions;
@@ -10,11 +12,11 @@ namespace PixelCrew.Model.Models
     public class PerksModel : IDisposable
     {
         private readonly PlayerData _data;
-        public StringProperty InterfaceSelection = new StringProperty();
+        public readonly StringProperty InterfaceSelection = new StringProperty();
 
-        private float _timeHowPerkUsed;
+        private readonly Dictionary<string, float> _dictionaryTimesHowPerksUsed = new Dictionary<string, float>();
         
-        public float TimeHowPerkUsed => _timeHowPerkUsed;
+        //public  Dictionary<string, float> DictionaryTimesHowPerksUsed => _dictionaryTimesHowPerksUsed;
 
         private readonly CompositeDisposable _trash = new CompositeDisposable();
         public event Action OnChanged;
@@ -24,7 +26,6 @@ namespace PixelCrew.Model.Models
             _data = data;
             InterfaceSelection.Value = DefsFacade.I.Perks.All[0].Id;
             
-            _trash.Retain(_data.Perks.Used.Subscribe((x, y) => OnChanged?.Invoke()));
             _trash.Retain(InterfaceSelection.Subscribe((x, y) => OnChanged?.Invoke()));
         }
 
@@ -33,11 +34,11 @@ namespace PixelCrew.Model.Models
             OnChanged += call;
             return new ActionDisposable(() => OnChanged -= call);
         }
-        public string Used => _data.Perks.Used.Value;
-        public bool IsSuperThrowSupported => _data.Perks.Used.Value == "super-throw";
-        public bool IsDoubleJumpSupported => _data.Perks.Used.Value == "double-jump";
-        public bool IsForceShieldSupported => _data.Perks.Used.Value == "force-shield";
-        public bool IsSwordShieldSupported => _data.Perks.Used.Value == "sword-shield";
+        public List<string> Used => _data.Perks.Unlocked;
+        public bool IsSuperThrowSupported => _data.Perks.Unlocked.Contains("super-throw");
+        public bool IsDoubleJumpSupported => _data.Perks.Unlocked.Contains("double-jump");
+        public bool IsForceShieldSupported => _data.Perks.Unlocked.Contains("force-shield");
+        public bool IsSwordShieldSupported => _data.Perks.Unlocked.Contains("sword-shield");
 
 
         public void Unlock(string id)
@@ -45,31 +46,55 @@ namespace PixelCrew.Model.Models
             var def = DefsFacade.I.Perks.Get(id);
             var isEnoughResources = _data.Inventory.IsEnough(def.Price);
 
+            
+
             if (isEnoughResources)
             {
+
+                if (id == "get-swords")
+                {
+                    if(!_data.Inventory.Add("Sword", (int) def.Cooldown))
+                        return;
+                }
+
+                if (id == "get-potion-health")
+                {
+                    if(!_data.Inventory.Add("PotionHealth", (int) def.Cooldown))
+                        return;
+                }
+
+                if (id == "get-big-potion-health")
+                {
+                    if(!_data.Inventory.Add("BigPotionHealth", (int) def.Cooldown))
+                        return;
+                } 
+                else
+                    _data.Perks.AddPerk(id);
+                
                 _data.Inventory.Remove(def.Price.ItemId, def.Price.Count);
-                _data.Perks.AddPerk(id);
+
                 OnChanged?.Invoke();
             }
         }
-        public void UsePerk(string selected)
-        {
-            _data.Perks.Used.Value = selected;
-        }
-
-        public bool IsUsed(string perkId)
-        {
-            return _data.Perks.Used.Value == perkId;
-        }
         
-        public bool IsUnlocked(string perkId)
+        
+        
+        public bool IsUnlockedForManage(string perkId)
         {
+            if (perkId == "get-swords" || perkId == "get-potion-health" || perkId == "get-big-potion-health")
+                return false;
+            return _data.Perks.IsUnlocked(perkId);
+        }
+        public bool IsUnlockedForWidget(string perkId)
+        {
+            if (perkId == "get-swords" || perkId == "get-potion-health" || perkId == "get-big-potion-health")
+                return true;
             return _data.Perks.IsUnlocked(perkId);
         }
 
-        public Sprite ActivePerkSprite()
+        public Sprite PerkSprite(string id)
         {
-            var def = DefsFacade.I.Perks.Get(_data.Perks.Used.Value);
+            var def = DefsFacade.I.Perks.Get(id);
             return def.Icon;
         }
         
@@ -79,9 +104,18 @@ namespace PixelCrew.Model.Models
             return _data.Inventory.IsEnough(def.Price);
         }
 
-        public void SetTimeHowPerkUsed(float time)
+        public void SetTimeHowPerkUsed(string id, float time)
         {
-            _timeHowPerkUsed = time;
+            _dictionaryTimesHowPerksUsed.Remove(id);
+            _dictionaryTimesHowPerksUsed.Add(id, time);
+        }
+
+        public float GetTimeHowPerkUsed(string id)
+        {
+            float time = -10f;
+            
+            _dictionaryTimesHowPerksUsed.TryGetValue(id, out time);
+            return time;
         }
         
         public void Dispose()

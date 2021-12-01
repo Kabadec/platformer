@@ -43,6 +43,12 @@ namespace PixelCrew.UI.Hud
             hero.IsPause = true;
             WindowUtils.CreateWindow("UI/InGameMenuWindow");
         }
+        public void OnHelp()
+        {
+            var hero = FindObjectOfType<Hero>();
+            hero.IsPause = true;
+            WindowUtils.CreateWindow("UI/ManagementInputWindow");
+        }
 
         public void OnStatsWindow()
         {

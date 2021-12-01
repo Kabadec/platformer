@@ -19048,6 +19048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3a9a5dfc586d6d4faac17119fa022fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _levelIndex: 0
   _data:
     _inventory:
       _inventory:
@@ -19080,8 +19081,6 @@ MonoBehaviour:
     Oil:
       _value: 100
     Perks:
-      _used:
-        _value: double-jump
       _unlocked:
       - double-jump
     Levels:

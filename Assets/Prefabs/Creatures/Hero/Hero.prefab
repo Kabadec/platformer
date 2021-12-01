@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2260517198308532866}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &264311053807759894
 MonoBehaviour:
@@ -75,7 +75,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2260517198308532866}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &65551831980373847
 MonoBehaviour:
@@ -155,8 +155,9 @@ MonoBehaviour:
   _target: {fileID: 2260517197401314589}
   _prefab: {fileID: 5208701862325091669, guid: 9150bdbc7c01b5946915ace14aa71211, type: 3}
   _usePool: 1
-  _isSaveParent: 0
+  _setTargetScale: 1
   _invertXScale: 0
+  _isSaveParent: 0
 --- !u!1 &2260517197962333239
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,7 +252,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2260517198308532866}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2260517198278883594
 MonoBehaviour:
@@ -342,6 +343,8 @@ Transform:
   - {fileID: 2260517197401314589}
   - {fileID: 2260517198548666153}
   - {fileID: 2260517198310963411}
+  - {fileID: 5603837739748669246}
+  - {fileID: 3313935276419773565}
   - {fileID: 8760542493426166707}
   - {fileID: 2260517198278883605}
   - {fileID: 1386942573705990728}
@@ -439,6 +442,7 @@ MonoBehaviour:
   _attackRange0: {fileID: 2260517198278883594}
   _attackRange1: {fileID: 0}
   _particles: {fileID: 1798808961}
+  Direction: {x: 0, y: 0}
   IsGrounded: 0
   _interactionCheck: {fileID: 7032323897480645751}
   _wallCheck: {fileID: 65551831980373847}
@@ -560,21 +564,6 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2260517198308532867}
-        m_MethodName: OnPressH
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: f7492a63-3497-429d-845c-1367cb97a994
-    m_ActionName: Hero/Health[/Keyboard/h]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2260517198308532867}
         m_MethodName: OnDrop
         m_Mode: 0
         m_Arguments:
@@ -617,21 +606,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e5f8a6aa-4b63-4ce5-a152-a669b9d940b7
     m_ActionName: Hero/PressF[/Keyboard/f]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2260517198308532867}
-        m_MethodName: OnPressZ
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 7e6a483c-679a-4b07-9edc-645bdc2cf3ff
-    m_ActionName: Hero/PressZ[/Keyboard/z]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 11bade24-3a26-47dd-ba91-8728ea511fd6
@@ -702,6 +676,21 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 73dfe60a-56d6-4bd5-b0be-d063a15a8595
     m_ActionName: Hero/PressMiddleMouse[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2260517198308532867}
+        m_MethodName: OnPressC
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: eea87556-4f6b-45c6-b8a3-cd2d33f8d053
+    m_ActionName: Hero/PressC[/Keyboard/c]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hero
@@ -754,7 +743,7 @@ Animator:
   m_GameObject: {fileID: 2260517198308532876}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 499d1775a7cdb3945b975b5277598125, type: 2}
+  m_Controller: {fileID: 9100000, guid: bda44eae4fb1d7943ac17d37be558a92, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -851,10 +840,14 @@ MonoBehaviour:
     Component: {fileID: 2260517197401314578}
   - Id: Fall
     Component: {fileID: 2260517198548666158}
-  - Id: Slash
-    Component: {fileID: 2260517198310963408}
   - Id: Throw
     Component: {fileID: 6190857971245302580}
+  - Id: SlashFirst
+    Component: {fileID: 2260517198310963408}
+  - Id: SlashSecond
+    Component: {fileID: 4644213698591936378}
+  - Id: SlashThird
+    Component: {fileID: 3429348400903205052}
 --- !u!114 &323262983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -912,7 +905,7 @@ GameObject:
   - component: {fileID: 2260517198310963411}
   - component: {fileID: 2260517198310963408}
   m_Layer: 0
-  m_Name: SwordSlashParticlesPosition
+  m_Name: SwordSlashFirstParticlesPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -947,8 +940,9 @@ MonoBehaviour:
   _target: {fileID: 2260517198310963411}
   _prefab: {fileID: 8694384271458737854, guid: d0d39864cfb6fa84aa3431d158976a67, type: 3}
   _usePool: 1
-  _isSaveParent: 1
+  _setTargetScale: 0
   _invertXScale: 0
+  _isSaveParent: 1
 --- !u!1 &2260517198548666152
 GameObject:
   m_ObjectHideFlags: 0
@@ -995,8 +989,9 @@ MonoBehaviour:
   _target: {fileID: 2260517198548666153}
   _prefab: {fileID: 2418808808711754911, guid: 8c2d78be0f5207f4a9912c187e46f417, type: 3}
   _usePool: 1
-  _isSaveParent: 0
+  _setTargetScale: 1
   _invertXScale: 0
+  _isSaveParent: 0
 --- !u!1 &2260517198786738738
 GameObject:
   m_ObjectHideFlags: 0
@@ -1043,8 +1038,9 @@ MonoBehaviour:
   _target: {fileID: 2260517198786738739}
   _prefab: {fileID: 8462409005816164618, guid: 1757e059a3b0cb1408f32c59745f2e68, type: 3}
   _usePool: 1
-  _isSaveParent: 0
+  _setTargetScale: 1
   _invertXScale: 0
+  _isSaveParent: 0
 --- !u!1 &3579988025796185624
 GameObject:
   m_ObjectHideFlags: 0
@@ -1075,7 +1071,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2260517198308532866}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7032323897480645751
 MonoBehaviour:
@@ -1121,6 +1117,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85e4637a5060f634eb0fb2ba7fde17a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4387511780989900137
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5603837739748669246}
+  - component: {fileID: 4644213698591936378}
+  m_Layer: 0
+  m_Name: SwordSlashSecondParticlesPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5603837739748669246
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4387511780989900137}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.613, y: -0.188, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2260517198308532866}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4644213698591936378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4387511780989900137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5386461f3140d1b438e28a97674828fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 5603837739748669246}
+  _prefab: {fileID: 8694384271458737854, guid: 84b17d5262d4b4643ab0408fd0db6c8d, type: 3}
+  _usePool: 1
+  _setTargetScale: 0
+  _invertXScale: 0
+  _isSaveParent: 1
 --- !u!1 &5755722350103529599
 GameObject:
   m_ObjectHideFlags: 0
@@ -1150,7 +1195,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2260517198308532866}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6190857971245302580
 MonoBehaviour:
@@ -1167,8 +1212,9 @@ MonoBehaviour:
   _target: {fileID: 1112241784562477805}
   _prefab: {fileID: 8462409005816164618, guid: 13deb49ea3661ea4bba1bb5b2d0178fe, type: 3}
   _usePool: 1
-  _isSaveParent: 0
+  _setTargetScale: 1
   _invertXScale: 0
+  _isSaveParent: 0
 --- !u!1 &6781192322846209739
 GameObject:
   m_ObjectHideFlags: 0
@@ -1200,7 +1246,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2260517198308532866}
-  m_RootOrder: 11
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &957849096946029035
 SpriteRenderer:
@@ -1325,7 +1371,7 @@ Transform:
   m_Children:
   - {fileID: 7273256813723324866}
   m_Father: {fileID: 2260517198308532866}
-  m_RootOrder: 12
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7273256812080208620
 SpriteRenderer:
@@ -1521,7 +1567,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2260517198308532866}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8340698991908983792
 MonoBehaviour:
@@ -1547,3 +1593,52 @@ MonoBehaviour:
   _waitTime: 0.01
   _speed: 5
   _numParticles: 5
+--- !u!1 &9072416000335509139
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3313935276419773565}
+  - component: {fileID: 3429348400903205052}
+  m_Layer: 0
+  m_Name: SwordSlashThirdParticlesPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3313935276419773565
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9072416000335509139}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.613, y: -0.188, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2260517198308532866}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3429348400903205052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9072416000335509139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5386461f3140d1b438e28a97674828fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 3313935276419773565}
+  _prefab: {fileID: 8694384271458737854, guid: 9b880d010c0669c498bd2614bb0c30cc, type: 3}
+  _usePool: 1
+  _setTargetScale: 0
+  _invertXScale: 0
+  _isSaveParent: 1

@@ -13,7 +13,7 @@ namespace PixelCrew.UI.Windows
 
         protected virtual void Start()
         {
-            AnalyticsEvent.ScreenVisit(gameObject.name);
+            //AnalyticsEvent.ScreenVisit(gameObject.name);
             _animator = GetComponent<Animator>();
             
             _animator.SetTrigger(Show);

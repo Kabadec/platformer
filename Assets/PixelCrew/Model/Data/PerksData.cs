@@ -8,10 +8,11 @@ namespace PixelCrew.Model.Data
     [Serializable]
     public class PerksData
     {
-        [SerializeField] private StringProperty _used = new StringProperty();
+        //[SerializeField] private StringProperty _used = new StringProperty();
         [SerializeField] private List<string> _unlocked;
 
-        public StringProperty Used => _used;
+        //public StringProperty Used => _used;
+        public List<string> Unlocked => _unlocked;
 
         public void AddPerk(string id)
         {

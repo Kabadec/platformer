@@ -46,14 +46,6 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Health",
-                    "type": "Button",
-                    "id": "f7492a63-3497-429d-845c-1367cb97a994",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "OnDrop",
                     "type": "Button",
                     "id": "40a38156-5d1c-47c9-a611-94a2ca0e022a",
@@ -78,14 +70,6 @@
                     "interactions": ""
                 },
                 {
-                    "name": "PressZ",
-                    "type": "Button",
-                    "id": "7e6a483c-679a-4b07-9edc-645bdc2cf3ff",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "PressX",
                     "type": "Button",
                     "id": "4463b80c-5c54-452c-8b9a-096ad2f5ddd8",
@@ -97,6 +81,14 @@
                     "name": "PressMiddleMouse",
                     "type": "Button",
                     "id": "73dfe60a-56d6-4bd5-b0be-d063a15a8595",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "PressC",
+                    "type": "Button",
+                    "id": "eea87556-4f6b-45c6-b8a3-cd2d33f8d053",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -247,17 +239,6 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "a6ac61de-6764-4faa-94b3-8c424401746e",
-                    "path": "<Keyboard>/h",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Health",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
                     "name": "drop",
                     "id": "634e0e02-7b63-42c5-a351-19292d989638",
                     "path": "ButtonWithOneModifier",
@@ -325,17 +306,6 @@
                 },
                 {
                     "name": "",
-                    "id": "5c01ef8a-0dac-4f2c-8d20-2a9a5bcfd6dd",
-                    "path": "<Keyboard>/z",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PressZ",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "62a68e4c-ac52-44f5-90d4-0186aef498d9",
                     "path": "<Keyboard>/x",
                     "interactions": "",
@@ -353,6 +323,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "PressMiddleMouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "62da9caa-7c22-4014-96bd-d549807173b4",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PressC",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

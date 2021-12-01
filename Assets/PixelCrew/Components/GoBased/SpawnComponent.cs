@@ -11,8 +11,9 @@ namespace PixelCrew.Components.GoBased
         [SerializeField] private Transform _target;
         [SerializeField] private GameObject _prefab;
         [SerializeField] private bool _usePool;
-        [SerializeField] private bool _isSaveParent = false;
+        [SerializeField] private bool _setTargetScale = true;
         [SerializeField] private bool _invertXScale;
+        [SerializeField] private bool _isSaveParent = false;
 
         [ContextMenu("Spawn")]
         public void Spawn()
@@ -40,8 +41,13 @@ namespace PixelCrew.Components.GoBased
         {
             var position = _target.position;
 
-            var scale = _target.lossyScale;
+            var scale = Vector3.one;
+            
+            if (_setTargetScale)
+                scale = _target.lossyScale; 
+            
             scale.x *= _invertXScale ? -1 : 1;
+
 
             GameObject instantiate;
             if (_usePool)

@@ -76,6 +76,12 @@ namespace PixelCrew.UI.Hud.Dialogs
 
         public void OnContinue()
         {
+            if (_typingRoutine != null)
+            {
+                OnSkip();
+                return;
+            }
+            
             StopTypeAnimation();
             _currentSentence++;
 

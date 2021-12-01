@@ -332,8 +332,9 @@ MonoBehaviour:
   _target: {fileID: 159570901}
   _prefab: {fileID: 6396473904506345805, guid: 4eae8cfcd37cb0241bb4f990c7768fba, type: 3}
   _usePool: 1
-  _isSaveParent: 0
+  _setTargetScale: 1
   _invertXScale: 0
+  _isSaveParent: 0
 --- !u!1 &182842931
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,8 +608,9 @@ MonoBehaviour:
   _target: {fileID: 247059161}
   _prefab: {fileID: 6396473904506345805, guid: 4eae8cfcd37cb0241bb4f990c7768fba, type: 3}
   _usePool: 1
-  _isSaveParent: 0
+  _setTargetScale: 1
   _invertXScale: 0
+  _isSaveParent: 0
 --- !u!1 &293067315
 GameObject:
   m_ObjectHideFlags: 0
@@ -798,6 +800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3a9a5dfc586d6d4faac17119fa022fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _levelIndex: 0
   _data:
     _inventory:
       _inventory:
@@ -5080,8 +5083,9 @@ MonoBehaviour:
   _target: {fileID: 1103557154}
   _prefab: {fileID: 2260517198308532876, guid: 435e6481a06e62b42a410b33714c06dd, type: 3}
   _usePool: 0
-  _isSaveParent: 0
+  _setTargetScale: 1
   _invertXScale: 0
+  _isSaveParent: 0
 --- !u!1 &1113948070
 GameObject:
   m_ObjectHideFlags: 0
@@ -6626,8 +6630,9 @@ MonoBehaviour:
   _target: {fileID: 1492579874}
   _prefab: {fileID: 6396473904506345805, guid: 4eae8cfcd37cb0241bb4f990c7768fba, type: 3}
   _usePool: 1
-  _isSaveParent: 0
+  _setTargetScale: 1
   _invertXScale: 0
+  _isSaveParent: 0
 --- !u!1 &1530476266 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1502695891779528509, guid: 95581f5899aea3c458006526c57296e1,
@@ -6698,8 +6703,9 @@ MonoBehaviour:
   _target: {fileID: 1610511801}
   _prefab: {fileID: 6396473904506345805, guid: 4eae8cfcd37cb0241bb4f990c7768fba, type: 3}
   _usePool: 1
-  _isSaveParent: 0
+  _setTargetScale: 1
   _invertXScale: 0
+  _isSaveParent: 0
 --- !u!1 &1699689735
 GameObject:
   m_ObjectHideFlags: 0
@@ -6780,8 +6786,9 @@ MonoBehaviour:
   _target: {fileID: 1718840781}
   _prefab: {fileID: 6396473904506345805, guid: 4eae8cfcd37cb0241bb4f990c7768fba, type: 3}
   _usePool: 1
-  _isSaveParent: 0
+  _setTargetScale: 1
   _invertXScale: 0
+  _isSaveParent: 0
 --- !u!1 &1764454886
 GameObject:
   m_ObjectHideFlags: 0
@@ -6928,8 +6935,9 @@ MonoBehaviour:
   _target: {fileID: 1942453238}
   _prefab: {fileID: 6396473904506345805, guid: 4eae8cfcd37cb0241bb4f990c7768fba, type: 3}
   _usePool: 1
-  _isSaveParent: 0
+  _setTargetScale: 1
   _invertXScale: 0
+  _isSaveParent: 0
 --- !u!1 &1974380816
 GameObject:
   m_ObjectHideFlags: 0
@@ -6976,8 +6984,9 @@ MonoBehaviour:
   _target: {fileID: 1974380817}
   _prefab: {fileID: 6396473904506345805, guid: 4eae8cfcd37cb0241bb4f990c7768fba, type: 3}
   _usePool: 1
-  _isSaveParent: 0
+  _setTargetScale: 1
   _invertXScale: 0
+  _isSaveParent: 0
 --- !u!1 &1974397414
 GameObject:
   m_ObjectHideFlags: 0
@@ -13520,6 +13529,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tentacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282101272739900122, guid: d50044c131ae12b438e792737cdb08f5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d50044c131ae12b438e792737cdb08f5, type: 3}

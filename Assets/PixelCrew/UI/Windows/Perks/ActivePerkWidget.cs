@@ -9,8 +9,10 @@ namespace PixelCrew.UI.Windows.Perks
 {
     public class ActivePerkWidget : MonoBehaviour
     {
+        [SerializeField] private string _idPerk;
         [SerializeField] private Image _icon;
         [SerializeField] private ProgressBarWidget _cooldown;
+        [SerializeField] private GameObject _container;
 
         private float _cooldownPerk = 3;
         
@@ -21,6 +23,10 @@ namespace PixelCrew.UI.Windows.Perks
         private void Start()
         {
             _session = GameSession.Instance;
+            var sprite = _session.PerksModel.PerkSprite(_idPerk);
+            _icon.sprite = sprite;
+            var def = DefsFacade.I.Perks.Get(_idPerk);
+            _cooldownPerk = def.Cooldown;
 
             _trash.Retain(_session.PerksModel.Subscribe(OnActivePerkChanged));
             OnActivePerkChanged();
@@ -28,7 +34,7 @@ namespace PixelCrew.UI.Windows.Perks
 
         private void Update()
         {
-            var cooldown = 1 - ((Time.time - _session.PerksModel.TimeHowPerkUsed) / _cooldownPerk);
+            var cooldown = 1 - ((Time.time - _session.PerksModel.GetTimeHowPerkUsed(_idPerk)) / _cooldownPerk);
             if (cooldown < 0)
                 cooldown = 0;
             _cooldown.SetProgress(cooldown);
@@ -36,18 +42,7 @@ namespace PixelCrew.UI.Windows.Perks
 
         private void OnActivePerkChanged()
         {
-            var sprite = _session.PerksModel.ActivePerkSprite();
-            if(sprite == null)
-                _icon.gameObject.SetActive(false);
-            else
-            {
-                _icon.gameObject.SetActive(true);
-                _icon.sprite = sprite;
-            }
-
-            var def = DefsFacade.I.Perks.Get(_session.PerksModel.Used);
-            _cooldownPerk = def.Cooldown;
-            _session.PerksModel.SetTimeHowPerkUsed(-10f);
+            _container.SetActive(_session.Data.Perks.Unlocked.Contains(_idPerk));
         }
 
         private void OnDestroy()

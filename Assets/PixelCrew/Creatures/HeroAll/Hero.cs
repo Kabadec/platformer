@@ -59,6 +59,7 @@ namespace PixelCrew.Creatures.HeroAll
 
         private static readonly int ThrowKey = Animator.StringToHash("throw");
         private static readonly int IsOnWall = Animator.StringToHash("is-on-wall");
+        private static readonly int AttackAnimSelect = Animator.StringToHash("attack-anim-select");
         
         private readonly CompositeDisposable _trash = new CompositeDisposable();
 
@@ -73,7 +74,7 @@ namespace PixelCrew.Creatures.HeroAll
         private InventoryItemData SelectedItem => _session.QuickInventory.SelectedItem;
         
         
-        private float _coolDownPerk;
+        //private float _coolDownPerk;
 
         private bool _allowDoubleJump;
         private bool _isOnWall;
@@ -92,6 +93,7 @@ namespace PixelCrew.Creatures.HeroAll
         private bool _isBuffSpeed = false;
         private Coroutine _speedBuffCoroutine;
 
+        private int _randomAnimAttack = 0;
 
 
         private GameSession _session;
@@ -101,7 +103,6 @@ namespace PixelCrew.Creatures.HeroAll
         private Coroutine _multiThrowCoroutine;
         private Coroutine _forceShieldCoroutine;
 
-        private bool IsReadyPerk => Time.time > _session.PerksModel.TimeHowPerkUsed + _coolDownPerk;
         public bool IsPause { get; set; }
         
         public bool CanControlHero { get; set; }
@@ -124,9 +125,6 @@ namespace PixelCrew.Creatures.HeroAll
             _session.Data.Inventory.OnChanged += OnInventoryChanged;
             _session.StatsModel.OnUpgraded += OnHeroUpgraded;
             
-            //_health.SetHealth(_session.Data.Hp.Value);
-            _trash.Retain(_session.PerksModel.Subscribe(OnActivePerkChanged));
-            OnActivePerkChanged();
 
             OnHeroUpgraded(StatId.Hp);
             UpdateHeroWeapon();
@@ -145,12 +143,12 @@ namespace PixelCrew.Creatures.HeroAll
             }
         }
 
-
-        private void OnActivePerkChanged()
+        private bool IsReadyPerk(string id)
         {
-            var def = DefsFacade.I.Perks.Get(_session.PerksModel.Used);
-            _coolDownPerk = def.Cooldown;
+            return Time.time > _session.PerksModel.GetTimeHowPerkUsed(id) + DefsFacade.I.Perks.Get(id).Cooldown;
         }
+        
+        
 
         private void OnDestroy()
         {
@@ -218,10 +216,8 @@ namespace PixelCrew.Creatures.HeroAll
 
         protected override float CalculateJumpVelocity(float yVelocity)
         {
-            if (!IsGrounded && _allowDoubleJump && _session.PerksModel.IsDoubleJumpSupported && !_isOnWall
-                && Time.time > _session.PerksModel.TimeHowPerkUsed + _coolDownPerk)
+            if (!IsGrounded && _allowDoubleJump && _session.PerksModel.IsDoubleJumpSupported && !_isOnWall)
             {
-                _session.PerksModel.SetTimeHowPerkUsed(Time.time);
                 DoJumpVfx();
                 _allowDoubleJump = false;
                 return _jumpSpeed;
@@ -304,8 +300,7 @@ namespace PixelCrew.Creatures.HeroAll
                 }
                 else
                 {
-                    if (_session.PerksModel.IsSuperThrowSupported 
-                        && Time.time > _session.PerksModel.TimeHowPerkUsed + _coolDownPerk)
+                    if (_session.PerksModel.IsSuperThrowSupported && IsReadyPerk("super-throw"))
                     {
                         MultiThrow();
                     }
@@ -358,9 +353,9 @@ namespace PixelCrew.Creatures.HeroAll
         
         public void UseForceShield()
         {
-            if (_session.PerksModel.IsForceShieldSupported && IsReadyPerk)
+            if (_session.PerksModel.IsForceShieldSupported && IsReadyPerk("force-shield"))
             {
-                _session.PerksModel.SetTimeHowPerkUsed(Time.time);
+                _session.PerksModel.SetTimeHowPerkUsed("force-shield", Time.time);
                 _heroForceShield.Use();
             }
         }
@@ -379,7 +374,14 @@ namespace PixelCrew.Creatures.HeroAll
         public override void Attack()
         {
             if (SwordCount <= 0) return;
-            base.Attack();
+
+
+            _randomAnimAttack = Random.Range(0, 3);
+            Animator.SetInteger(AttackAnimSelect, _randomAnimAttack);
+            
+            Animator.SetTrigger(AttackKey);
+
+            //base.Attack();
         }
 
         private void UpdateHeroWeapon()
@@ -430,7 +432,7 @@ namespace PixelCrew.Creatures.HeroAll
         public void MultiThrow()
         {
             if(!CanThrow()) return;
-            _session.PerksModel.SetTimeHowPerkUsed(Time.time);
+            _session.PerksModel.SetTimeHowPerkUsed("super-throw", Time.time);
             var throwableCount = _session.Data.Inventory.Count(SelectedId);
             var possibleCount = SelectedId == SwordId ? throwableCount - 1 : throwableCount;
             var numAmmo = Mathf.Min(_numAmmoOnMultiThrow, possibleCount);;
@@ -480,10 +482,9 @@ namespace PixelCrew.Creatures.HeroAll
         
         public bool TryUseSwordShield()
         {
-            if (_session.PerksModel.IsSwordShieldSupported 
-                && IsReadyPerk)
+            if (_session.PerksModel.IsSwordShieldSupported && IsReadyPerk("sword-shield"))
             {
-                _session.PerksModel.SetTimeHowPerkUsed(Time.time);
+                _session.PerksModel.SetTimeHowPerkUsed("sword-shield", Time.time);
                 _heroSwordShield.Use();
                 return true;
             }
@@ -532,8 +533,5 @@ namespace PixelCrew.Creatures.HeroAll
                 if(_session.Data.Oil.Value > 0f)
                     _candle.SetActive(true);
         }
-
-        
-        
     }
 }
