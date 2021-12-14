@@ -20,6 +20,5 @@ namespace PixelCrew.Components.Interactions
             _state = !_state;
             _animator.SetBool(_animatorKey, _state);
         }
-
     }
 }

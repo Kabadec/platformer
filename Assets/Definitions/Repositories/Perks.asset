@@ -15,50 +15,50 @@ MonoBehaviour:
   _collection:
   - _id: double-jump
     _icon: {fileID: 21300000, guid: a2635cf15a2f13e4fa07643310dce52e, type: 3}
-    _info: This is Double jump.
+    _info: info_double_jump
     _cooldown: 0.5
     _price:
       _itemId: Coin
       _count: 10
   - _id: super-throw
     _icon: {fileID: 21300000, guid: 129df5e93a2745841bc872e20947c343, type: 3}
-    _info: This is Super Throw.
+    _info: info_super_throw
     _cooldown: 5
+    _price:
+      _itemId: Ruby
+      _count: 10
+  - _id: force-shield
+    _icon: {fileID: 21300000, guid: fba8957b6ce889e4f8b77d0aa4ea0474, type: 3}
+    _info: info_force_shield
+    _cooldown: 10
+    _price:
+      _itemId: Emerald
+      _count: 10
+  - _id: sword-shield
+    _icon: {fileID: 21300000, guid: 8974c1093f229574fac9238a5c3dce25, type: 3}
+    _info: info_sword_shield
+    _cooldown: 10
+    _price:
+      _itemId: Diamond
+      _count: 10
+  - _id: get-swords
+    _icon: {fileID: 21300000, guid: 63f2d553fa518e340a6e7928fc2d415b, type: 3}
+    _info: info_get_swords
+    _cooldown: 10
+    _price:
+      _itemId: Coin
+      _count: 50
+  - _id: get-potion-health
+    _icon: {fileID: 6519628818910804322, guid: 2c0a5b150ffdb7048aa5a209697052e8, type: 3}
+    _info: info_get_potion_health
+    _cooldown: 1
     _price:
       _itemId: Coin
       _count: 20
-  - _id: force-shield
-    _icon: {fileID: 21300000, guid: fba8957b6ce889e4f8b77d0aa4ea0474, type: 3}
-    _info: This is Force Shield. Press F to use.
-    _cooldown: 10
-    _price:
-      _itemId: Coin
-      _count: 100
-  - _id: sword-shield
-    _icon: {fileID: 21300000, guid: 8974c1093f229574fac9238a5c3dce25, type: 3}
-    _info: This is Sword Shield. Press Z to use.
-    _cooldown: 10
-    _price:
-      _itemId: Coin
-      _count: 200
-  - _id: get-swords
-    _icon: {fileID: 21300000, guid: 63f2d553fa518e340a6e7928fc2d415b, type: 3}
-    _info: Add 10 sword in inventory.
-    _cooldown: 0
-    _price:
-      _itemId: Coin
-      _count: 10
-  - _id: get-potion-health
-    _icon: {fileID: 6519628818910804322, guid: 2c0a5b150ffdb7048aa5a209697052e8, type: 3}
-    _info: Heal 2 HP
-    _cooldown: 1
-    _price:
-      _itemId: Coin
-      _count: 10
   - _id: get-big-potion-health
     _icon: {fileID: 1638098966691201504, guid: 005f0fc547aba5a4990b2204ba6830c5, type: 3}
-    _info: Heal 10 HP
+    _info: info_get_big_potion_health
     _cooldown: 1
     _price:
       _itemId: Coin
-      _count: 10
+      _count: 50

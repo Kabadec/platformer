@@ -22,8 +22,8 @@ namespace PixelCrew.Creatures
         [Header("Checkers")]
         [SerializeField] protected LayerMask _groundLayer;
         [SerializeField] protected ColliderCheck _groundCheck;
-        [SerializeField] private CheckCircleOverlap _attackRange0;
-        [SerializeField] private CheckCircleOverlap _attackRange1;
+        [SerializeField] protected CheckCircleOverlap _attackRange0;
+        [SerializeField] protected CheckCircleOverlap _attackRange1;
 
         [SerializeField] protected SpawnListComponent _particles;
 
@@ -148,7 +148,7 @@ namespace PixelCrew.Creatures
             Animator.SetTrigger(AttackKey);
         }
 
-        public void OnDoAttack()
+        public virtual void OnDoAttack()
         {
             _attackRange0.Check();
             if (_attackRange1 != null)

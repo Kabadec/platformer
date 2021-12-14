@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7899350846700695475}
   - component: {fileID: 7899350846700695472}
   - component: {fileID: 7899350846700695473}
-  m_Layer: 14
+  m_Layer: 19
   m_Name: HeadTwo
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -202,8 +202,6 @@ MonoBehaviour:
   _onChange:
     m_PersistentCalls:
       m_Calls: []
-  _immuneAfterHitAfterHit: 0
-  _immuneForceShield: 0
 --- !u!114 &7899350846700695472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,8 +281,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 7899350847536513882}
   _prefab: {fileID: 8669891915283743416, guid: 0bdd7e315a4f2cd469f7958e7314d45b, type: 3}
-  _isSaveParent: 0
+  _usePool: 0
+  _setTargetScale: 1
   _invertXScale: 0
+  _isSaveParent: 0
 --- !u!1 &7899350848430472637
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,5 +330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 7899350848430472636}
   _prefab: {fileID: 2019465727914926912, guid: e72ffff7787ef9d4a943b0d204c15528, type: 3}
-  _isSaveParent: 0
+  _usePool: 0
+  _setTargetScale: 1
   _invertXScale: 0
+  _isSaveParent: 0

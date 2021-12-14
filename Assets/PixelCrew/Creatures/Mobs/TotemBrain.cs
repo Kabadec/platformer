@@ -5,6 +5,7 @@ using Random = UnityEngine.Random;
 using UnityEditor;
 using PixelCrew.Utils;
 using PixelCrew.Components.GoBased;
+using UnityEngine.Events;
 
 namespace PixelCrew.Creatures.Mobs
 {
@@ -15,7 +16,6 @@ namespace PixelCrew.Creatures.Mobs
         [SerializeField] private float _cooldownBurst = 3f;
         [SerializeField] private float _cooldownChecking = 0.1f;
 
-
         [Header("Vision Preferences")]
         [SerializeField] private float _widthVision = 5f;
         [SerializeField] private float _modHeightVision = 0.4f;
@@ -25,8 +25,9 @@ namespace PixelCrew.Creatures.Mobs
         [SerializeField] private float _heightHead = 0.6875f;
         [SerializeField] private TotemHeads[] _heads;
 
-
-
+        [Space] [SerializeField] private bool _invertXScale = false;
+        [SerializeField] private UnityEvent _onDie;
+        
         private Animator[] _animators;
         private bool _canShooting = false;
 
@@ -73,6 +74,7 @@ namespace PixelCrew.Creatures.Mobs
             }
             if (isAllDead)
             {
+                _onDie?.Invoke();
                 _destroyObjectComponent.DestroyObject();
             }
             yield return new WaitForSeconds(_cooldownBurst);
@@ -110,8 +112,20 @@ namespace PixelCrew.Creatures.Mobs
                 instantiate = Instantiate(_heads[lookHead].HeadMain, new Vector3(0, 0, 0), Quaternion.identity);
             else
                 instantiate = Instantiate(_heads[lookHead].Head, new Vector3(0, 0, 0), Quaternion.identity);
+            
             instantiate.transform.parent = gameObject.transform;
-            instantiate.transform.position = new Vector3(instantiate.transform.parent.position.x, instantiate.transform.parent.position.y + _heightHead * (numberHead + 0.5f), instantiate.transform.parent.position.z);
+            var parentPosition = instantiate.transform.parent.position;
+            
+            instantiate.transform.position = new Vector3(parentPosition.x, parentPosition.y + _heightHead * (numberHead + 0.5f), parentPosition.z);
+
+            if (_invertXScale)
+            {
+                var instScale = instantiate.transform.localScale;
+                instScale.x *= -1;
+                instantiate.transform.localScale = instScale;
+            }
+                
+            
         }
         private void ResizeVisionCollider(int numHeads)
         {

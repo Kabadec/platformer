@@ -458,15 +458,13 @@ namespace PixelCrew.Creatures.HeroAll
             _throwSpawner.SetPrefab(throwableDef.Projectile);
             var projectile = _throwSpawner.SpawnInstance();
 
-            ApplyRangeDamageStat(projectile);
-            
-            
+            ApplyRangeStat(projectile);
         }
 
-        private void ApplyRangeDamageStat(GameObject projectile)
+        private void ApplyRangeStat(GameObject projectile)
         {
             var hpModify = projectile.GetComponent<ModifyHealthComponent>();
-            var damageValue = _session.StatsModel.GetValue(StatId.RangeDamage);
+            var damageValue = _session.StatsModel.GetValue(StatId.Damage);
             damageValue = ModifyDamageByCrit((int)damageValue);
             hpModify.SetHpDelta((int) (-1 * damageValue));
         }
@@ -516,6 +514,16 @@ namespace PixelCrew.Creatures.HeroAll
         public override void SetDirection(Vector2 direction)
         {
             Direction = direction;
+        }
+        public override void OnDoAttack()
+        {
+            ApplyRangeStat(_attackRange0.gameObject);
+            
+            _attackRange0.Check();
+            if (_attackRange1 != null)
+                _attackRange1.Check();
+            
+            Sounds.Play("Melee");
         }
         
         

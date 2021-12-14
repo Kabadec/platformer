@@ -15,7 +15,7 @@ MonoBehaviour:
   _collection:
   - _id: PotionHealth
     _effect: 0
-    _value: 1
+    _value: 2
     _time: 0
   - _id: BigPotionHealth
     _effect: 0

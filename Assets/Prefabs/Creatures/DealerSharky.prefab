@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1336295552197619315}
   - component: {fileID: 1336295552197619313}
   - component: {fileID: 1336295552197619314}
+  - component: {fileID: 5390059180916538072}
   m_Layer: 9
   m_Name: Name
   m_TagString: Untagged
@@ -78,6 +79,20 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 8
   m_Text: Dealer
+--- !u!114 &5390059180916538072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336295552197619324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a81c7c451814672b5de3d7c63813e0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: dealer
+  _capitalize: 0
 --- !u!1 &1336295552520179681
 GameObject:
   m_ObjectHideFlags: 0

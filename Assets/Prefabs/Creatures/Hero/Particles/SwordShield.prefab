@@ -194,7 +194,7 @@ MonoBehaviour:
   _tag: Enemy
   _layer:
     serializedVersion: 2
-    m_Bits: 282624
+    m_Bits: 806912
   _action:
     m_PersistentCalls:
       m_Calls:
@@ -279,8 +279,9 @@ MonoBehaviour:
   _target: {fileID: 8455536085428371432}
   _prefab: {fileID: 8462409005816164618, guid: 529e58728ac4066499122251f69a459e, type: 3}
   _usePool: 0
-  _isSaveParent: 0
+  _setTargetScale: 1
   _invertXScale: 0
+  _isSaveParent: 0
 --- !u!1 &8665624064652243481
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,8 +328,9 @@ MonoBehaviour:
   _target: {fileID: 8665624064652243480}
   _prefab: {fileID: 8462409005816164618, guid: 529e58728ac4066499122251f69a459e, type: 3}
   _usePool: 0
-  _isSaveParent: 0
+  _setTargetScale: 1
   _invertXScale: 0
+  _isSaveParent: 0
 --- !u!1 &8665624064719350487
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,8 +377,9 @@ MonoBehaviour:
   _target: {fileID: 8665624064719350486}
   _prefab: {fileID: 8462409005816164618, guid: 529e58728ac4066499122251f69a459e, type: 3}
   _usePool: 0
-  _isSaveParent: 0
+  _setTargetScale: 1
   _invertXScale: 0
+  _isSaveParent: 0
 --- !u!1 &8665624064781363630
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,8 +426,9 @@ MonoBehaviour:
   _target: {fileID: 8665624064781363625}
   _prefab: {fileID: 8462409005816164618, guid: 529e58728ac4066499122251f69a459e, type: 3}
   _usePool: 0
-  _isSaveParent: 0
+  _setTargetScale: 1
   _invertXScale: 0
+  _isSaveParent: 0
 --- !u!1 &8665624064846503113
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,7 +623,7 @@ MonoBehaviour:
   _tag: Enemy
   _layer:
     serializedVersion: 2
-    m_Bits: 282624
+    m_Bits: 806912
   _action:
     m_PersistentCalls:
       m_Calls:
@@ -852,7 +856,7 @@ MonoBehaviour:
   _tag: Enemy
   _layer:
     serializedVersion: 2
-    m_Bits: 282624
+    m_Bits: 806912
   _action:
     m_PersistentCalls:
       m_Calls:
@@ -937,8 +941,9 @@ MonoBehaviour:
   _target: {fileID: 8665624064892103035}
   _prefab: {fileID: 8462409005816164618, guid: 529e58728ac4066499122251f69a459e, type: 3}
   _usePool: 0
-  _isSaveParent: 0
+  _setTargetScale: 1
   _invertXScale: 0
+  _isSaveParent: 0
 --- !u!1 &8665624064941918170
 GameObject:
   m_ObjectHideFlags: 0
@@ -1133,7 +1138,7 @@ MonoBehaviour:
   _tag: Enemy
   _layer:
     serializedVersion: 2
-    m_Bits: 282624
+    m_Bits: 806912
   _action:
     m_PersistentCalls:
       m_Calls:
@@ -1366,7 +1371,7 @@ MonoBehaviour:
   _tag: Enemy
   _layer:
     serializedVersion: 2
-    m_Bits: 282624
+    m_Bits: 806912
   _action:
     m_PersistentCalls:
       m_Calls:
@@ -1451,8 +1456,9 @@ MonoBehaviour:
   _target: {fileID: 8665624065309869235}
   _prefab: {fileID: 8462409005816164618, guid: 529e58728ac4066499122251f69a459e, type: 3}
   _usePool: 0
-  _isSaveParent: 0
+  _setTargetScale: 1
   _invertXScale: 0
+  _isSaveParent: 0
 --- !u!1 &8665624065357713250
 GameObject:
   m_ObjectHideFlags: 0
@@ -1698,7 +1704,7 @@ MonoBehaviour:
   _tag: Enemy
   _layer:
     serializedVersion: 2
-    m_Bits: 282624
+    m_Bits: 806912
   _action:
     m_PersistentCalls:
       m_Calls:

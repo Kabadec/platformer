@@ -19,7 +19,6 @@ namespace PixelCrew.Creatures.Mobs
         [SerializeField] protected float _attackCooldown = 1f;
         [SerializeField] protected float _missHeroCooldown = 0.5f;
 
-
         protected IEnumerator _current;
         protected GameObject _target;
 

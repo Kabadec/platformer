@@ -230,7 +230,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Perks:\n \u2022 X - Force shield\n \u2022 C - Sword shield"
+  m_Text: "Perks:\n\u2022 X - Force shield\n\u2022 C - Sword shield"
 --- !u!1 &3404685983319835163
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,8 +344,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 30.6, y: 42.8}
-  m_SizeDelta: {x: 77.06636, y: 38.539574}
+  m_AnchoredPosition: {x: 30.6, y: 47.1}
+  m_SizeDelta: {x: 77.06636, y: 43.336815}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8465756739033415520
 CanvasRenderer:
@@ -461,7 +461,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Attack:\n \u2022 Left mouse button - melee attack (if you have sword)\n\u2022
+  m_Text: "Attack:\n\u2022 Left mouse button - melee attack (if you have sword)\n\u2022
     Shift - throw sword(if selected in quick inventory)"
 --- !u!1 &5506945557375699305
 GameObject:
@@ -573,7 +573,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 37.92, y: 13.2}
+  m_AnchoredPosition: {x: 56.9, y: 13}
   m_SizeDelta: {x: 70.168015, y: 34.504044}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6493179291555462513
@@ -690,9 +690,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Quick inventory:\n \u2022 You can drag items from Big inventory to Quick
-    inventory(located at the top of the screen)\n \u2022 Q - select item in Quick
-    inventory\n \u2022 Shift - use item from Quick inventory"
+  m_Text: "Quick inventory:\n\u2022 You can drag items from Big inventory to Quick
+    inventory(located at the top of the screen)\n\u2022 Q - select item in Quick
+    inventory\n\u2022 Shift - use item from Quick inventory"
 --- !u!1 &7080038111166349356
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,8 +703,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7080038111166349359}
   - component: {fileID: 7080038111166349358}
+  - component: {fileID: 8569212980498121405}
   m_Layer: 0
-  m_Name: ManagementInputWindow
+  m_Name: ManagementInputWindowEN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -750,6 +751,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8569212980498121405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7080038111166349356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e062b3cf1a43cebc3b303e398c306b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7080038111976257565
 GameObject:
   m_ObjectHideFlags: 0
@@ -827,8 +840,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Movement:\n \u2022 WASD - hero mevement\n \u2022 Space - jump\n \u2022
-    S + Space - go down with platform"
+  m_Text: "Movement:\n\u2022 WASD - hero mevement\n\u2022 Space - jump\n\u2022 S
+    + Space - go down with platform"
 --- !u!1 &7080038112442265439
 GameObject:
   m_ObjectHideFlags: 0
@@ -1092,8 +1105,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 1}
-  m_SizeDelta: {x: -8, y: -10}
+  m_AnchoredPosition: {x: 0, y: -2.75}
+  m_SizeDelta: {x: -8, y: -2.4912605}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1371920594000280332
 CanvasRenderer:
@@ -1135,11 +1148,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Other:
-
-    E - interaction key
-
-    F - flashlight'
+  m_Text: "Other:\n\u2022 E - interaction key\n\u2022 F - flashlight"
 --- !u!1 &8839072697826608392
 GameObject:
   m_ObjectHideFlags: 0
@@ -1261,7 +1270,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 8569212980498121405}
         m_MethodName: Close
         m_Mode: 1
         m_Arguments:

@@ -29,15 +29,15 @@ namespace PixelCrew.Components
             target.SetActive(false);
 
             yield return MoveAnimation(target);
-            var hitParticlesObject = target.transform.Find("ParticleSystem").gameObject;
-            var hitParticles = hitParticlesObject.GetComponent<ParticleSystem>();
-            // if(hitParticles != null)
-            // {
-            //     Debug.Log("zaebis");
-            // }
-             var burst1 = hitParticles.emission.GetBurst(0);
-             burst1.count = 0;
-             hitParticles.emission.SetBurst(0, burst1);
+            // var hitParticlesObject = target.transform.Find("ParticleSystem").gameObject;
+            // var hitParticles = hitParticlesObject.GetComponent<ParticleSystem>();
+            // // if(hitParticles != null)
+            // // {
+            // //     Debug.Log("zaebis");
+            // // }
+            //  var burst1 = hitParticles.emission.GetBurst(0);
+            //  burst1.count = 0;
+            //  hitParticles.emission.SetBurst(0, burst1);
             target.SetActive(true);
             yield return AlphaAnimation(sprite, 1);
 

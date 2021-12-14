@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxOil: 100
   _stats:
-  - _name: Health
+  - _name: health
     _id: 0
     _icon: {fileID: 21300000, guid: e1992bb15accc82429a810c7d6e7cbc1, type: 3}
     _levels:
@@ -34,7 +34,7 @@ MonoBehaviour:
       _price:
         _itemId: Coin
         _count: 100
-  - _name: Speed
+  - _name: speed
     _id: 1
     _icon: {fileID: 21300000, guid: d9585a93149bb0f4b94c380af707082c, type: 3}
     _levels:
@@ -42,15 +42,15 @@ MonoBehaviour:
       _price:
         _itemId: 
         _count: 0
-    - _value: 5
+    - _value: 4.5
       _price:
         _itemId: Coin
         _count: 20
-    - _value: 7
+    - _value: 5
       _price:
         _itemId: Coin
         _count: 50
-  - _name: Range Damage
+  - _name: damage
     _id: 2
     _icon: {fileID: 21300000, guid: bf96e7d734451e443b4e3636b8dabfda, type: 3}
     _levels:
@@ -74,7 +74,7 @@ MonoBehaviour:
       _price:
         _itemId: Coin
         _count: 100
-  - _name: Crit Damage
+  - _name: crit_damage
     _id: 3
     _icon: {fileID: 21300000, guid: 9d9061c82f48abd4e8e3727f589dad32, type: 3}
     _levels:
@@ -90,7 +90,3 @@ MonoBehaviour:
       _price:
         _itemId: Coin
         _count: 100
-    - _value: 90
-      _price:
-        _itemId: Coin
-        _count: 250

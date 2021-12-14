@@ -3,6 +3,7 @@ using UnityEngine;
 using PixelCrew.UI.Widgets.Editor;
 using PixelCrew.Model;
 using PixelCrew.Model.Definitions;
+using PixelCrew.Model.Definitions.Localization;
 using PixelCrew.Model.Definitions.Player;
 using PixelCrew.Utils;
 
@@ -47,7 +48,21 @@ namespace PixelCrew.UI.Hud
         {
             var hero = FindObjectOfType<Hero>();
             hero.IsPause = true;
-            WindowUtils.CreateWindow("UI/ManagementInputWindow");
+            switch (LocalizationManager.I.LocaleKey)
+            {
+                case "en":
+                    WindowUtils.CreateWindow("UI/ManagementInputWindowEN");
+                    break;
+                case "ru":
+                    WindowUtils.CreateWindow("UI/ManagementInputWindowRU");
+                    break;
+                case "ua":
+                    WindowUtils.CreateWindow("UI/ManagementInputWindowUA");
+                    break;
+                default:
+                    WindowUtils.CreateWindow("UI/ManagementInputWindowEN");
+                    break;
+            }
         }
 
         public void OnStatsWindow()

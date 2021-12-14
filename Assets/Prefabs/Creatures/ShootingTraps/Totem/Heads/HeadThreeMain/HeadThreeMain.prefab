@@ -45,8 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 1282260429024729721}
   _prefab: {fileID: 8669891915283743416, guid: 0bdd7e315a4f2cd469f7958e7314d45b, type: 3}
-  _isSaveParent: 0
+  _usePool: 0
+  _setTargetScale: 1
   _invertXScale: 0
+  _isSaveParent: 0
 --- !u!1 &1282260429987882142
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,8 +94,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 1282260429987882143}
   _prefab: {fileID: 3649077821335444847, guid: 30588e4df63df414caf5ff019c7365f7, type: 3}
-  _isSaveParent: 0
+  _usePool: 0
+  _setTargetScale: 1
   _invertXScale: 0
+  _isSaveParent: 0
 --- !u!1 &1282260430404843164
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,7 +114,7 @@ GameObject:
   - component: {fileID: 1282260430404843152}
   - component: {fileID: 1282260430404843155}
   - component: {fileID: 1282260430404843154}
-  m_Layer: 14
+  m_Layer: 19
   m_Name: HeadThreeMain
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -296,8 +300,6 @@ MonoBehaviour:
   _onChange:
     m_PersistentCalls:
       m_Calls: []
-  _immuneAfterHitAfterHit: 0
-  _immuneForceShield: 0
 --- !u!114 &1282260430404843155
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -46,8 +46,9 @@ MonoBehaviour:
   _target: {fileID: 3351702969002990236}
   _prefab: {fileID: 5890533741650385168, guid: 3dd690765ea797e4db833c497df89933, type: 3}
   _usePool: 0
-  _isSaveParent: 0
+  _setTargetScale: 1
   _invertXScale: 0
+  _isSaveParent: 0
 --- !u!1 &3351702969194325115
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,8 +95,9 @@ MonoBehaviour:
   _target: {fileID: 3351702969194325114}
   _prefab: {fileID: 8669891915283743416, guid: 0bdd7e315a4f2cd469f7958e7314d45b, type: 3}
   _usePool: 0
-  _isSaveParent: 0
+  _setTargetScale: 1
   _invertXScale: 0
+  _isSaveParent: 0
 --- !u!1 &3351702970498402463
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,7 +114,7 @@ GameObject:
   - component: {fileID: 3351702970498402451}
   - component: {fileID: 3351702970498402448}
   - component: {fileID: 3351702970498402449}
-  m_Layer: 14
+  m_Layer: 19
   m_Name: HeadTwoMain
   m_TagString: Enemy
   m_Icon: {fileID: 0}

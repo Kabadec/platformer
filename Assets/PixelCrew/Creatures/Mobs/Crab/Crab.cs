@@ -12,6 +12,10 @@ namespace PixelCrew.Creatures.Mobs.Crab
 
         [SerializeField] private float _coefY = 2.2f;
         [SerializeField] private float _minY = 10f;
+        
+        [Space]
+        [SerializeField] private LayerMask _defaultLayer;
+        [SerializeField] private LayerMask _dieLayer;
 
         private HeroAll.Hero _hero;
         private Rigidbody2D _rb;
@@ -56,6 +60,11 @@ namespace PixelCrew.Creatures.Mobs.Crab
         public void JumpUp()
         {
             _rb.AddForce(new Vector2(0, 4), ForceMode2D.Impulse);
+        }
+
+        public void ChangeLayerToDieLayer()
+        {
+            gameObject.layer = (int)Mathf.Log(_dieLayer.value, 2);;
         }
     }
 }

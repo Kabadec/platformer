@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2175051621778556010}
   - component: {fileID: 9157237128205105200}
   - component: {fileID: 4812748442730140114}
+  - component: {fileID: 3392716806394152635}
   m_Layer: 5
   m_Name: NormalText
   m_TagString: Untagged
@@ -78,6 +79,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Price:'
+--- !u!114 &3392716806394152635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337204300018993131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a81c7c451814672b5de3d7c63813e0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: price
+  _capitalize: 0
 --- !u!1 &539136479758496733
 GameObject:
   m_ObjectHideFlags: 0
@@ -759,6 +774,7 @@ GameObject:
   - component: {fileID: 4288468708312511285}
   - component: {fileID: 5035859588990810758}
   - component: {fileID: 9172142741324219576}
+  - component: {fileID: 3849811530098048958}
   m_Layer: 5
   m_Name: NormalText
   m_TagString: Untagged
@@ -826,6 +842,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: BUY
+--- !u!114 &3849811530098048958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989116550060527116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a81c7c451814672b5de3d7c63813e0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: button_buy
+  _capitalize: 1
 --- !u!1 &2140693044133477336
 GameObject:
   m_ObjectHideFlags: 0
@@ -2003,6 +2033,7 @@ GameObject:
   - component: {fileID: 372182707203750422}
   - component: {fileID: 6810351586927487337}
   - component: {fileID: 342881383095021644}
+  - component: {fileID: 3144453261248532702}
   m_Layer: 5
   m_Name: PressedText
   m_TagString: Untagged
@@ -2070,6 +2101,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: BUY
+--- !u!114 &3144453261248532702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6493600998916173262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a81c7c451814672b5de3d7c63813e0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: button_buy
+  _capitalize: 1
 --- !u!1 &6588101790748772503
 GameObject:
   m_ObjectHideFlags: 0

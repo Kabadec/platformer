@@ -230,11 +230,11 @@ namespace PixelCrew.Creatures.Bosses.SonPatric
         {
             _animator.SetInteger(Health, _health.Health);
 
-            if (_health.Health >= 66)
+            if (_health.Health >= 100)
                 _currentStage = 1;
-            else if (_health.Health >= 33)
+            else if (_health.Health >= 50)
                 _currentStage = 2;
-            else if (_health.Health < 33 && _health.Health >= 1)
+            else if (_health.Health < 50 && _health.Health >= 1)
                 _currentStage = 3;
             else if (_health.Health <= 1)
             {

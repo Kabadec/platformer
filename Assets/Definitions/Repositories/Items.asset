@@ -43,3 +43,18 @@ MonoBehaviour:
       type: 3}
     _maxCount: 100
     _tags: 000000000100000003000000
+  - _id: Diamond
+    _icon: {fileID: -2534762763642185653, guid: b6e30448cd0082c44a3ebf64a86089e3,
+      type: 3}
+    _maxCount: 100
+    _tags: 00000000
+  - _id: Emerald
+    _icon: {fileID: -1650918001565586675, guid: b6e30448cd0082c44a3ebf64a86089e3,
+      type: 3}
+    _maxCount: 100
+    _tags: 00000000
+  - _id: Ruby
+    _icon: {fileID: -6750144258305067158, guid: b6e30448cd0082c44a3ebf64a86089e3,
+      type: 3}
+    _maxCount: 100
+    _tags: 00000000

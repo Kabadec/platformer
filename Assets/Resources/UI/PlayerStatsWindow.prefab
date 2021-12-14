@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a81c7c451814672b5de3d7c63813e0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _key: Upgrade
+  _key: upgrade
   _capitalize: 0
 --- !u!1 &2880365121147910819
 GameObject:
@@ -1418,6 +1418,7 @@ GameObject:
   - component: {fileID: 5867967341992821662}
   - component: {fileID: 3482806978915483588}
   - component: {fileID: 975647165723596326}
+  - component: {fileID: 7132134245550007091}
   m_Layer: 5
   m_Name: NormalText
   m_TagString: Untagged
@@ -1485,6 +1486,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Price:'
+--- !u!114 &7132134245550007091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5471202149619793951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a81c7c451814672b5de3d7c63813e0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: price
+  _capitalize: 0
 --- !u!1 &5977723814985169964
 GameObject:
   m_ObjectHideFlags: 0
@@ -1650,7 +1665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a81c7c451814672b5de3d7c63813e0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _key: Upgrade
+  _key: upgrade
   _capitalize: 0
 --- !u!1 &6369041349780296130
 GameObject:

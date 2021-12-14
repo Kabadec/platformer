@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 31066334}
   - component: {fileID: 31066336}
   - component: {fileID: 31066335}
+  - component: {fileID: 3543976194472376358}
   m_Layer: 5
   m_Name: Label
   m_TagString: Untagged
@@ -34,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -24.758991, y: -5.973196}
-  m_SizeDelta: {x: 26.85746, y: 11.946833}
+  m_AnchoredPosition: {x: -24.758, y: -5.973196}
+  m_SizeDelta: {x: 26.854843, y: 11.946833}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &31066336
 CanvasRenderer:
@@ -71,13 +72,27 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 'Music:'
+--- !u!114 &3543976194472376358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31066333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a81c7c451814672b5de3d7c63813e0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: music
+  _capitalize: 0
 --- !u!1 &695914622
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,6 +464,7 @@ GameObject:
   - component: {fileID: 4249633329196377911}
   - component: {fileID: 8764089810991844016}
   - component: {fileID: 5517878715010164558}
+  - component: {fileID: 7836928258062473550}
   m_Layer: 5
   m_Name: PressedText
   m_TagString: Untagged
@@ -516,6 +532,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: OK
+--- !u!114 &7836928258062473550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685826981663225947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a81c7c451814672b5de3d7c63813e0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: ok
+  _capitalize: 1
 --- !u!1 &839844551968669469
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,6 +815,7 @@ GameObject:
   - component: {fileID: 9170955556877765636}
   - component: {fileID: 3692970497044243148}
   - component: {fileID: 251825359215685011}
+  - component: {fileID: 6482878232982480602}
   m_Layer: 5
   m_Name: Header
   m_TagString: Untagged
@@ -848,10 +879,24 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Options
+--- !u!114 &6482878232982480602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4776457755879396648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a81c7c451814672b5de3d7c63813e0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: options
+  _capitalize: 0
 --- !u!1 &4876294560603789405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,6 +1166,7 @@ GameObject:
   - component: {fileID: 7538959513543030562}
   - component: {fileID: 7718168863589374379}
   - component: {fileID: 4624408342937070691}
+  - component: {fileID: 8807464873885251167}
   m_Layer: 5
   m_Name: NormalText
   m_TagString: Untagged
@@ -1188,6 +1234,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: OK
+--- !u!114 &8807464873885251167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5572164358444959125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a81c7c451814672b5de3d7c63813e0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: ok
+  _capitalize: 1
 --- !u!1 &6044511240341218069
 GameObject:
   m_ObjectHideFlags: 0
@@ -1502,6 +1562,7 @@ GameObject:
   - component: {fileID: 6052791208495703298}
   - component: {fileID: 3115916094783990380}
   - component: {fileID: 5078777255185341113}
+  - component: {fileID: 985968836508563260}
   m_Layer: 5
   m_Name: Label
   m_TagString: Untagged
@@ -1525,8 +1586,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -24.758991, y: -5.973196}
-  m_SizeDelta: {x: 26.85746, y: 11.946833}
+  m_AnchoredPosition: {x: -24.756, y: -5.973196}
+  m_SizeDelta: {x: 26.857979, y: 11.946833}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3115916094783990380
 CanvasRenderer:
@@ -1562,13 +1623,27 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 'SFX:'
+--- !u!114 &985968836508563260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9035890523195834884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a81c7c451814672b5de3d7c63813e0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: sfx
+  _capitalize: 0
 --- !u!1 &9081215936204502954
 GameObject:
   m_ObjectHideFlags: 0

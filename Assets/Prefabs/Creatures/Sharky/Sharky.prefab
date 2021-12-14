@@ -324,7 +324,7 @@ RectTransform:
   m_Children:
   - {fileID: 1306981437}
   m_Father: {fileID: 2260517198308532866}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -552,7 +552,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1, y: 0.5}
+  m_Offset: {x: -2.4395723, y: 1.911648}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -563,7 +563,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4, y: 2}
+  m_Size: {x: 6.8791447, y: 4.823296}
   m_EdgeRadius: 0
 --- !u!114 &5242318993264062508
 MonoBehaviour:
@@ -834,6 +834,7 @@ Transform:
   - {fileID: 577760739}
   - {fileID: 201224038}
   - {fileID: 7923633469865601171}
+  - {fileID: 4281664538580183294}
   - {fileID: 1658357422}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1049,6 +1050,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 6634257235575279282}
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   _onHealth:
     m_PersistentCalls:
       m_Calls: []
@@ -1212,6 +1224,55 @@ Transform:
   m_Father: {fileID: 201224038}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5835597713426020863
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4281664538580183294}
+  - component: {fileID: 6634257235575279282}
+  m_Layer: 12
+  m_Name: DropPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4281664538580183294
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5835597713426020863}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -18.818441, y: 16.798244, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2260517198308532866}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6634257235575279282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5835597713426020863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5386461f3140d1b438e28a97674828fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 4281664538580183294}
+  _prefab: {fileID: 8340698992220650523, guid: 74741fa2250810e498e5e17b266525a1, type: 3}
+  _usePool: 0
+  _setTargetScale: 1
+  _invertXScale: 0
+  _isSaveParent: 0
 --- !u!1 &6628374022846212359
 GameObject:
   m_ObjectHideFlags: 0
@@ -1271,7 +1332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2321542143842751090}
   - component: {fileID: 3544143686579752749}
-  m_Layer: 14
+  m_Layer: 10
   m_Name: DieCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

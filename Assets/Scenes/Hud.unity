@@ -2510,6 +2510,7 @@ GameObject:
   - component: {fileID: 312617937}
   - component: {fileID: 312617939}
   - component: {fileID: 312617938}
+  - component: {fileID: 312617940}
   m_Layer: 5
   m_Name: PressedText
   m_TagString: Untagged
@@ -2565,7 +2566,7 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: HELP
@@ -2577,6 +2578,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 312617936}
   m_CullTransparentMesh: 0
+--- !u!114 &312617940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312617936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a81c7c451814672b5de3d7c63813e0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: help
+  _capitalize: 1
 --- !u!1 &319075034
 GameObject:
   m_ObjectHideFlags: 0
@@ -8067,6 +8082,7 @@ GameObject:
   - component: {fileID: 1522504386}
   - component: {fileID: 1522504388}
   - component: {fileID: 1522504387}
+  - component: {fileID: 1522504389}
   m_Layer: 5
   m_Name: PressedText
   m_TagString: Untagged
@@ -8134,6 +8150,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1522504385}
   m_CullTransparentMesh: 0
+--- !u!114 &1522504389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522504385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a81c7c451814672b5de3d7c63813e0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: inv
+  _capitalize: 1
 --- !u!1 &1525929247
 GameObject:
   m_ObjectHideFlags: 0
@@ -8718,6 +8748,7 @@ GameObject:
   - component: {fileID: 1587840428}
   - component: {fileID: 1587840430}
   - component: {fileID: 1587840429}
+  - component: {fileID: 1587840431}
   m_Layer: 5
   m_Name: NormalText
   m_TagString: Untagged
@@ -8773,7 +8804,7 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: HELP
@@ -8785,6 +8816,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1587840427}
   m_CullTransparentMesh: 0
+--- !u!114 &1587840431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587840427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a81c7c451814672b5de3d7c63813e0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: help
+  _capitalize: 1
 --- !u!1 &1603161489
 GameObject:
   m_ObjectHideFlags: 0
@@ -9279,8 +9324,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 303.43, y: -170.8}
-  m_SizeDelta: {x: 24.440605, y: 12.81921}
+  m_AnchoredPosition: {x: 293.8, y: -170.8}
+  m_SizeDelta: {x: 45.15, y: 12.81921}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1670331975
 MonoBehaviour:
@@ -10175,6 +10220,7 @@ GameObject:
   - component: {fileID: 1817759140}
   - component: {fileID: 1817759142}
   - component: {fileID: 1817759141}
+  - component: {fileID: 1817759143}
   m_Layer: 5
   m_Name: NormalText
   m_TagString: Untagged
@@ -10242,6 +10288,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1817759139}
   m_CullTransparentMesh: 0
+--- !u!114 &1817759143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817759139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a81c7c451814672b5de3d7c63813e0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: inv
+  _capitalize: 1
 --- !u!1 &1818547014
 GameObject:
   m_ObjectHideFlags: 0

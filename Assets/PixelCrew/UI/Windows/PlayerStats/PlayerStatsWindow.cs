@@ -4,6 +4,7 @@ using PixelCrew.Model;
 using PixelCrew.Model.Definitions;
 using PixelCrew.Model.Definitions.Player;
 using PixelCrew.UI.Widgets;
+using PixelCrew.Utils;
 using PixelCrew.Utils.Disposables;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,6 +26,11 @@ namespace PixelCrew.UI.Windows.PlayerStats
         private readonly CompositeDisposable _trash = new CompositeDisposable();
         private GameSession _session;
         private float _defaultTimeScale;
+        
+        private void Awake()
+        {
+            MainGOsUtils.GetMainHero().IsPause = true;
+        }
 
         protected override void Start()
         {
@@ -65,8 +71,7 @@ namespace PixelCrew.UI.Windows.PlayerStats
         {
             _trash.Dispose();
             Time.timeScale = _defaultTimeScale;
-            var hero = FindObjectOfType<Hero>();
-            hero.IsPause = false;
+            MainGOsUtils.GetMainHero().IsPause = false;
         }
     }
 }

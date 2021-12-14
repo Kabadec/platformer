@@ -38,7 +38,7 @@ namespace PixelCrew.Model.Definitions.Localization
 
         public string Localize(string key)
         {
-            return _localization.TryGetValue(key, out var value) ? value : $"{key}";
+            return _localization.TryGetValue(key, out var value) ? value : $"%%%{key}%%%";
         }
 
         public void SetLocale(string localeKey)

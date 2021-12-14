@@ -16,7 +16,7 @@ namespace PixelCrew.Components.ColliderBased
         {
             if (!other.gameObject.IsInLayer(_layer)) return;
             if (!string.IsNullOrEmpty(_tag) && !string.IsNullOrEmpty(other.gameObject.tag) && !other.gameObject.CompareTag(_tag)) return;
-
+            //Debug.Log(gameObject.name);
             _action?.Invoke(other.gameObject);
         }
     }

@@ -28,6 +28,11 @@ namespace PixelCrew.Model.Models
             UpdateAllItems();
             OnChanged?.Invoke();
         }
+
+        public void UpdateInventory()
+        {
+            OnChangedInventory("a", 1);
+        }
         
         public InventoryItemData FoundItemByUniqueId(int uniqueId)
         {

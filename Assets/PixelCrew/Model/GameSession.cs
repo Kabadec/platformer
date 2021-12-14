@@ -9,6 +9,7 @@ using PixelCrew.Model.Models;
 using PixelCrew.Utils.Disposables;
 using UnityEngine.Analytics;
 using UnityEngine.SceneManagement;
+using Debug = UnityEngine.Debug;
 
 namespace PixelCrew.Model
 {
@@ -40,11 +41,13 @@ namespace PixelCrew.Model
             // level_complete
             // level_index
             SetDefaultData(_data);
+            _checkPoints.Add(_defaultCheckPoint);
             
             var existsSession = GetExistsSession();
             if (existsSession != null)
             {
                 existsSession.StartSession(_defaultCheckPoint, _levelIndex);
+                existsSession.BigInventory.UpdateInventory();
                 Destroy(gameObject);
             }
             else
@@ -54,6 +57,7 @@ namespace PixelCrew.Model
                 StartSession(_defaultCheckPoint, _levelIndex);
                 SetData(_defaultData);
                 InitModels();
+                BigInventory.UpdateInventory();
             }
         }
         
@@ -61,9 +65,9 @@ namespace PixelCrew.Model
 
         private void StartSession(string defaultCheckPoint, int levelIndex)
         {
-            SetChecked(defaultCheckPoint);
-            TrackSessionStart(levelIndex);
-            
+            //SetChecked(defaultCheckPoint);
+            //TrackSessionStart(levelIndex);
+            //InitModels();
             LoadUIs();
             SpawnHero();
         }
@@ -150,7 +154,9 @@ namespace PixelCrew.Model
         public void SetChecked(string id)
         {
             SetDefaultData(_data);
+            _defaultCheckPoint = id;
             _checkPoints.Add(id);
+            //Debug.LogError("default checkpoint changed", this);
         }
 
         private void OnDestroy()

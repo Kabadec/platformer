@@ -128,7 +128,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8192410287553258452}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feb1dbf1404dcc843aeae40bb460c2f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _activeCollision: 1
   _tag: Player
   _action:
     m_PersistentCalls:

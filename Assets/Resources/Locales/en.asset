@@ -34,25 +34,165 @@ MonoBehaviour:
     Value: "restart\r"
   - Key: buton_continue
     Value: "Continue...\r"
+  - Key: button_buy
+    Value: "buy\r"
+  - Key: price
+    Value: "Price:\r"
+  - Key: dealer
+    Value: "Dealer\r"
+  - Key: exit
+    Value: "Exit\r"
+  - Key: help
+    Value: "help\r"
+  - Key: inv
+    Value: "inv\r"
+  - Key: 
+    Value: "\r"
   - Key: dump_sharky0
     Value: "Do not repeat my mistakes...\r"
   - Key: dump_sharky1
     Value: "Don't eat yellow snow...\r"
   - Key: door_key0
-    Value: "You need a key...\r"
-  - Key: door_key1
-    Value: "Try to search upper floor.\r"
-  - Key: This is Double jump.
-    Value: "This is Double jump.\r"
-  - Key: This is Super Throw.
-    Value: "This is Super Throw.\r"
-  - Key: This is Force Shield. Press F to use.
-    Value: "This is Force Shield. Press F to use.\r"
-  - Key: Upgrade
+    Value: "You need 3 keys.\r"
+  - Key: perks
+    Value: "\r"
+  - Key: upgrade
     Value: "Upgrade\r"
-  - Key: Health
+  - Key: health
     Value: "Health\r"
-  - Key: Speed
+  - Key: speed
     Value: "Speed\r"
-  - Key: Range Damage
-    Value: Range Damage
+  - Key: damage
+    Value: "Damage\r"
+  - Key: crit_damage
+    Value: "Crit Damage\r"
+  - Key: info_double_jump
+    Value: "This is Double jump.\r"
+  - Key: info_super_throw
+    Value: "This is Super Throw. Select sword and hold SHIFT.\r"
+  - Key: info_force_shield
+    Value: "This is Force Shield. Press X to use. Grants temporary immunity to damage.\r"
+  - Key: info_sword_shield
+    Value: "This is Sword Shield. Press C to use. Gives 6 swords that fly around
+      the hero and deal damage.\r"
+  - Key: info_get_swords
+    Value: "Add 10 sword in inventory.\r"
+  - Key: info_get_potion_health
+    Value: "Heal 2 HP\r"
+  - Key: info_get_big_potion_health
+    Value: "Heal 10 HP\r"
+  - Key: helpers
+    Value: "\r"
+  - Key: lvl1
+    Value: "\r"
+  - Key: lvl1_helper0_0
+    Value: "Hello! I Crabby helper. I will give you useless hints.\r"
+  - Key: lvl1_helper0_1
+    Value: "There is a control button in the lower right corner\r"
+  - Key: lvl1_helper0_2
+    Value: "Press SPACE for jump.\r"
+  - Key: lvl1_helper1_0
+    Value: "I can repeat hint if you'll press E.\r"
+  - Key: lvl1_helper2_0
+    Value: "You can go down from the palm tree by pressing S + Space.\r"
+  - Key: lvl1_helper2_1
+    Value: "And on E you can interact with some things\r"
+  - Key: lvl1_helper2_2
+    Value: "E.g. steering wheel\r"
+  - Key: lvl1_helper3_0
+    Value: "This guy sells interesting stuff\r"
+  - Key: lvl1_helper3_1
+    Value: "You can buy double jump.\r"
+  - Key: lvl1_helper4_0
+    Value: "I wonder how to go further?\r"
+  - Key: lvl2
+    Value: "\r"
+  - Key: lvl2_helper0_0
+    Value: "OMG!!! ITS SWORD!!!!!\r"
+  - Key: lvl2_helper0_1
+    Value: "DONT KILL ME!! I'LL GIVE YOU EVERITHING\r"
+  - Key: lvl2_helper1_0
+    Value: "For money you can upgrade your hero.\r"
+  - Key: lvl2_helper1_1
+    Value: "Just click on button near HP bar.\r"
+  - Key: lvl2_helper2_0
+    Value: "Items that can be used you can place in the inventory on top.\r"
+  - Key: lvl2_helper2_1
+    Value: "Just drag them from the big inventory there.\r"
+  - Key: lvl2_helper2_2
+    Value: "On Q, you can switch between them. On SHIFT use selected.\r"
+  - Key: lvl2_helper3_0
+    Value: "If you have more than one sword, then you can throw the extra ones on
+      the SHIFT.\r"
+  - Key: lvl2_helper4_0
+    Value: "There's a bad guy down there.\r"
+  - Key: lvl2_helper4_1
+    Value: "I wouldn't go there.\r"
+  - Key: lvl2_helper5_0
+    Value: "I don't know what it is, but it can heal you.\r"
+  - Key: lvl2_helper5_1
+    Value: "Just stay next to him.\r"
+  - Key: lvl2_helper6_0
+    Value: "OMG!!! WE ARE SUPER RICH!!!!\r"
+  - Key: lvl2_helper7_0
+    Value: "I would prepare myself before going downstairs.\r"
+  - Key: lvl2_helper8_0
+    Value: "Fuh, I thought you didn't make it ...\r"
+  - Key: lvl3
+    Value: "\r"
+  - Key: lvl3_helper0_0
+    Value: "It's somehow dark in here.\r"
+  - Key: lvl3_helper0_1
+    Value: "On F you can turn on the flashlight.\r"
+  - Key: lvl3_helper0_2
+    Value: "You can refill your flashlight with a candle. Press E near the candle.\r"
+  - Key: lvl4
+    Value: "\r"
+  - Key: lvl4_helper0_0
+    Value: "There's a really bad guy standing there.\r"
+  - Key: lvl4_helper0_1
+    Value: "I would not touch him or his son.\r"
+  - Key: lvl5
+    Value: "\r"
+  - Key: lvl5_helper0_0
+    Value: "It seems you managed to piss off that guy's son.\r"
+  - Key: lvl5_helper0_1
+    Value: "I do not envy you.\r"
+  - Key: lvl5_helper1_0
+    Value: "You completed the game ...\r"
+  - Key: lvl5_helper1_1
+    Value: "But at what cost ...\r"
+  - Key: boss1
+    Value: "\r"
+  - Key: lvl4_boss0_0
+    Value: "I will kill you!\r"
+  - Key: lvl4_boss0_1
+    Value: "NO! I will kill you!\r"
+  - Key: lvl4_boss1_0
+    Value: "NOOOOOO!!!!!!!!!!!\r"
+  - Key: lvl4_boss1_1
+    Value: "I told ya!\r"
+  - Key: boss2
+    Value: "\r"
+  - Key: lvl5_boss0_0
+    Value: "I will avenge my father !!!\r"
+  - Key: lvl5_boss0_1
+    Value: "I will kill you !!!\r"
+  - Key: lvl5_boss0_2
+    Value: "Your father also said ...\r"
+  - Key: lvl5_boss1_0
+    Value: "NOOOOOO!!!!!!!!!!!\r"
+  - Key: lvl5_boss1_1
+    Value: "How did you do that? ...\r"
+  - Key: lvl5_boss1_2
+    Value: "I hate starfish ...\r"
+  - Key: settings
+    Value: "\r"
+  - Key: options
+    Value: "Options\r"
+  - Key: ok
+    Value: "ok\r"
+  - Key: music
+    Value: "Music:\r"
+  - Key: sfx
+    Value: 'SFX:'

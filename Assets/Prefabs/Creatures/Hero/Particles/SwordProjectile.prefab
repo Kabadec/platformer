@@ -46,8 +46,9 @@ MonoBehaviour:
   _target: {fileID: 944175277612362578}
   _prefab: {fileID: 8462409005816164618, guid: 529e58728ac4066499122251f69a459e, type: 3}
   _usePool: 1
-  _isSaveParent: 0
+  _setTargetScale: 1
   _invertXScale: 0
+  _isSaveParent: 0
 --- !u!1 &8462409005816164618
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,10 +228,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bac5b8847335d2644b122bdc47330910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tag: Enemy
+  _tag: 
   _layer:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 806912
   _action:
     m_PersistentCalls:
       m_Calls:
