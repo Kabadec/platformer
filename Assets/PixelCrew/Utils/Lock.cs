@@ -1,5 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEngine;
+using Object = System.Object;
 
 namespace PixelCrew.Utils
 {
@@ -14,7 +15,9 @@ namespace PixelCrew.Utils
 
         public void Release(object item)
         {
-            _retained.Remove(item);
+            var isRemoved = _retained.Remove(item);
+            if(!isRemoved)
+                Debug.LogError($"Object {item} cannot removed!");
         }
 
         public bool IsLocked => _retained.Count > 0;

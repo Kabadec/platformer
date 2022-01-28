@@ -2,7 +2,7 @@
 
 namespace PixelCrew.Utils
 {
-    public class GizmosUtils
+    public static class GizmosUtils
     {
         public static void DrawBounds(Bounds bounds, Color color)
         {

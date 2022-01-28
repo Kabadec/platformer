@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace PixelCrew.UI.Widgets.Editor
+namespace PixelCrew.UI.Widgets
 {
     public class ProgressBarWidget : MonoBehaviour
     {

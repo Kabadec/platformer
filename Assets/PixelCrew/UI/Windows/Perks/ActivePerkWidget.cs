@@ -1,6 +1,6 @@
 ﻿using PixelCrew.Model;
 using PixelCrew.Model.Definitions;
-using PixelCrew.UI.Widgets.Editor;
+using PixelCrew.UI.Widgets;
 using PixelCrew.Utils.Disposables;
 using UnityEngine;
 using UnityEngine.UI;

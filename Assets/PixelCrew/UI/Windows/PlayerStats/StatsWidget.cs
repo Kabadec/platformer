@@ -5,7 +5,6 @@ using PixelCrew.Model.Definitions;
 using PixelCrew.Model.Definitions.Localization;
 using PixelCrew.Model.Definitions.Player;
 using PixelCrew.UI.Widgets;
-using PixelCrew.UI.Widgets.Editor;
 using UnityEngine;
 using UnityEngine.UI;
 

@@ -1,10 +1,10 @@
 ﻿using PixelCrew.Creatures.HeroAll;
 using UnityEngine;
-using PixelCrew.UI.Widgets.Editor;
 using PixelCrew.Model;
 using PixelCrew.Model.Definitions;
 using PixelCrew.Model.Definitions.Localization;
 using PixelCrew.Model.Definitions.Player;
+using PixelCrew.UI.Widgets;
 using PixelCrew.Utils;
 
 namespace PixelCrew.UI.Hud

@@ -5,8 +5,8 @@ namespace PixelCrew.Model.Data.Properties
 {
     public abstract class PersistentProperty<TPropertyType> : ObservableProperty<TPropertyType>
     {
-        protected TPropertyType _stored;
-        private TPropertyType _defaultValue;
+        private TPropertyType _stored;
+        private readonly TPropertyType _defaultValue;
         
         protected PersistentProperty(TPropertyType defaultValue)
         {
